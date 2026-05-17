@@ -7,7 +7,7 @@
 DEVICE_PATH := device/xiaomi/creek
 KERNEL_PATH := $(DEVICE_PATH)-kernel
 
-# Broken Rules (Required for blob compatibility) 
+# Broken Rules (Required for blob compatibility)
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
@@ -74,7 +74,7 @@ BOARD_PREBUILT_DTBIMAGE_FILE := $(KERNEL_PATH)/dtbs/dtb.img
 
 PRODUCT_COPY_FILES += \
     $(BOARD_PREBUILT_DTBIMAGE_FILE):dtb.img
-  
+
 # Basic kernel cmdline
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
@@ -106,7 +106,7 @@ BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
-BOARD_RECOVERY_HEADER_VERSION
+BOARD_RECOVERY_HEADER_VERSION := 4
 BOARD_RECOVERY_MKBOOTIMG_ARGS := --header_version $(BOARD_RECOVERY_HEADER_VERSION)
 
 # Offsets
@@ -158,7 +158,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_dlkm system_ext vendor vendor_dlkm
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 # Partition Sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x06000000
@@ -173,10 +173,10 @@ TARGET_GLOBAL_LTO := thin
 TARGET_GLOBAL_OPTIMIZATION := O3
 TARGET_GLOBAL_THINLTO := true
 
-#Enable PD locater/notifier
+# Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED := true
 
-#Enable peripheral manager
+# Enable peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
 # Security
@@ -247,7 +247,7 @@ DEVICE_FRAMEWORK_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/framework_manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/configs/vintf/framework_compatibility_matrix.xml \
-    hardware/lineage/interfaces/compatibility_matrices/compatibility_matrix.lineage.xml    
+    hardware/lineage/interfaces/compatibility_matrices/compatibility_matrix.lineage.xml
 DEVICE_MATRIX_FILE += \
     $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml \
     hardware/qcom-caf/common/compatibility_matrix.xml
