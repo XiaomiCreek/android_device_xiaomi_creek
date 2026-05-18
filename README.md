@@ -1,6 +1,3 @@
-## Device tree for testing minimal boot.
-
-
 Device configuration for Redmi 15 4G / POCO M7 4G
 =========================================
 
