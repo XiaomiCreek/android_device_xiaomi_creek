@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Inherit from the proprietary version
+include vendor/xiaomi/sapphire/BoardConfigVendor.mk
+
 DEVICE_PATH := device/xiaomi/creek
 KERNEL_PATH := $(DEVICE_PATH)-kernel
 
@@ -68,9 +71,13 @@ BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/kernel
 TARGET_FORCE_PREBUILT_KERNEL := true
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_creek)
+
 # DTB & DTBO (FOR BRING-UP ONLY)
+BOARD_USES_DT := true
 BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbs/dtbo.img
-BOARD_PREBUILT_DTBIMAGE_FILE := $(KERNEL_PATH)/dtbs/dtb.img
+BOARD_PREBUILT_DTBIMAGE := $(KERNEL_PATH)/dtbs/dtb.img
 
 PRODUCT_COPY_FILES += \
     $(BOARD_PREBUILT_DTBIMAGE_FILE):dtb.img
@@ -130,7 +137,7 @@ BOARD_VIRTUAL_AB_COW_VERSION := 3
 
 # AB OTA partitions list
 AB_OTA_PARTITIONS += \
-    boot dtbo init_boot odm product system system_dlkm system_ext vbmeta vbmeta_system vendor vendor_boot vendor_dlkm
+    boot dtbo init_boot odm product recovery system system_dlkm system_ext vbmeta vbmeta_system vendor vendor_boot vendor_dlkm
 
 # Filesystem Types
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
@@ -264,7 +271,22 @@ SELINUX_IGNORE_NEVERALLOWS := true
 
 # Display
 TARGET_SCREEN_DENSITY := 420
+TARGET_HAS_WIDE_COLOR_DISPLAY := true
+TARGET_HAS_HDR_DISPLAY := false
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
+
+# Audio
+AUDIO_FEATURE_ENABLED_DLKM := true
+AUDIO_FEATURE_ENABLED_DTS_EAGLE := false
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := false
+AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
+AUDIO_FEATURE_ENABLED_HW_ACCELERATED_EFFECTS := true
+AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
+AUDIO_FEATURE_ENABLED_AGM_HIDL := true
+AUDIO_FEATURE_ENABLED_PAL_HIDL := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+TARGET_USES_QCOM_MM_AUDIO := true
+TARGET_PROVIDES_AUDIO_HAL := true
 
 # Add removable storage support
 BOARD_HAS_REMOVABLE_STORAGE := true
