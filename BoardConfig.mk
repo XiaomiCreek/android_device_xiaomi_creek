@@ -5,7 +5,7 @@
 #
 
 # Inherit from the proprietary version
-include vendor/xiaomi/sapphire/BoardConfigVendor.mk
+include vendor/xiaomi/creek/BoardConfigVendor.mk
 
 DEVICE_PATH := device/xiaomi/creek
 KERNEL_PATH := $(DEVICE_PATH)-kernel
