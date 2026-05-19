@@ -244,11 +244,11 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Properties
-TARGET_ODM_PROP = $(DEVICE_PATH)/configs/properties/odm.prop
-TARGET_PRODUCT_PROP = $(DEVICE_PATH)/configs/properties/product.prop
+TARGET_ODM_PROP := $(DEVICE_PATH)/configs/properties/odm.prop
+TARGET_PRODUCT_PROP := $(DEVICE_PATH)/configs/properties/product.prop
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/configs/properties/system.prop
-TARGET_SYSTEM_EXT_PROP = $(DEVICE_PATH)/configs/properties/system_ext.prop
-TARGET_VENDOR_PROP = $(DEVICE_PATH)/configs/properties/vendor.prop
+TARGET_SYSTEM_EXT_PROP := $(DEVICE_PATH)/configs/properties/system_ext.prop
+TARGET_VENDOR_PROP := $(DEVICE_PATH)/configs/properties/vendor.prop
 
 # VINTF Manifests & Compatibility
 DEVICE_MANIFEST_FILE += \
