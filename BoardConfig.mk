@@ -86,6 +86,9 @@ BOARD_PREBUILT_DTBIMAGE := $(KERNEL_PATH)/dtbs/dtb.img
 #     $(BOARD_PREBUILT_DTBOIMAGE):dtbo.img \
 #     $(TARGET_PREBUILT_KERNEL):kernel
 
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):$(PRODUCT_OUT)/kernel
+
 # Basic kernel cmdline
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
