@@ -68,11 +68,10 @@ BOARD_COPY_BOOT_IMAGE_TO_INIT_BOOT := true
 
 # Kernel (TEMP PREBUILT FOR BRING-UP ONLY)
 BOARD_KERNEL_IMAGE_NAME := Image
+TARGET_NO_KERNEL_OVERRIDE := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_GENERATED_KERNEL_HEADERS := false
-TARGET_NO_KERNEL_OVERRIDE := true
 TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/kernel
-TARGET_SPECIFIC_HEADER_PATH := $(KERNEL_PATH)/kernel-headers
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_creek)
@@ -95,7 +94,7 @@ BOARD_KERNEL_CMDLINE := \
     rcu_expedited=1 \
     kasan=off \
     mtdoops.fingerprint=creek:13/OS3.0.10.0.WBOMIXM:user
-#    qcom_geni_serial.con_enabled=0 # uncomment when device boots successfully.
+#   qcom_geni_serial.con_enabled=0 # uncomment when device boots successfully.
 
 
 BOARD_BOOTCONFIG := \
