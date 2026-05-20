@@ -419,28 +419,28 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_n7n/android.hardware.se.omapi.uicc.xml \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_n7n_ss/android.hardware.se.omapi.uicc.xml
 
-#Overlays
-#PRODUCT_ENFORCE_RRO_TARGETS := *
+# Overlays
+PRODUCT_ENFORCE_RRO_TARGETS := *
 
-# PRODUCT_PACKAGES += \
-#    ApertureResSapphire \
-#    CarrierConfigResCommon \
-#    FrameworksResCommon \
-#    FrameworksResTarget \
-#    SystemUIResCommon \
-#    TelecommResCommon \
-#    TelephonyResCommon \
-#    WifiResCommon \
-#    WifiResTarget \
-#    FrameworksResSapphire \
-#    SettingsProviderResSapphire \
-#    SettingsResSapphire \
-#    SystemUIResSapphire \
-#    WifiResSapphire
+PRODUCT_PACKAGES += \
+    ApertureResSapphire \
+    CarrierConfigResCommon \
+    FrameworksResCommon \
+    FrameworksResTarget \
+    SystemUIResCommon \
+    TelecommResCommon \
+    TelephonyResCommon \
+    WifiResCommon \
+    WifiResTarget \
+    FrameworksResSapphire \
+    SettingsProviderResSapphire \
+    SettingsResSapphire \
+    SystemUIResSapphire \
+    WifiResSapphire
 
-#Overlays Lineage
-#DEVICE_PACKAGE_OVERLAYS += \
-#    $(LOCAL_PATH)/overlay-lineage
+# Overlays Lineage
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
 
 # Device-specific settings
 #PRODUCT_PACKAGES += \
