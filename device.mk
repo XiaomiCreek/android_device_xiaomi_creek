@@ -72,9 +72,10 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudiopreprocessing \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
+# Enable when use source kernel
+#     libqcompostprocbundle \
+#     libqcomvisualizer \
+#     libqcomvoiceprocessing \
     libtinycompress \
     libvolumelistener \
     libbatterylistener
