@@ -72,13 +72,13 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudiopreprocessing \
+    libtinycompress \
+    libvolumelistener \
+    libbatterylistener #\
 # Enable when use source kernel
 #     libqcompostprocbundle \
 #     libqcomvisualizer \
 #     libqcomvoiceprocessing \
-    libtinycompress \
-    libvolumelistener \
-    libbatterylistener
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm6225/audio/primary-hal
 
