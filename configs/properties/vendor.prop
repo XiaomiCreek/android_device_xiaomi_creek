@@ -247,7 +247,7 @@ persist.vendor.fingerprint.sensor_location=540|2109|105
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # FS-verity
-ro.apk_verity.mode=2
+ro.vendor.apk_verity.mode=2
 
 # Gatekeeper
 vendor.gatekeeper.is_security_level_spu=0
@@ -268,8 +268,8 @@ ro.logd.size=256K
 # Media
 vendor.media.omx=0
 vendor.mm.enable.qcom_parser=16777215
-persist.mm.enable.prefetch=true
-ro.mediaserver.64b.enable=true
+persist.vendor.mm.enable.prefetch=true
+ro.vendor.mediaserver.64b.enable=true
 
 # Netflix
 vendor.netflix.bsp_rev=Q6115-31409-1
