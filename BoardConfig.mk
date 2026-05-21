@@ -73,7 +73,6 @@ TARGET_KERNEL_HEADER_ARCH           := arm64
 TARGET_NO_KERNEL                    := false
 INLINE_KERNEL_BUILDING              := false
 TARGET_FORCE_PREBUILT_KERNEL        := true
-TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)
 
 # Prebuilt Binary Mapping
 BOARD_KERNEL_IMAGE_NAME             := Image
