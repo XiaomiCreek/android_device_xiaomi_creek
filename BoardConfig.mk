@@ -84,8 +84,6 @@ TARGET_BOARD_KERNEL_HEADERS         := $(KERNEL_PATH)/kernel-headers
 
 # Device Tree Blobs (DTB/DTBO) Formatting
 BOARD_KERNEL_SEPARATED_DTBO         := true
-# BOARD_INCLUDE_DTB_IN_BOOTIMG        := false
-# BOARD_INCLUDE_DTB_IN_VENDOR_BOOT    := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG        := true
 
 # DTB & DTBO
