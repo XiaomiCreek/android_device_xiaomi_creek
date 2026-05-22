@@ -18,7 +18,7 @@ $(call inherit-product, device/xiaomi/creek/device.mk)
 -include vendor/lineage-priv/keys/keys.mk
 
 # Gapps
-#-include vendor/gapps/arm64/arm64-vendor.mk
+-include vendor/gapps/arm64/arm64-vendor.mk
 
 # Basic identifiers
 PRODUCT_NAME := lineage_creek
