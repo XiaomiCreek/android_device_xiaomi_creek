@@ -15,7 +15,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
 # Include our private certificate
-#-include vendor/lineage-priv/keys/keys.mk
+-include vendor/lineage-priv/keys/keys.mk
 
 # Gapps
 #-include vendor/gapps/arm64/arm64-vendor.mk
