@@ -14,7 +14,6 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from creek device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
-
 # Include our private certificate
 #-include vendor/lineage-priv/keys/keys.mk
 
@@ -36,6 +35,10 @@ TARGET_BOOT_ANIMATION_RES = 1080
 #WITH_GMS := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Custom System OTA Update URI
+PRODUCT_SYSTEM_PROPERTIES += \
+    lineage.updater.uri=$(LINEAGE_UPDATER_URI)
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="creek_p_global-user 16 BP2A.250605.031.A3 OS3.0.10.0.WBOMIXM release-keys" \
