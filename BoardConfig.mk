@@ -93,10 +93,6 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG        := true
 BOARD_USES_DT                       := true
 BOARD_PREBUILT_DTBIMAGE_DIR         := $(KERNEL_PATH)/dtbs
 BOARD_PREBUILT_DTBOIMAGE            := $(KERNEL_PATH)/dtbs/dtbo.img
-# BOARD_PREBUILT_DTBIMAGE             := $(KERNEL_PATH)/dtbs/dtb.img
-
-# PRODUCT_COPY_FILES += \
-#     $(BOARD_PREBUILT_DTBIMAGE):dtb.img
 
 # Basic kernel cmdline
 BOARD_KERNEL_CMDLINE := \
