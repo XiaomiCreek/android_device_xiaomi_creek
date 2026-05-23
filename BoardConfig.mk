@@ -11,7 +11,6 @@ include vendor/xiaomi/creek/BoardConfigVendor.mk
 DEVICE_PATH := device/xiaomi/creek
 KERNEL_PATH := $(DEVICE_PATH)-kernel
 
-
 # ==============================================
 # Bring-up & Compiler Broken Rules Overrides
 # ==============================================
@@ -69,28 +68,21 @@ TARGET_KERNEL_ARCH                  := arm64
 TARGET_KERNEL_VERSION               := 5.15
 TARGET_KERNEL_HEADER_ARCH           := arm64
 
-# Prebuilt Directives Setup
-TARGET_NO_KERNEL                    := false
-INLINE_KERNEL_BUILDING              := false
+# Emulated Inline Prebuilt Structure
 TARGET_FORCE_PREBUILT_KERNEL        := true
+TARGET_NO_KERNEL_OVERRIDE           := true
+INLINE_KERNEL_BUILDING              := true
+TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
 
 # Prebuilt Binary Mapping
 BOARD_KERNEL_IMAGE_NAME             := Image
 TARGET_PREBUILT_KERNEL              := $(KERNEL_PATH)/kernel
-BOARD_PREBUILT_KERNEL               := $(TARGET_PREBUILT_KERNEL)
+PRODUCT_COPY_FILES                  += $(TARGET_PREBUILT_KERNEL):kernel
 
-# Kernel Headers Config
-TARGET_HAS_LEGACY_KERNEL_HEADERS    := true
-TARGET_NO_KERNEL_HEADERS            := true
-TARGET_GENERATED_KERNEL_HEADERS     := false
-TARGET_BOARD_KERNEL_HEADERS         := $(KERNEL_PATH)/kernel-headers
-
-# Device Tree Blobs (DTB/DTBO) Formatting
-BOARD_KERNEL_SEPARATED_DTBO         := true
-BOARD_INCLUDE_DTB_IN_BOOTIMG        := true
-
-# DTB & DTBO
+# DTB & DTBO Staging
 BOARD_USES_DT                       := true
+BOARD_INCLUDE_DTB_IN_BOOTIMG        := true
+BOARD_KERNEL_SEPARATED_DTBO         := true
 BOARD_PREBUILT_DTBIMAGE_DIR         := $(KERNEL_PATH)/dtbs
 BOARD_PREBUILT_DTBOIMAGE            := $(KERNEL_PATH)/dtbs/dtbo.img
 
@@ -123,8 +115,6 @@ BOARD_SYSTEM_KERNEL_MODULES         := $(wildcard $(KERNEL_PATH)/modules/system_
 # Boot Image Headers & Memory Offsets
 # ==============================================
 
-BOARD_KERNEL_PAGESIZE              := 4096
-
 # Boot Header (GKI 2.0 Standards)
 BOARD_USES_GENERIC_KERNEL_IMAGE    := true
 BOARD_COPY_BOOT_IMAGE_TO_INIT_BOOT := true
@@ -145,6 +135,7 @@ BOARD_VENDOR_BASE                  := 0x00000000
 BOARD_TAGS_OFFSET                  := 0x00000100
 BOARD_KERNEL_OFFSET                := 0x00008000
 BOARD_RAMDISK_OFFSET               := 0x01000000
+BOARD_KERNEL_PAGESIZE              := 4096
 
 
 # ==============================================
