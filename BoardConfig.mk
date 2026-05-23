@@ -80,6 +80,8 @@ TARGET_PREBUILT_KERNEL              := $(KERNEL_PATH)/kernel
 BOARD_PREBUILT_KERNEL               := $(TARGET_PREBUILT_KERNEL)
 
 # Kernel Headers Config
+TARGET_HAS_LEGACY_KERNEL_HEADERS    := true
+TARGET_NO_KERNEL_HEADERS            := true
 TARGET_GENERATED_KERNEL_HEADERS     := false
 TARGET_BOARD_KERNEL_HEADERS         := $(KERNEL_PATH)/kernel-headers
 
