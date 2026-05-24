@@ -300,10 +300,6 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS                   += $(DEVICE_PATH)/sepolicy/pub
 # Ignore neverallow violations for initial bring-up on creek
 SELINUX_IGNORE_NEVERALLOWS                        := true
 
-# Bypass the strict Google Treble SELinux compliance test rules
-PRODUCT_SEPOLICY_SPLIT_SKIP_VERIFY                := true
-PRODUCT_SEPOLICY_SPLIT                            := true
-
 
 # ==============================================
 # System Parameters, Build Contexts, Overrides
