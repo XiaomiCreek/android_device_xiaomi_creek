@@ -18,4 +18,4 @@ type proc_walt, fs_type, proc_type;
 type device_latency, dev_type;
 
 type proc_net_local_unbindable_ports, fs_type, proc_type;
-type vendor_sysfs_soc_sensitive, fs_type, sysfs_type;
+# type vendor_sysfs_soc_sensitive, fs_type, sysfs_type;
