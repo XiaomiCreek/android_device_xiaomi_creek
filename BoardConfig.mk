@@ -293,10 +293,10 @@ BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS            += --hash_algorithm sha256
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include device/xiaomi/sepolicy/SEPolicy.mk
 
-BOARD_SEPOLICY_DIRS                               += $(DEVICE_PATH)/sepolicy
-BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS                   += $(DEVICE_PATH)/sepolicy/public
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
+# BOARD_SEPOLICY_DIRS                               += $(DEVICE_PATH)/sepolicy
+# BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
+# SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS                   += $(DEVICE_PATH)/sepolicy/public
+# SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
 
 # Force inclusion of compatibility files during modern Soong compilation
 
