@@ -290,12 +290,15 @@ BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS            += --hash_algorithm sha256
 # ==============================================
 
 # Inherit Qualcomm and Xiaomi common policies
-include device/qcom/sepolicy_vndr/sm6225/SEPolicy.mk
+include device/qcom/sepolicy_vndr/SEPolicy.mk
 include device/xiaomi/sepolicy/SEPolicy.mk
 
+BOARD_SEPOLICY_DIRS                               += $(DEVICE_PATH)/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS                   += $(DEVICE_PATH)/sepolicy/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
+
+# Force inclusion of compatibility files during modern Soong compilation
 
 # Ignore neverallow violations for initial bring-up on creek
 SELINUX_IGNORE_NEVERALLOWS                        := true
@@ -385,6 +388,3 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE               := true
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB               := $(BOARD_HOSTAPD_PRIVATE_LIB)
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB_EVENT         := "ON"
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY  := true
-
-# Temporary: bypass VTS property namespace check for bring-up
-BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE         := true
