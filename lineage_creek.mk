@@ -21,18 +21,18 @@ $(call inherit-product, device/xiaomi/creek/device.mk)
 -include vendor/gapps/arm64/arm64-vendor.mk
 
 # Basic identifiers
-PRODUCT_NAME := lineage_creek
-PRODUCT_DEVICE := creek
-PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_BRAND := POCO
-PRODUCT_MODEL := POCO M7 4G
+PRODUCT_NAME              := lineage_creek
+PRODUCT_DEVICE            := creek
+PRODUCT_MANUFACTURER      := Xiaomi
+PRODUCT_BRAND             := POCO
+PRODUCT_MODEL             := POCO M7 4G
 
 # AudioFX
-TARGET_EXCLUDES_AUDIOFX := true
+TARGET_EXCLUDES_AUDIOFX   := true
 
 # Device configs
 TARGET_BOOT_ANIMATION_RES = 1080
-#WITH_GMS := true
+#WITH_GMS                 := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
