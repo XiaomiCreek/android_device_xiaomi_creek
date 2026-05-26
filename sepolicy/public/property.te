@@ -1,1 +1,1 @@
-type vendor_camera_res_prop, property_type;
+typeattribute vendor_camera_res_prop property_type;
