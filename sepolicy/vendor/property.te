@@ -12,6 +12,3 @@ vendor_public_prop(vendor_fp_prop)
 
 # WiFi
 vendor_public_prop(vendor_wifimac_prop)
-
-# Camera
-vendor_restricted_prop(vendor_camera_res_prop)
