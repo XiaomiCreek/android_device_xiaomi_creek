@@ -92,5 +92,4 @@ genfscon sysfs /devices/virtual/power_supply/.*/wakeup[0-9]* u:object_r:sysfs_wa
 # Walt scheduler tunables
 genfscon proc /sys/walt/sched_per_task_boost u:object_r:proc_walt:s0
 
-genfscon proc /sys/net/ipv4/ip_local_unbindable_ports u:object_r:proc_net_local_unbindable_ports:s0
-
+# genfscon proc /sys/net/ipv4/ip_local_unbindable_ports u:object_r:proc_net_local_unbindable_ports:s0
