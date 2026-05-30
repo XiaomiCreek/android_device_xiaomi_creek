@@ -1,3 +1,0 @@
-vendor.qti.ims.factoryaidlservice.IImsFactory/default  u:object_r:vendor_hal_factory_aidlservice:s0
-# DPM AIDL Service
-vendor.qti.hardware.dpmaidlservice.IDpmService/default               u:object_r:hal_dpm_aidl_service:s0
