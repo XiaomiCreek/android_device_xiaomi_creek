@@ -1,0 +1,4 @@
+sepolicy_part {
+    name: "device_sepolicy_vendor",
+    device_specific: true,
+}
