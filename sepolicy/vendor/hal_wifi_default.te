@@ -1,2 +1,0 @@
-# Allow WiFi to load kernel modules
-allow hal_wifi_default self:capability sys_module;

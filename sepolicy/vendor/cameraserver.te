@@ -1,2 +1,0 @@
-type cameraserver_vendor_prop, file_type;
-allow cameraserver cameraserver_vendor_prop:file read;

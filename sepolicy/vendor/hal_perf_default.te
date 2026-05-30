@@ -1,2 +1,0 @@
-allow vendor_hal_perf_default vendor_sysfs_displayfeature:dir search;
-allow vendor_hal_perf_default vendor_sysfs_displayfeature:file read;

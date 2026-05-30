@@ -1,1 +1,0 @@
-allow vendor_netmgrd proc_net_local_unbindable_ports:file rw_file_perms;
