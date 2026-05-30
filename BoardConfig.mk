@@ -291,7 +291,7 @@ BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS            += --hash_algorithm sha256
 
 # Inherit Qualcomm and Xiaomi common policies
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-include device/xiaomi/sepolicy/SEPolicy.mk
+# include device/xiaomi/sepolicy/SEPolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
 # SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS                   += $(DEVICE_PATH)/sepolicy/public
