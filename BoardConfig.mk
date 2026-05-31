@@ -113,7 +113,7 @@ BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/modules/ve
 
 # Modules for the rest of the Hardware (System DLKM)
 BOARD_SYSTEM_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/modules/system_dlkm/modules.load))
-BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/modules/vendor_dlkm/system_dlkm.modules.blocklist
+BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/modules/system_dlkm.modules.blocklist
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(KERNEL_PATH)/modules/system_dlkm/,$(TARGET_COPY_OUT_SYSTEM_DLKM)/lib/modules/5.15.178) \
