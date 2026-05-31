@@ -104,21 +104,21 @@ BOARD_BOOTCONFIG := \
     androidboot.usbcontroller=4e00000.dwc3
 
 # Modules for First Stage (Ramdisk) - Critical for mounting /system
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD           := $(strip $(shell cat  $(KERNEL_PATH)/vendor_ramdisk/modules.load))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(KERNEL_PATH)/vendor_ramdisk/modules.blocklist
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD           := $(strip $(shell cat  $(KERNEL_PATH)/modules/vendor_ramdisk/modules.load))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(KERNEL_PATH)/modules/vendor_ramdisk/modules.blocklist
 
 # Modules for the rest of the Hardware (Vendor DLKM)
-BOARD_VENDOR_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/vendor_dlkm/modules.load))
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/vendor_dlkm/modules.blocklist
+BOARD_VENDOR_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/modules/vendor_dlkm/modules.load))
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/modules/vendor_dlkm/modules.blocklist
 
 # Modules for the rest of the Hardware (System DLKM)
-BOARD_SYSTEM_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/system_dlkm/modules.load))
-BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/vendor_dlkm/system_dlkm.modules.blocklist
+BOARD_SYSTEM_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/modules/system_dlkm/modules.load))
+BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE         :=  $(KERNEL_PATH)/modules/vendor_dlkm/system_dlkm.modules.blocklist
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(KERNEL_PATH)/system_dlkm/,$(TARGET_COPY_OUT_SYSTEM_DLKM)/lib/modules/5.15.178) \
-    $(call find-copy-subdir-files,*,$(KERNEL_PATH)/vendor_dlkm/,$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules) \
-    $(call find-copy-subdir-files,*,$(KERNEL_PATH)/vendor_ramdisk/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
+    $(call find-copy-subdir-files,*,$(KERNEL_PATH)/modules/system_dlkm/,$(TARGET_COPY_OUT_SYSTEM_DLKM)/lib/modules/5.15.178) \
+    $(call find-copy-subdir-files,*,$(KERNEL_PATH)/modules/vendor_dlkm/,$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules) \
+    $(call find-copy-subdir-files,*,$(KERNEL_PATH)/modules/vendor_ramdisk/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
 
 
 # ==============================================
