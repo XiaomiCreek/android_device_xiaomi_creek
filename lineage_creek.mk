@@ -32,7 +32,7 @@ TARGET_EXCLUDES_AUDIOFX   := true
 
 # Device configs
 TARGET_BOOT_ANIMATION_RES = 1080
-#WITH_GMS                 := true
+WITH_GMS                 := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
