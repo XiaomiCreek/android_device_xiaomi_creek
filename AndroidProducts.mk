@@ -6,8 +6,3 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_creek.mk
-
-COMMON_LUNCH_CHOICES := \
-    lineage_creek-trunk_staging-userdebug \
-    lineage_creek-trunk_staging-user \
-    lineage_creek-trunk_staging-eng
