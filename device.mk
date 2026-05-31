@@ -477,8 +477,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
-#$(call soong_config_set,qtipower,mode_ext_lib,//$(LOCAL_PATH):libpowermode-ext-creek)
-#$(call soong_config_set,qtipower,tap_to_wake_node,/proc/tp_gesture)
+$(call soong_config_set,qtipower,mode_ext_lib,//$(LOCAL_PATH):libpowermode-ext-creek)
+$(call soong_config_set,qtipower,tap_to_wake_node,/proc/tp_gesture)
 
 # QCC
 PRODUCT_PACKAGES += \
