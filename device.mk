@@ -451,10 +451,7 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 
-# Device-specific settings
-#PRODUCT_PACKAGES += \
-#    XiaomiVoIPFix
-
+# Partition
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
     vendor_dsp_mountpoint \
