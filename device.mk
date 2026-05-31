@@ -67,26 +67,17 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl
 
-# Disabling due to build errors, will re-enable once fixed
-# PRODUCT_PACKAGES += \
-#     audio.primary.default \
-#     audio.r_submix.default \
-#     audio.usb.default \
-#     libaudiopreprocessing \
-#     libqcompostprocbundle \
-#     libqcomvisualizer \
-#     libqcomvoiceprocessing \
-#     libtinycompress \
-#     libvolumelistener \
-#     libbatterylistener \
-
 PRODUCT_PACKAGES += \
     audio.primary.default \
     audio.r_submix.default \
     audio.usb.default \
     libaudiopreprocessing \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
     libtinycompress \
-    libbatterylistener \
+    libvolumelistener \
+    libbatterylistener
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm6225/audio/primary-hal
 
