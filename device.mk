@@ -26,7 +26,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, vendor/xiaomi/creek/creek-vendor.mk)
 
 # Camera
-$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
+#$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
 
 # Basic Android configs
 PRODUCT_AAPT_CONFIG := normal
