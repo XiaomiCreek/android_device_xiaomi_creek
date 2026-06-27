@@ -481,6 +481,7 @@
     <KEY name="SP_SPK_Mode" id="0x800000" description="SP_SPK_Mode">
       <VALUE val="0x0" name="Bypass_Mode"/>
       <VALUE val="0x1" name="Music_Mode_Misound"/>
+      <VALUE val="0x2" name="Music_Mode_Dolby"/>
       <VALUE val="0x3" name="Voice_Mode"/>
       <VALUE val="0x4" name="Voip_Mode"/>
     </KEY>
@@ -722,6 +723,7 @@
     <TAG id="0xc000003a" name="device_pop_suppressor"/>
     <TAG id="0xc000100b" name="misound_hph_filteridx"/>
     <TAG id="0xc000100d" name="misound_hph_eq_bandgains"/>
+    <TAG id="0xc00000db" name="dolby_dap"/>
     <TAG id="0xc0001014" name="misound_hph_earcomp_bandgains_l"/>
     <TAG id="0xc0001015" name="misound_hph_earcomp_bandgains_r"/>
     <TAG id="0xc0001044" name="misound_karaoke_vocal_reserved1"/>
