@@ -1,3 +1,8 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
 cc_library_static {
     name: "init_creek",
     recovery_available: true,
@@ -5,6 +10,6 @@ cc_library_static {
     srcs: ["init_creek.cpp"],
     include_dirs: [
         "system/core/init",
-        "system/libbase/include",
-    ],
+        "system/libbase/include"
+    ]
 }
