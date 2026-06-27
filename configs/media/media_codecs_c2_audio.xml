@@ -67,12 +67,12 @@
             <Limit name="bitrate" range="1-100000000" />
             <Limit name="concurrent-instances" max="2" />
         </MediaCodec>
-        <!--2023.2.23 longcheer wulei4 modify this for remove support wma type-->
-        <!--<MediaCodec name="c2.qti.wma.hw.decoder" type="audio/x-ms-wma" rank="0">
+        <MediaCodec name="c2.qti.wma.hw.decoder" type="audio/x-ms-wma" rank="0">
             <Limit name="channel-count" max="8" />
             <Limit name="sample-rate" ranges="8000-96000" />
             <Limit name="bitrate" range="8000-1536000" />
             <Limit name="concurrent-instances" max="2" />
+        </MediaCodec>
         </MediaCodec> -->
         <MediaCodec name="c2.qti.ape.hw.decoder" type="audio/x-ape" rank="1">
             <Limit name="channel-count" max="2" />
