@@ -73,7 +73,6 @@
             <Limit name="bitrate" range="8000-1536000" />
             <Limit name="concurrent-instances" max="2" />
         </MediaCodec>
-        </MediaCodec> -->
         <MediaCodec name="c2.qti.ape.hw.decoder" type="audio/x-ape" rank="1">
             <Limit name="channel-count" max="2" />
             <Limit name="sample-rate" ranges="8000-192000" />
