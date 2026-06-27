@@ -1,0 +1,175 @@
+# ROM source patches
+
+color="\033[0;32m"
+end="\033[0m"
+
+echo "----------------------------------------------------"
+echo -e "${color}Starting optimized hardware HAL sync...${end}"
+echo ""
+
+# Define directories and their matching repo details
+declare -A REPOS
+REPOS["packages/apps/FastCharge"]="https://github.com/project-creek/packages_apps_FastCharge.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/audio/agm"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_audio_agm.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/audio/pal"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_audio_pal.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/data-ipa-cfg-mgr"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_data-ipa-cfg-mgr.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/dataipa"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_dataipa.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/display"]="https://github.com/project-creek/hardware_qcom_display.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/media"]="https://github.com/project-creek/android_hardware_qcom-caf_sm6225_media.git sixteen"
+REPOS["hardware/qcom-caf/sm6225/audio/primary-hal"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_audio_primary-hal.git 16-qpr2"
+REPOS["device/qcom/sepolicy_vndr/sm6225"]="https://github.com/project-creek/android_device_qcom_sepolicy_vndr_sm6225.git 16-qpr2"
+REPOS["device/xiaomi/sepolicy"]="https://github.com/project-creek/device_xiaomi_sepolicy.git 16"
+REPOS["hardware/dolby"]="https://github.com/project-creek/hardware_dolby.git 16"
+REPOS["hardware/xiaomi"]="https://github.com/project-creek/hardware_xiaomi.git bka-no-dolby"
+
+FAILED_REPOS=()
+
+for DIR in "${!REPOS[@]}"; do
+    read -r REPO_URL BRANCH <<< "${REPOS[$DIR]}"
+    
+    if [ -d "$DIR/.git" ]; then
+        echo "----------------------------------------------------"
+        echo "    Updating existing repo: [ $DIR ]"
+
+        if (
+            cd "$DIR" &&
+            git fetch origin "$BRANCH" &&
+            git reset --hard FETCH_HEAD &&
+            git clean -fdx
+        ); then
+            echo "    ✓ Success"
+        else
+            echo "    ✗ Update failed. Attempting self-healing (Remove & Re-clone)..."
+            
+            # Self-healing fallback option
+            rm -rf "$DIR"
+
+            if git clone --depth=1 -b "$BRANCH" "$REPO_URL" "$DIR"; then
+                echo "    ✓ Recovery Success: Fresh shallow clone completed"
+            else
+                echo "    ✗ Critical Failure: Clone failed even after purging"
+                FAILED_REPOS+=("$DIR")
+            fi
+        fi
+
+    else
+        echo "----------------------------------------------------"
+        echo "    [ $DIR ] is missing or broken. Doing shallow clone"
+        rm -rf "$DIR"
+
+        if git clone --depth=1 -b "$BRANCH" "$REPO_URL" "$DIR"; then
+            echo "    ✓ Cloned"
+
+        else
+            echo "    ✗ Clone failed"
+            FAILED_REPOS+=("$DIR")
+        fi
+    fi
+done
+
+echo "----------------------------------------------------"
+echo -e "${color}Running post-sync configuration cleanups...${end}"
+echo ""
+
+# Define specific files to remove (Individual files use -f)
+declare -a remove=(
+    "hardware/qcom-caf/sm6225/data-ipa-cfg-mgr/Android.bp"
+    "hardware/xiaomi/FastCharge"
+    # "hardware/interfaces/compat_binder" <--- Just add more file/folders here!
+)
+
+# Process file/folder deletions
+for FILE in "${remove[@]}"; do
+    [ -e "$FILE" ] && echo "  -> Removing: $FILE"
+    rm -rf "$FILE"
+done
+
+echo "----------------------------------------------------"
+if [ ${#FAILED_REPOS[@]} -eq 0 ]; then
+    echo -e "${color}All repositories are synchronized and cleaned!${end}"
+else
+    echo "The following repositories failed:"
+    printf ' - %s\n' "${FAILED_REPOS[@]}"
+    exit 1
+fi
+echo ""
+
+echo "----------------------------------------------------"
+echo -e "${color}Applying patches for Hw/Common${end}"
+echo ""
+
+# Get the Android build top directory
+if [ -z "$ANDROID_BUILD_TOP" ]; then
+    ANDROID_BUILD_TOP="$(pwd)"
+fi
+
+# Apply bengal_515 platform support patch
+QCOM_CAF_COMMON="$ANDROID_BUILD_TOP/hardware/qcom-caf/common"
+
+if [ -d "$QCOM_CAF_COMMON" ]; then
+    echo -e "${color}Applying bengal_515 platform support...${end}"
+    
+    # Check if patches are already applied
+    if ! grep -q "_515" "$QCOM_CAF_COMMON/BoardConfigQcom.mk" 2>/dev/null; then
+        
+        # Use a temp file approach for cleaner patching
+        TEMP_FILE=$(mktemp)
+        
+        # Patch BoardConfigQcom.mk
+        cat "$QCOM_CAF_COMMON/BoardConfigQcom.mk" > "$TEMP_FILE"
+        
+        # Replace QCOM_HARDWARE_VARIANT for UM_5_15_FAMILY
+        sed -i '/else ifneq ($(filter $(UM_5_15_FAMILY)/,/^else ifneq/ {
+            /QCOM_HARDWARE_VARIANT := sm8550$/c\
+    ifeq ($(TARGET_BOARD_SUFFIX),_515)\
+        QCOM_HARDWARE_VARIANT := sm6225\
+    else\
+        QCOM_HARDWARE_VARIANT := sm8550\
+    endif
+        }' "$TEMP_FILE" 2>/dev/null
+        
+        # Replace data-ipa-cfg-mgr namespace
+        sed -i '/else ifneq ($(filter $(UM_5_15_FAMILY)/,/^else ifneq/ {
+            /PRODUCT_SOONG_NAMESPACES += hardware\/qcom-caf\/sm8550\/data-ipa-cfg-mgr$/c\
+        ifeq ($(TARGET_BOARD_SUFFIX),_515)\
+            PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/sm6225/data-ipa-cfg-mgr\
+        else\
+            PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/sm8550/data-ipa-cfg-mgr\
+        endif
+        }' "$TEMP_FILE" 2>/dev/null
+        
+        cp "$TEMP_FILE" "$QCOM_CAF_COMMON/BoardConfigQcom.mk"
+        
+        # Patch os_pickup_sepolicy_vndr.mk
+        sed -i '/else ifneq ($(filter $(UM_5_15_FAMILY)/,/^else ifneq/ {
+            /include device\/qcom\/sepolicy_vndr\/sm8550\/SEPolicy.mk$/c\
+    ifeq ($(TARGET_BOARD_SUFFIX),_515)\
+        include device/qcom/sepolicy_vndr/sm6225/SEPolicy.mk\
+    else\
+        include device/qcom/sepolicy_vndr/sm8550/SEPolicy.mk\
+    endif
+        }' "$QCOM_CAF_COMMON/os_pickup_sepolicy_vndr.mk" 2>/dev/null
+        
+        # Patch qcom_defs.mk
+        sed -i 's/UM_4_19_FAMILY := kona lito bengal/UM_4_19_FAMILY := kona lito\nifneq ($(TARGET_BOARD_SUFFIX),_515)\n    UM_4_19_FAMILY += bengal\nendif/' "$QCOM_CAF_COMMON/qcom_defs.mk" 2>/dev/null
+        
+        sed -i '/UM_5_15_FAMILY := kalama crow/a ifeq ($(TARGET_BOARD_SUFFIX),_515)\n    UM_5_15_FAMILY += bengal\nendif' "$QCOM_CAF_COMMON/qcom_defs.mk" 2>/dev/null
+        
+        rm -f "$TEMP_FILE"
+    fi
+    
+    echo -e "${color}✓ bengal_515 patches applied${end}"
+else
+    echo "Warning: $QCOM_CAF_COMMON not found. Skipping patches."
+fi
+echo ""
+
+echo "----------------------------------------------------"
+# Apply a localized patch to bypass strict host tool header errors on ICU
+ICU_BP="$ANDROID_BUILD_TOP/external/icu/libandroidicuinit/Android.bp"
+if [ -f "$ICU_BP" ]; then
+    echo -e "${color}Applying host toolchain patch for libandroidicuinit...${end}"
+    # Replace "-Werror" with "-Wno-error" to allow warnings to bypass compilation panics
+    sed -i 's/"-Werror",/"-Wno-error",/g' "$ICU_BP"
+    echo "  ✓ ICU host tool check relaxed"
+fi
