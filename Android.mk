@@ -6,7 +6,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter creek sapphire topaz xun,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),creek)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 # A/B builds require us to create the mount points at compile time.
