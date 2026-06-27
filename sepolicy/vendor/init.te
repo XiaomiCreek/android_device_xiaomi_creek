@@ -1,0 +1,7 @@
+allow init debugfs_tracing_debug:dir mounton;
+allow init proc:file { setattr };
+allow init hal_fingerprint_default:process ptrace;
+allow init sysfs:file setattr;
+allow init vold_prepare_subdirs_exec:file getattr;
+allow init vendor_sysfs_battery_supply:file { open read getattr setattr};
+allow init hal_fingerprint_default:process ptrace;

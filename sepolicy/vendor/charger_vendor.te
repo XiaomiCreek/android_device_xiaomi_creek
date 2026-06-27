@@ -1,0 +1,8 @@
+r_dir_file(charger_vendor, sysfs_batteryinfo)
+r_dir_file(charger_vendor, gpu_device)
+
+# Make charger permissive
+userdebug_or_eng(`
+  permissive charger;
+  permissive charger_vendor;
+')
