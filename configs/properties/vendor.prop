@@ -221,6 +221,7 @@ vendor.display.svi.config_path=/vendor/etc/SVIConfig.xml
 ro.vendor.display.sensortype=2
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
+debug.sf.frame_rate_multiple_threshold=120
 
 # Displayfeature
 ro.vendor.all_modes.colorpick_adjust=true
