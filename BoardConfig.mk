@@ -367,7 +367,7 @@ AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := false
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
 
 # Power
-TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
 
 # Radio Interface Layer (RIL)
 ENABLE_VENDOR_RIL_SERVICE                      := true
