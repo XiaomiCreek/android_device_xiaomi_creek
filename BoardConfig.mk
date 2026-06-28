@@ -304,7 +304,6 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/pri
 # Boot control
 $(call soong_config_set, ufsbsg, ufsframework, bsg)
 
-$(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_creek)
 $(call soong_config_set_bool, camera, override_format_from_reserved, true)
 
 # Enable PD locater/notifier
