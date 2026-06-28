@@ -334,7 +334,7 @@ persist.vendor.volte_support=1
 ro.hardware.wlan.dbs=0
 ro.hardware.wlan.mimo=0
 ro.hardware.wlan.vendor=qcom
-ro.hardware.wlan.chip=wcn3988
+ro.hardware.wlan.chip=wcn3950
 wifi.aware.interface=wifi-aware0
 
 # Zygote
