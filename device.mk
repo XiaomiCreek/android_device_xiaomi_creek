@@ -556,6 +556,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/sm6225/dataipa \
     vendor/qcom/opensource/usb/etc
 
+# Sku properties
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/sku/,$(TARGET_COPY_OUT_ODM)/etc)
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
