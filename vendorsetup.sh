@@ -163,13 +163,3 @@ else
     echo "Warning: $QCOM_CAF_COMMON not found. Skipping patches."
 fi
 echo ""
-
-echo "----------------------------------------------------"
-# Apply a localized patch to bypass strict host tool header errors on ICU
-ICU_BP="$ANDROID_BUILD_TOP/external/icu/libandroidicuinit/Android.bp"
-if [ -f "$ICU_BP" ]; then
-    echo -e "${color}Applying host toolchain patch for libandroidicuinit...${end}"
-    # Replace "-Werror" with "-Wno-error" to allow warnings to bypass compilation panics
-    sed -i 's/"-Werror",/"-Wno-error",/g' "$ICU_BP"
-    echo "  ✓ ICU host tool check relaxed"
-fi
