@@ -20,7 +20,7 @@ RELAX_USES_LIBRARY_CHECK                     := true
 SOONG_ALLOW_MISSING_DEPENDENCIES             := true
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES      := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-ALLOW_MISSING_DEPENDENCIES := true
+ALLOW_MISSING_DEPENDENCIES                   := true
 
 # Global LTO
 TARGET_GLOBAL_LTO                            := thin
