@@ -93,12 +93,13 @@ BOARD_KERNEL_CMDLINE := \
     rcu_normal=1 \
     rcu_expedited=1 \
     kasan=off
-#    qcom_geni_serial.con_enabled=0 # uncomment when device boots successfully.
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
-    androidboot.usbcontroller=4e00000.dwc3
+    androidboot.usbcontroller=4e00000.dwc3 \
+    androidboot.force_normal_boot=1 \
+    androidboot.debuggable=1
 
 # Modules for First Stage (Ramdisk) - Critical for mounting /system
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD           := $(strip $(shell cat  $(KERNEL_PATH)/vendor_ramdisk/modules.load))
