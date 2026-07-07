@@ -270,7 +270,7 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION        := 1
 BOARD_AVB_VENDOR_BOOT_ALGORITHM                   := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_KEY_PATH                    := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX              := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION     := 1 #5
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION     := 5
 
 # VBMETA System Configuration
 #BOARD_AVB_VBMETA_SYSTEM                           := product system system_dlkm system_ext
