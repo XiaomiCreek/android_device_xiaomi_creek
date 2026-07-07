@@ -257,15 +257,15 @@ BOARD_AVB_RECOVERY_KEY_PATH                       := external/avb/test/data/test
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX                 := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION        := 1
 
-#BOARD_AVB_DTBO_ALGORITHM                          := SHA256_RSA4096
-#BOARD_AVB_DTBO_KEY_PATH                           := external/avb/test/data/testkey_rsa4096.pem
-#BOARD_AVB_DTBO_ROLLBACK_INDEX                     := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-#BOARD_AVB_DTBO_ROLLBACK_INDEX_LOCATION            := 3
+BOARD_AVB_DTBO_ALGORITHM                          := SHA256_RSA4096
+BOARD_AVB_DTBO_KEY_PATH                           := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_DTBO_ROLLBACK_INDEX                     := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_DTBO_ROLLBACK_INDEX_LOCATION            := 3
 
-#BOARD_AVB_BOOT_ALGORITHM                          := SHA256_RSA4096
-#BOARD_AVB_BOOT_KEY_PATH                           := external/avb/test/data/testkey_rsa4096.pem
-#BOARD_AVB_BOOT_ROLLBACK_INDEX                     := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-#BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION            := 4
+BOARD_AVB_BOOT_ALGORITHM                          := SHA256_RSA4096
+BOARD_AVB_BOOT_KEY_PATH                           := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_BOOT_ROLLBACK_INDEX                     := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION            := 4
 
 BOARD_AVB_VENDOR_BOOT_ALGORITHM                   := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_KEY_PATH                    := external/avb/test/data/testkey_rsa4096.pem
@@ -273,11 +273,11 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX              := 1 #$(PLATFORM_SECURITY_PATC
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION     := 5
 
 # VBMETA System Configuration
-#BOARD_AVB_VBMETA_SYSTEM                           := product system system_dlkm system_ext
-#BOARD_AVB_VBMETA_SYSTEM_ALGORITHM                 := SHA256_RSA4096
-#BOARD_AVB_VBMETA_SYSTEM_KEY_PATH                  := external/avb/test/data/testkey_rsa4096.pem
-#BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX            := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-#BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION   := 2
+BOARD_AVB_VBMETA_SYSTEM                           := product system system_dlkm system_ext
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM                 := SHA256_RSA4096
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH                  := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX            := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION   := 2
 
 # Hashtree Arguments
 #BOARD_AVB_SYSTEM_DLKM_ADD_HASHTREE_FOOTER_ARGS    += --hash_algorithm sha256
