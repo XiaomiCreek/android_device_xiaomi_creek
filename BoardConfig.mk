@@ -22,6 +22,12 @@ SOONG_ALLOW_MISSING_DEPENDENCIES             := true
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES      := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# Disable building vendor-side partitions (System-Only Build)
+PRODUCT_BUILD_VENDOR_IMAGE                   := false
+PRODUCT_BUILD_BOOT_IMAGE                     := false
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE              := false
+PRODUCT_BUILD_RECOVERY_IMAGE                 := false
+
 # Global LTO
 TARGET_GLOBAL_LTO                            := thin
 TARGET_GLOBAL_OPTIMIZATION                   := O3
