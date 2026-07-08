@@ -68,8 +68,9 @@ TARGET_KERNEL_HEADER_ARCH           := arm64
 # Emulated Inline Prebuilt Structure
 TARGET_FORCE_PREBUILT_KERNEL        := true
 TARGET_NO_KERNEL_OVERRIDE           := true
-INLINE_KERNEL_BUILDING              := true
-TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
+#INLINE_KERNEL_BUILDING              := true
+#TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
+TARGET_DEVICE_KERNEL_HEADERS        : $(KERNEL_PATH)/kernel-headers # added
 
 # Prebuilt Binary Mapping
 BOARD_KERNEL_IMAGE_NAME             := Image
@@ -248,7 +249,7 @@ VENDOR_SECURITY_PATCH                             := $(BOOT_SECURITY_PATCH)
 
 BOARD_AVB_ENABLE                                  := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS                  += --flags 3
-#BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT            := true
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT            := true
 
 # Signing Key Mapping
 BOARD_AVB_RECOVERY_ALGORITHM                      := SHA256_RSA4096
@@ -355,9 +356,9 @@ TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE        := true
 TARGET_USES_QCOM_MM_AUDIO                      := true
 TARGET_PROVIDES_AUDIO_HAL                      := true
 AUDIO_FEATURE_ENABLED_DLKM                     := true
-AUDIO_FEATURE_ENABLED_AGM_HIDL                 := true
-AUDIO_FEATURE_ENABLED_PAL_HIDL                 := true
-AUDIO_FEATURE_ENABLED_DTS_EAGLE                := false
+#AUDIO_FEATURE_ENABLED_AGM_HIDL                 := true
+#AUDIO_FEATURE_ENABLED_PAL_HIDL                 := true
+#AUDIO_FEATURE_ENABLED_DTS_EAGLE                := false
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT              := true
 AUDIO_FEATURE_ENABLED_INSTANCE_ID              := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE             := true
