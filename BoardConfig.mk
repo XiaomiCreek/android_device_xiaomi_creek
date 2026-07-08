@@ -98,7 +98,6 @@ BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=4e00000.dwc3 \
-    androidboot.force_normal_boot=1 \
     androidboot.debuggable=1
 
 # Modules for First Stage (Ramdisk) - Critical for mounting /system
