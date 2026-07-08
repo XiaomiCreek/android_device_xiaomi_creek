@@ -4,14 +4,17 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from common AOSP 64-bit phone config
+# Inherit the modern system architecture base (keeps it 64-bit safe)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from LineageOS common configuration
+# Inherit AOSP generic system configurations (defines the GSI-like partition targets)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system.mk)
+
+# Inherit from LineageOS common configuration (gives custom ROM apps and features)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from creek device
+# Inherit the hardware configuration for the actual device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
 # Include our private certificate
