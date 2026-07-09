@@ -69,8 +69,7 @@ TARGET_KERNEL_HEADER_ARCH           := arm64
 TARGET_FORCE_PREBUILT_KERNEL        := true
 TARGET_NO_KERNEL_OVERRIDE           := true
 #INLINE_KERNEL_BUILDING              := true
-#TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
-TARGET_DEVICE_KERNEL_HEADERS        : $(KERNEL_PATH)/kernel-headers # added
+TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
 
 # Prebuilt Binary Mapping
 BOARD_KERNEL_IMAGE_NAME             := Image
