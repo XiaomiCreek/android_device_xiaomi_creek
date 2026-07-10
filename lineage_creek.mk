@@ -4,14 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit the modern system architecture base (keeps it 64-bit safe)
+# Inherit from common AOSP 64-bit phone config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit AOSP generic system configurations (defines the GSI-like partition targets)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system.mk)
-
-# Inherit from LineageOS common configuration (gives custom ROM apps and features)
+# Inherit from LineageOS common configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit the hardware configuration for the actual device
