@@ -11,6 +11,7 @@ include vendor/xiaomi/creek/BoardConfigVendor.mk
 DEVICE_PATH := device/xiaomi/creek
 KERNEL_PATH := $(DEVICE_PATH)-kernel
 
+
 # ==============================================
 # Bring-up & Compiler Broken Rules Overrides
 # ==============================================
@@ -27,9 +28,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 TARGET_GLOBAL_OPTIMIZATION                   := O2 #03
 TARGET_GLOBAL_LTO                            := fasle #thin
 TARGET_GLOBAL_THINLTO                        := fasle #true
-
-# Init
-
 
 
 # ==============================================
