@@ -18,18 +18,18 @@ KERNEL_PATH := $(DEVICE_PATH)-kernel
 BUILD_BROKEN_DUP_RULES                       := true
 RELAX_USES_LIBRARY_CHECK                     := true
 ALLOW_MISSING_DEPENDENCIES                   := true
+SELINUX_IGNORE_NEVERALLOWS                   := true
 SOONG_ALLOW_MISSING_DEPENDENCIES             := true
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES      := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-# Global LTO
-TARGET_GLOBAL_LTO                            := thin
-TARGET_GLOBAL_OPTIMIZATION                   := O3
-TARGET_GLOBAL_THINLTO                        := true
+# Force stable baseline optimizations for debugging early boots
+TARGET_GLOBAL_OPTIMIZATION                   := O2 #03
+TARGET_GLOBAL_LTO                            := fasle #thin
+TARGET_GLOBAL_THINLTO                        := fasle #true
 
 # Init
-TARGET_RECOVERY_DEVICE_MODULES               := init_creek
-TARGET_RECOVERY_DEVICE_MODULES               += init.recovery.qcom.rc
+
 
 
 # ==============================================
@@ -40,14 +40,14 @@ TARGET_RECOVERY_DEVICE_MODULES               += init.recovery.qcom.rc
 TARGET_ARCH                        := arm64
 TARGET_ARCH_VARIANT                := armv8-a
 TARGET_CPU_ABI                     := arm64-v8a
-TARGET_CPU_VARIANT                 := cortex-a73
+TARGET_CPU_VARIANT                 := generic
 
 # Secondary Architecture (32-bit)
 TARGET_2ND_ARCH                    := arm
 TARGET_2ND_ARCH_VARIANT            := armv8-a
 TARGET_2ND_CPU_ABI                 := armeabi-v7a
 TARGET_2ND_CPU_ABI2                := armeabi
-TARGET_2ND_CPU_VARIANT             := cortex-a53
+TARGET_2ND_CPU_VARIANT             := generic
 
 # Platform
 TARGET_BOARD_SUFFIX                := _515
@@ -316,6 +316,7 @@ TARGET_PER_MGR_ENABLED                     := true
 # Safe Recovery / Fastbootd
 TARGET_RECOVERY_FSTAB                      := $(DEVICE_PATH)/rootdir/etc/fstab.default
 TARGET_RECOVERY_PIXEL_FORMAT               := RGBX_8888
+TARGET_RECOVERY_DEVICE_MODULES             := init_creek
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE   := true
 
 # Properties
