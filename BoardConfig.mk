@@ -38,14 +38,17 @@ TARGET_GLOBAL_THINLTO                        := fasle #true
 TARGET_ARCH                        := arm64
 TARGET_ARCH_VARIANT                := armv8-a
 TARGET_CPU_ABI                     := arm64-v8a
-TARGET_CPU_VARIANT                 := generic
+TARGET_CPU_ABI2                    :=
+TARGET_CPU_VARIANT                 := cortex-a73
+TARGET_CPU_VARIANT_RUNTIME         := cortex-a73
 
 # Secondary Architecture (32-bit)
 TARGET_2ND_ARCH                    := arm
 TARGET_2ND_ARCH_VARIANT            := armv8-a
 TARGET_2ND_CPU_ABI                 := armeabi-v7a
 TARGET_2ND_CPU_ABI2                := armeabi
-TARGET_2ND_CPU_VARIANT             := generic
+TARGET_2ND_CPU_VARIANT             := cortex-a53
+TARGET_2ND_CPU_VARIANT_RUNTIME     := cortex-a53
 
 # Platform
 TARGET_BOARD_SUFFIX                := _515
@@ -251,29 +254,29 @@ BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT            := true
 # Signing Key Mapping
 BOARD_AVB_RECOVERY_ALGORITHM                      := SHA256_RSA4096
 BOARD_AVB_RECOVERY_KEY_PATH                       := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX                 := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX                 := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION        := 1
 
 BOARD_AVB_DTBO_ALGORITHM                          := SHA256_RSA4096
 BOARD_AVB_DTBO_KEY_PATH                           := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_DTBO_ROLLBACK_INDEX                     := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_DTBO_ROLLBACK_INDEX                     := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_DTBO_ROLLBACK_INDEX_LOCATION            := 3
 
 BOARD_AVB_BOOT_ALGORITHM                          := SHA256_RSA4096
 BOARD_AVB_BOOT_KEY_PATH                           := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_BOOT_ROLLBACK_INDEX                     := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_BOOT_ROLLBACK_INDEX                     := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION            := 4
 
 BOARD_AVB_VENDOR_BOOT_ALGORITHM                   := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_KEY_PATH                    := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX              := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX              := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION     := 5
 
 # VBMETA System Configuration
 BOARD_AVB_VBMETA_SYSTEM                           := product system system_dlkm system_ext
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM                 := SHA256_RSA4096
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH                  := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX            := 1 #$(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX            := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION   := 2
 
 # Hashtree Arguments
@@ -345,7 +348,7 @@ DEVICE_MATRIX_FILE += \
 # ==========================================================
 
 # Display Graphics
-TARGET_SCREEN_DENSITY                          := 450
+TARGET_SCREEN_DENSITY                          := 420
 TARGET_HAS_HDR_DISPLAY                         := false
 TARGET_HAS_WIDE_COLOR_DISPLAY                  := true
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE        := true
