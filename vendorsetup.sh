@@ -1,5 +1,6 @@
 # Clone HALs for SM6225
 echo "Cloning HALs for SM6225..."
+
 rm -rf hardware/qcom-caf/common
 git clone --depth 1 -b lineage-23.2 https://github.com/sapphire-sm6225/android_hardware_qcom-caf_common.git hardware/qcom-caf/common
 
@@ -28,7 +29,11 @@ rm -rf device/qcom/sepolicy_vndr/sm6225
 git clone --depth 1 -b lineage-23.2-caf-sm6225 https://github.com/sapphire-sm6225/device_qcom_sepolicy_vndr.git device/qcom/sepolicy_vndr/sm6225
 
 rm -rf vendor/lineage
-git clone https://github.com/sapphire-sm6225/android_vendor_lineage.git -b lineage-23.2 vendor/lineage
+git clone --depth 1 -b lineage-23.2 https://github.com/sapphire-sm6225/android_vendor_lineage.git vendor/lineage
+
+rm -rf hardware/dolby
+git clone --depth 1 -b 16 https://github.com/project-creek/hardware_dolby.git hardware/dolby
+
 echo "============================"
 echo "Cloning HALs completed"
 echo "============================"
