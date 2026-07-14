@@ -37,6 +37,9 @@ git clone --depth 1 -b 16 https://github.com/project-creek/hardware_dolby.git ha
 rm -rf packages/apps/FastCharge
 git clone --depth 1 -b 16-qpr2 https://github.com/project-creek/packages_apps_FastCharge.git packages/apps/FastCharge
 
+rm -rf device/xiaomi/sepolicy
+git clone --depth 1 -b 16 https://github.com/sapphire-sm6225/device_xiaomi_sepolicy.git device/xiaomi/sepolicy
+
 echo "============================"
 echo "Cloning HALs completed"
 echo "============================"
