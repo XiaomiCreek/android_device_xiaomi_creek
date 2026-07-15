@@ -40,6 +40,9 @@ git clone --depth 1 -b 16-qpr2 https://github.com/project-creek/packages_apps_Fa
 rm -rf device/xiaomi/sepolicy
 git clone --depth 1 -b 16 https://github.com/sapphire-sm6225/device_xiaomi_sepolicy.git device/xiaomi/sepolicy
 
+rm -rf hardware/xiaomi
+git clone --depth 1 -b bka-no-dolby https://github.com/project-creek/hardware_xiaomi.git hardware/xiaomi
+
 echo "============================"
 echo "Cloning HALs completed"
 echo "============================"
