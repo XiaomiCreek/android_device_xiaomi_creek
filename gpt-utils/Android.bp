@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-cc_library {
+cc_defaults {
     name: "libgptutils_defaults.bengal",
     export_include_dirs: ["."],
     recovery_available: true,
