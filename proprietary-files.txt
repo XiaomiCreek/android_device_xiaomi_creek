@@ -596,7 +596,6 @@ vendor/etc/camera/resources/render/Effect/effect_list.json
 vendor/etc/camera/resources/render/Effect/effect_mode_clear.json
 vendor/etc/camera/resources/render/Effect/effect_mode_front.json
 vendor/etc/camera/resources/render/Effect/effect_mode_rear.json
-vendor/etc/camera/resources/GlobalConfig.json
 
 # Native Color Grading & Filter LUTs (.png)
 vendor/etc/camera/110_BlackGold.png
@@ -792,10 +791,6 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile7.xml
-
-# Qualcomm Data Connection AIDL NDK Stubs
-lib/vendor.qti.hardware.data.connectionaidl-V1-ndk.so
-lib64/vendor.qti.hardware.data.connectionaidl-V1-ndk.so
 
 # System Ext Connectivity Interfaces (32-bit)
 system_ext/lib/com.quicinc.cne.api@1.0.so
@@ -1312,8 +1307,6 @@ vendor/gpu/kbc/unified_kbcs_64.bin
 vendor/gpu/kbc/unified_ksqs.bin
 
 # DPM
-lib/vendor.qti.diaghal-V1-ndk.so
-lib64/vendor.qti.diaghal-V1-ndk.so
 system_ext/bin/dpmd
 system_ext/etc/dpm/dpm.conf
 system_ext/etc/init/dpmd.rc
@@ -1450,10 +1443,6 @@ vendor/lib64/libsl_fp_impl.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
-
-# FM Radio - Root System NDK Stubs
-lib/vendor.qti.hardware.fm-V1-ndk.so
-lib64/vendor.qti.hardware.fm-V1-ndk.so
 
 # FM Radio - System Ext Interface Stubs
 system_ext/lib/vendor.qti.hardware.fm@1.0.so
@@ -1618,9 +1607,6 @@ vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
 vendor/etc/init/android.hardware.media.omx@1.0-service.rc
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc
-
-# Media - Seccomp Sandbox Policies
-etc/seccomp_policy/mediacodec.policy
 
 # Media - System Ext Post-Processing Interfaces
 system_ext/lib/vendor.qti.hardware.vpp-V1-ndk.so
@@ -2221,7 +2207,6 @@ vendor/lib64/lib-imsdpl.so
 vendor/lib64/lib-imsqimf.so
 vendor/lib64/lib-imsrcsservice.so
 vendor/lib64/lib-imsservice.so
-vendor/lib64/lib-imsvitcore.so
 vendor/lib64/lib-imsxml.so
 vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
@@ -2695,7 +2680,6 @@ vendor/etc/init/nfc-service-nxp.rc
 # Thermal & Limits - Core Engine Regulation Configuration
 vendor/bin/thermal-engine-v2
 vendor/etc/init/init_thermal-engine-v2.rc
-vendor/etc/scene_temp.xml
 
 # Xiaomi MiSys - Framework Architecture Extension Links
 vendor/bin/hw/vendor.xiaomi.hardware.misys@1.0-service
