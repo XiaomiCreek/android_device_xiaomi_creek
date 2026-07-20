@@ -1,4 +1,4 @@
-# All blobs below are extracted from creek OS3.0.302.0.WBOMIXM release-keys
+# All blobs below are extracted from creek OS3.0.302.0.WBOMIXM
 
 # ACDB
 vendor/etc/acdbdata/bengal_idp/IDP_acdb_cal.acdb
@@ -53,8 +53,15 @@ vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib64/rfsa/adsp/libsns_device_mode_skel.so
 vendor/lib64/rfsa/adsp/libsns_low_lat_stream_skel.so
 
+# ANT
+system_ext/lib/com.qualcomm.qti.ant@1.0.so
+system_ext/lib64/com.qualcomm.qti.ant@1.0.so
+vendor/lib/hw/com.dsi.ant@1.0-impl.so
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so
+
 # Alarm
 system_ext/app/PowerOffAlarm/PowerOffAlarm.apk
+system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar
 system_ext/lib/vendor.qti.hardware.alarm@1.0.so
 system_ext/lib64/vendor.qti.hardware.alarm@1.0.so
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
@@ -66,51 +73,64 @@ vendor/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
-# ANT
-system_ext/lib/com.qualcomm.qti.ant@1.0.so
-system_ext/lib64/com.qualcomm.qti.ant@1.0.so
-vendor/lib/hw/com.dsi.ant@1.0-impl.so
-vendor/lib64/hw/com.dsi.ant@1.0-impl.so
-
-# Atrace
-
-# Audio Core (Qualcomm PAL/AGM Stack)
+# Audio
+-vendor/lib/libar-gsl.so
+-vendor/lib/libar-pal.so
+-vendor/lib/liblx-osal.so
+-vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
+-vendor/lib64/libar-gsl.so
+-vendor/lib64/libar-pal.so
+-vendor/lib64/liblx-osal.so
+-vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
+system_ext/etc/permissions/audiosphere.xml
+system_ext/framework/audiosphere.jar
 vendor/bin/hw/android.hardware.audio.service_64
 vendor/lib/hw/audio.primary.bengal.so
-vendor/lib/libagm.so
+vendor/lib64/hw/audio.primary.bengal.so
+vendor/lib64/libadm.so
+vendor/lib64/libalsautils.so
 vendor/lib/libar-acdb.so
 vendor/lib/libar-gpr.so
-vendor/lib/libar-gsl.so
-vendor/lib/libar-pal.so
-vendor/lib/libaudio_log_utils.so
+vendor/lib64/libar-acdb.so
+vendor/lib64/libar-gpr.so
+vendor/lib64/libats.so
 vendor/lib/libdiag.so
+vendor/lib/libaudio_log_utils.so
+vendor/lib64/libaudio_log_utils.so
+vendor/lib64/libhfp_pal.so
 vendor/lib/liblx-ar_util.so
-vendor/lib/liblx-osal.so
+vendor/lib64/liblx-ar_util.so
+vendor/lib64/libmcs.so
+vendor/lib64/libpalclient.so
+vendor/lib64/libqtigefar.so
+vendor/lib64/vendor.qti.hardware.pal@1.0.so
+
 vendor/lib/libpdmapper.so
 vendor/lib/libpdnotifier.so
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_encdec.so
-vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so
-vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
-vendor/lib64/libagm.so
-vendor/lib64/libar-acdb.so
-vendor/lib64/libar-gpr.so
-vendor/lib64/libar-gsl.so
-vendor/lib64/libar-pal.so
-vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libdiag.so
-vendor/lib64/liblx-ar_util.so
-vendor/lib64/liblx-osal.so
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqmi_cci.so
 vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_encdec.so
-vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 
-# Audio Effects & FX
+# Audio Graph Manager
+-vendor/lib/libagm.so
+-vendor/lib64/libagm.so
+vendor/lib64/libagmclient.so
+vendor/lib64/libagmmixer.so
+vendor/lib64/libagm_compress_plugin.so
+vendor/lib64/libagm_mixer_plugin.so
+vendor/lib64/libagm_pcm_plugin.so
+-vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so
+-vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0.so
+vendor/lib64/libkaraokepal.so
+
+# Audio SoundFX
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libqcompostprocbundle.so
 vendor/lib/soundfx/libqcomvisualizer.so
@@ -118,7 +138,18 @@ vendor/lib/soundfx/libvolumelistener.so
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libmisoundfx.so
 
-# Audio Routing Tables & Hardware Profiles
+# Audio configs
+odm/etc/audio_policy_engine_configuration_mi.xml:odm/etc/audio_policy_engine_configuration.xml
+odm/etc/audio_policy_engine_default_stream_volumes.xml
+odm/etc/audio_policy_engine_product_strategies.xml
+odm/etc/audio_policy_engine_stream_volumes.xml
+vendor/etc/audio_diag.cfg
+vendor/etc/audio_effects.conf
+vendor/etc/audio_policy_engine_configuration_mi.xml:vendor/etc/audio_policy_engine_configuration.xml
+vendor/etc/audio_policy_engine_default_stream_volumes.xml
+vendor/etc/audio_policy_engine_product_strategies.xml
+vendor/etc/audio_policy_engine_stream_volumes.xml
+vendor/etc/backend_conf.xml
 vendor/etc/card-defs.xml
 vendor/etc/backend_conf.xml
 vendor/etc/microphone_characteristics.xml
@@ -136,6 +167,14 @@ vendor/etc/resourcemanager_scubaidp.xml
 vendor/etc/resourcemanager_scubaqrd.xml
 vendor/etc/audio_effects.xml
 vendor/etc/audio_policy_configuration.xml
+vendor/etc/usecaseKvManager.xml
+vendor/etc/usecaseKvManager_arrax.xml
+
+# Battery
+vendor/bin/battery_stats
+vendor/bin/batterysecret
+vendor/etc/init/init.batterysecret.rc
+vendor/etc/init/vendor.qti.battery_stats.rc
 
 # Bluetooth Core
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
@@ -2475,7 +2514,7 @@ vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
 # Audio - Post-Processing & Perfd Integration
 vendor/lib/libqc2audio_hwaudiocodec.so
 vendor/lib/libqc2audio_swaudiocodec.so
-vendor/lib64/libadm.so
+
 
 # NFC - Configuration Script
 vendor/libnfc-nxp_RF.conf
