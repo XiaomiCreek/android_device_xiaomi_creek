@@ -79,7 +79,6 @@ vendor/lib64/com.dsi.ant@1.0.so
 # Atrace
 vendor/bin/hw/android.hardware.atrace@1.0-service
 vendor/etc/init/android.hardware.atrace@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.atrace@1.0-service.xml
 
 # Audio Core (Qualcomm PAL/AGM Stack)
 vendor/bin/hw/android.hardware.audio.service_64
@@ -987,8 +986,6 @@ vendor/lib64/vendor.qti.latency@2.1.so
 vendor/lib64/vendor.qti.latency@2.2.so
 
 # Configstore (Qualcomm Capability Configstore Service)
-system_ext/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
-system_ext/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/configstore/wigig.xml
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
@@ -1008,8 +1005,6 @@ vendor/etc/init/vendor.display.color@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.display.allocator-service.rc
 vendor/etc/init/vendor.qti.hardware.display.composer-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml
-vendor/etc/vintf/manifest/vendor.qti.hardware.display.allocator-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service.xml
 vendor/etc/vintf/manifest/vendor.xiaomi.hardware.displayfeature@1.0-service.xml
 
@@ -1018,62 +1013,16 @@ system_ext/lib/vendor.display.color@1.0.so
 system_ext/lib/vendor.display.color@1.1.so
 system_ext/lib/vendor.display.color@1.2.so
 system_ext/lib/vendor.display.color@1.3.so
-system_ext/lib/vendor.display.config@1.0.so
-system_ext/lib/vendor.display.config@1.1.so
-system_ext/lib/vendor.display.config@1.2.so
-system_ext/lib/vendor.display.config@1.3.so
-system_ext/lib/vendor.display.config@1.4.so
-system_ext/lib/vendor.display.config@1.5.so
-system_ext/lib/vendor.display.config@2.0.so
 system_ext/lib/vendor.display.postproc@1.0.so
-system_ext/lib/vendor.qti.hardware.display.composer@3.0.so
-system_ext/lib/vendor.qti.hardware.display.composer@3.1.so
-system_ext/lib/vendor.qti.hardware.display.config-V1-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V10-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V11-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V12-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V13-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V2-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V3-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V4-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V5-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V6-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V7-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V8-ndk.so
-system_ext/lib/vendor.qti.hardware.display.config-V9-ndk.so
 system_ext/lib/vendor.qti.hardware.qdutils_disp@1.0.so
-system_ext/lib/vendor.xiaomi.hardware.displayfeature@1.0.so
 
 # Display - System Ext Interfaces (64-bit)
 system_ext/lib64/vendor.display.color@1.0.so
 system_ext/lib64/vendor.display.color@1.1.so
 system_ext/lib64/vendor.display.color@1.2.so
 system_ext/lib64/vendor.display.color@1.3.so
-system_ext/lib64/vendor.display.config@1.0.so
-system_ext/lib64/vendor.display.config@1.1.so
-system_ext/lib64/vendor.display.config@1.2.so
-system_ext/lib64/vendor.display.config@1.3.so
-system_ext/lib64/vendor.display.config@1.4.so
-system_ext/lib64/vendor.display.config@1.5.so
-system_ext/lib64/vendor.display.config@2.0.so
 system_ext/lib64/vendor.display.postproc@1.0.so
-system_ext/lib64/vendor.qti.hardware.display.composer@3.0.so
-system_ext/lib64/vendor.qti.hardware.display.composer@3.1.so
-system_ext/lib64/vendor.qti.hardware.display.config-V1-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V10-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V11-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V12-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V13-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V2-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V3-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V4-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V5-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V6-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V7-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V8-ndk.so
-system_ext/lib64/vendor.qti.hardware.display.config-V9-ndk.so
 system_ext/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
-system_ext/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
 
 # Graphics - Adreno GPU Drivers & EGL (32-bit)
 vendor/lib/egl/eglSubDriverAndroid.so
@@ -1155,38 +1104,6 @@ vendor/lib/vendor.display.color@1.2.so
 vendor/lib/vendor.display.color@1.3.so
 vendor/lib/vendor.display.color@1.4.so
 vendor/lib/vendor.display.color@1.5.so
-vendor/lib/vendor.display.config@1.0.so
-vendor/lib/vendor.display.config@1.1.so
-vendor/lib/vendor.display.config@1.2.so
-vendor/lib/vendor.display.config@1.3.so
-vendor/lib/vendor.display.config@1.4.so
-vendor/lib/vendor.display.config@1.5.so
-vendor/lib/vendor.display.config@1.6.so
-vendor/lib/vendor.display.config@1.7.so
-vendor/lib/vendor.display.config@1.8.so
-vendor/lib/vendor.display.config@1.9.so
-vendor/lib/vendor.display.config@1.10.so
-vendor/lib/vendor.display.config@1.11.so
-vendor/lib/vendor.display.config@2.0.so
-vendor/lib/vendor.display.postproc@1.0.so
-vendor/lib/vendor.qti.hardware.display.allocator@1.0.so
-vendor/lib/vendor.qti.hardware.display.allocator@3.0.so
-vendor/lib/vendor.qti.hardware.display.allocator@4.0.so
-vendor/lib/vendor.qti.hardware.display.composer@1.0.so
-vendor/lib/vendor.qti.hardware.display.composer@2.0.so
-vendor/lib/vendor.qti.hardware.display.config-V1-ndk.so
-vendor/lib/vendor.qti.hardware.display.config-V2-ndk.so
-vendor/lib/vendor.qti.hardware.display.config-V3-ndk.so
-vendor/lib/vendor.qti.hardware.display.config-V4-ndk.so
-vendor/lib/vendor.qti.hardware.display.config-V5-ndk.so
-vendor/lib/vendor.qti.hardware.display.config-V6-ndk.so
-vendor/lib/vendor.qti.hardware.display.mapper@1.0.so
-vendor/lib/vendor.qti.hardware.display.mapper@1.1.so
-vendor/lib/vendor.qti.hardware.display.mapper@2.0.so
-vendor/lib/vendor.qti.hardware.display.mapper@3.0.so
-vendor/lib/vendor.qti.hardware.display.mapper@4.0.so
-vendor/lib/vendor.qti.hardware.display.mapperextensions@1.0.so
-vendor/lib/vendor.qti.hardware.display.mapperextensions@1.1.so
 vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/lib/vendor.xiaomi.hardware.displayfeature@1.0.so
 
@@ -1197,39 +1114,7 @@ vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.color@1.3.so
 vendor/lib64/vendor.display.color@1.4.so
 vendor/lib64/vendor.display.color@1.5.so
-vendor/lib64/vendor.display.config@1.0.so
-vendor/lib64/vendor.display.config@1.1.so
-vendor/lib64/vendor.display.config@1.2.so
-vendor/lib64/vendor.display.config@1.3.so
-vendor/lib64/vendor.display.config@1.4.so
-vendor/lib64/vendor.display.config@1.5.so
-vendor/lib64/vendor.display.config@1.6.so
-vendor/lib64/vendor.display.config@1.7.so
-vendor/lib64/vendor.display.config@1.8.so
-vendor/lib64/vendor.display.config@1.9.so
-vendor/lib64/vendor.display.config@1.10.so
-vendor/lib64/vendor.display.config@1.11.so
-vendor/lib64/vendor.display.config@2.0.so
 vendor/lib64/vendor.display.postproc@1.0.so
-vendor/lib64/vendor.qti.hardware.display.allocator@1.0.so
-vendor/lib64/vendor.qti.hardware.display.allocator@3.0.so
-vendor/lib64/vendor.qti.hardware.display.allocator@4.0.so
-vendor/lib64/vendor.qti.hardware.display.composer@1.0.so
-vendor/lib64/vendor.qti.hardware.display.composer@2.0.so
-vendor/lib64/vendor.qti.hardware.display.composer@3.0.so
-vendor/lib64/vendor.qti.hardware.display.config-V1-ndk.so
-vendor/lib64/vendor.qti.hardware.display.config-V2-ndk.so
-vendor/lib64/vendor.qti.hardware.display.config-V3-ndk.so
-vendor/lib64/vendor.qti.hardware.display.config-V4-ndk.so
-vendor/lib64/vendor.qti.hardware.display.config-V5-ndk.so
-vendor/lib64/vendor.qti.hardware.display.config-V6-ndk.so
-vendor/lib64/vendor.qti.hardware.display.mapper@1.0.so
-vendor/lib64/vendor.qti.hardware.display.mapper@1.1.so
-vendor/lib64/vendor.qti.hardware.display.mapper@2.0.so
-vendor/lib64/vendor.qti.hardware.display.mapper@3.0.so
-vendor/lib64/vendor.qti.hardware.display.mapper@4.0.so
-vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.0.so
-vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.1.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
 
@@ -1416,7 +1301,6 @@ vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 # Fingerprint - Biometric Core Services & Manifests
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
-vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
 
 # Fingerprint - System Ext Interface Stubs (32-bit & 64-bit)
 system_ext/lib/vendor.qti.hardware.fingerprint@1.0.so
@@ -1550,7 +1434,6 @@ vendor/etc/init/android.hardware.health-service.qti.rc
 vendor/etc/init/init.batterysecret.rc
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.micharge@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.health-service.qti.xml
 vendor/etc/vintf/manifest/vendor.xiaomi.hardware.micharge@1.0.xml
 vendor/etc/charger_fstab.qti
 vendor/lib/hw/vendor.xiaomi.hardware.micharge@1.0-impl.so
@@ -1712,34 +1595,18 @@ vendor/etc/perf/thermalboost.conf
 
 # Perf - System Ext Control Framework Extensions
 system_ext/etc/perf/wlc_model.tflite
-system_ext/lib/vendor.qti.hardware.perf@2.0.so
-system_ext/lib/vendor.qti.hardware.perf@2.1.so
-system_ext/lib/vendor.qti.hardware.perf@2.2.so
-system_ext/lib/vendor.qti.hardware.perf@2.3.so
-system_ext/lib64/vendor.qti.hardware.perf@2.0.so
-system_ext/lib64/vendor.qti.hardware.perf@2.1.so
-system_ext/lib64/vendor.qti.hardware.perf@2.2.so
-system_ext/lib64/vendor.qti.hardware.perf@2.3.so
 
 # Perf - Vendor Interface Handlers (32-bit)
 vendor/lib/libperfconfig.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-util.so
-vendor/lib/vendor.qti.hardware.perf@2.0.so
-vendor/lib/vendor.qti.hardware.perf@2.1.so
-vendor/lib/vendor.qti.hardware.perf@2.2.so
-vendor/lib/vendor.qti.hardware.perf@2.3.so
 
 # Perf - Vendor Interface Handlers (64-bit)
 vendor/lib64/libperfconfig.so
 vendor/lib64/libperfgluelayer.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-util.so
-vendor/lib64/vendor.qti.hardware.perf@2.0.so
-vendor/lib64/vendor.qti.hardware.perf@2.1.so
-vendor/lib64/vendor.qti.hardware.perf@2.2.so
-vendor/lib64/vendor.qti.hardware.perf@2.3.so
 
 # Perf IOP - Input/Output Performance Optimizations
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
@@ -2265,7 +2132,6 @@ vendor/bin/sensors.qti
 vendor/bin/sscrpcd
 vendor/etc/init/android.hardware.sensors@2.1-service-multihal.rc
 vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.sensors@2.1-multihal.xml
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib/libsensorcal.so
 vendor/lib/libsns_fastRPC_util.so
@@ -2483,13 +2349,11 @@ vendor/bin/hw/android.hardware.usb.gadget@1.1-service-qti
 vendor/bin/hw/android.hardware.usb@1.2-service-qti
 vendor/etc/init/android.hardware.usb.gadget@1.1-service-qti.rc
 vendor/etc/init/android.hardware.usb@1.2-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.usb.gadget@1.1-service.xml
 vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml
 
 # Vibrator - Haptic Feedback Offload Modules
 vendor/bin/hw/vendor.qti.hardware.vibrator.service
 vendor/etc/init/vendor.qti.hardware.vibrator.service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.vibrator.service.xml
 vendor/lib/hw/vibrator.default.so
 vendor/lib/libsoc_helper.so
 vendor/lib64/hw/vibrator.default.so
@@ -2540,7 +2404,6 @@ system_ext/etc/init/wfdservice.rc
 system_ext/etc/vintf/manifest/vendor.qti.hardware.sigma_miracast.xml
 system_ext/etc/vintf/manifest/vendor.qti.hardware.sigma_miracast_aidl.xml
 system_ext/lib/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
-system_ext/lib/libdisplayconfig.system.qti.so
 system_ext/lib/libmiracastsystem.so
 system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
