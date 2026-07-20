@@ -1543,7 +1543,6 @@ vendor/etc/vintf/manifest/android.hardware.radio.modem.xml
 vendor/etc/vintf/manifest/android.hardware.radio.network.xml
 vendor/etc/vintf/manifest/android.hardware.radio.sim.xml
 vendor/etc/vintf/manifest/android.hardware.radio.voice.xml
-vendor/etc/vintf/manifest/vendor.qti.hardware.radio.am.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.radio.qtiradioconfig.xml
 
 # Radio - QCRIL Relational Config Database Engine
