@@ -98,7 +98,6 @@ vendor/lib/liblx-ar_util.so
 vendor/lib64/liblx-ar_util.so
 vendor/lib64/libmcs.so
 vendor/lib64/libqtigefar.so
-
 vendor/lib/libpdmapper.so
 vendor/lib/libpdnotifier.so
 vendor/lib/libqmi_cci.so
@@ -141,7 +140,6 @@ vendor/etc/audio_policy_engine_product_strategies.xml
 vendor/etc/audio_policy_engine_stream_volumes.xml
 vendor/etc/backend_conf.xml
 vendor/etc/card-defs.xml
-vendor/etc/backend_conf.xml
 vendor/etc/microphone_characteristics.xml
 vendor/etc/usecaseKvManager.xml
 vendor/etc/usecaseKvManager_arrax.xml
@@ -157,8 +155,6 @@ vendor/etc/resourcemanager_scubaidp.xml
 vendor/etc/resourcemanager_scubaqrd.xml
 vendor/etc/audio_effects.xml
 vendor/etc/audio_policy_configuration.xml
-vendor/etc/usecaseKvManager.xml
-vendor/etc/usecaseKvManager_arrax.xml
 
 # Battery
 vendor/bin/battery_stats
@@ -201,7 +197,6 @@ vendor/bin/hw/vendor.qti.hardware.factory@1.0-service
 vendor/bin/cnd
 vendor/bin/qms
 vendor/etc/init/cnd.rc
-vendor/bin/hw/vendor.qti.hardware.factory@1.0-service
 vendor/etc/init/vendor.qti.hardware.factory@1.0-service.rc
 vendor/etc/cne/mwqem.conf
 vendor/etc/cne/profileMwqem.xml
@@ -235,8 +230,6 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile7.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
-vendor/etc/init/vendor.qti.hardware.factory@1.0-service.rc
-vendor/etc/init/cnd.rc
 vendor/etc/init/qms.rc
 vendor/etc/vintf/manifest/qms-saidl.xml
 
@@ -634,10 +627,6 @@ vendor/lib64/com.xiaomi.plugin.skinbeautifier.so
 vendor/lib64/com.xiaomi.plugin.superlowlight.so
 vendor/lib64/com.xiaomi.plugin.swflip.so
 
-# Camera HW
-vendor/lib64/hw/camera.qcom.so
-vendor/lib64/hw/com.qti.chi.override.so
-
 # Proprietary Engines & Processing Frameworks (32-bit)
 vendor/lib/libanc_single_rt_bokeh.so
 vendor/lib/libbitmlengine.so
@@ -795,77 +784,6 @@ vendor/etc/camera/resources/render/BuildIn/Material/1166466556_252005700
 vendor/etc/camera/resources/render/BuildIn/Material/1166466556_2571257293
 vendor/etc/camera/resources/render/BuildIn/Material/1166466556_4025145477
 
-# TrueSight Render Configurations
-vendor/etc/camera/resources/render/Config/config_mode_all.json
-vendor/etc/camera/resources/render/Config/config_mode_front.json
-vendor/etc/camera/resources/render/Config/config_mode_front_lite.json
-vendor/etc/camera/resources/render/Config/config_mode_rear.json
-
-# TrueSight Retouching Effect Filters & Masks
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/0_Spotless/FaceMask.bin
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/0_Spotless/effect.json
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/BeautyMap.bin
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/effect_capture.json
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/effect_preview.json
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/2_SkinSmoothRear/FaceMask.bin
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/2_SkinSmoothRear/effect_capture.json
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/2_SkinSmoothRear/effect_preview.json
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/mode_front.json
-vendor/etc/camera/resources/render/Effect/20_FaceRetouch/mode_rear.json
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEye/LeftEye.bin
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEye/RightEye.bin
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEye/effect.json
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/effect.json
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/eye_pupil.bin
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/left_eye.bin
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/right_eye.bin
-vendor/etc/camera/resources/render/Effect/30_BasicRetouch/mode_base.json
-vendor/etc/camera/resources/render/Effect/40_FaceStereo/Effects/0_ModeFront/effect_capture.json
-vendor/etc/camera/resources/render/Effect/40_FaceStereo/Effects/0_ModeFront/effect_preview.json
-vendor/etc/camera/resources/render/Effect/40_FaceStereo/Effects/0_ModeFront/xr.bin
-vendor/etc/camera/resources/render/Effect/40_FaceStereo/mode_front.json
-vendor/etc/camera/resources/render/Effect/50_SkinTone/Effects/0_ModeFront/effect.json
-vendor/etc/camera/resources/render/Effect/50_SkinTone/Effects/0_ModeFront/filter.bin
-vendor/etc/camera/resources/render/Effect/50_SkinTone/mode_front.json
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/Eyebrow.bin
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/effect_capture.json
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/effect_preview.json
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/sh.bin
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/yyy.bin
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/yyz.bin
-vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/zc.bin
-vendor/etc/camera/resources/render/Effect/60_Makeup/mode_front.json
-vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/effect_capture.json
-vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/effect_preview.json
-vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/eye_refine.bin
-vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/facelift.bin
-vendor/etc/camera/resources/render/Effect/effect_list.json
-vendor/etc/camera/resources/render/Effect/effect_mode_clear.json
-vendor/etc/camera/resources/render/Effect/effect_mode_front.json
-vendor/etc/camera/resources/render/Effect/effect_mode_rear.json
-
-# Native Color Grading & Filter LUTs (.png)
-vendor/etc/camera/110_BlackGold.png
-vendor/etc/camera/148_Mild.png
-vendor/etc/camera/149_LilyWhite.png
-vendor/etc/camera/150_Bright.png
-vendor/etc/camera/151_Fresh.png
-vendor/etc/camera/152_Limpid.png
-vendor/etc/camera/153_KC64.png
-vendor/etc/camera/154_V250.png
-vendor/etc/camera/155_H400.png
-vendor/etc/camera/156_ColdWhite.png
-vendor/etc/camera/157_Native.png
-vendor/etc/camera/158_BWClassical.png
-vendor/etc/camera/159_Flowers.png
-vendor/etc/camera/160_Vivid_1.png
-vendor/etc/camera/161_Monsoon.png
-vendor/etc/camera/162_Nature.png
-vendor/etc/camera/163_Relaxation.png
-vendor/etc/camera/164_Kyoto.png
-vendor/etc/camera/165_Oldalley.png
-vendor/etc/camera/166_Reverse.png
-
 # Compiled 32-bit GPU Rendering Shaders
 vendor/etc/camera/resources/render/BuildIn/binShaders32/OGL_BASE.bin
 vendor/etc/camera/resources/render/BuildIn/binShaders32/OGL_BLEND_COLOR_LAYER_WITH_MASK_Define_NORMAL_MASK_CHANNEL_TYPE_R_FRAMEBUFFER_FETCH_ADRENO.bin
@@ -988,6 +906,77 @@ vendor/etc/camera/resources/render/BuildIn/binShaders64/shader_YUV2YUVUtils.bin
 vendor/etc/camera/resources/render/BuildIn/binShaders64/shader_YUV2YUVUtils_SWAP_UV.bin
 vendor/etc/camera/resources/render/BuildIn/binShaders64/shader_YUVP010ToYUVP010.bin
 
+# TrueSight Render Configurations
+vendor/etc/camera/resources/render/Config/config_mode_all.json
+vendor/etc/camera/resources/render/Config/config_mode_front.json
+vendor/etc/camera/resources/render/Config/config_mode_front_lite.json
+vendor/etc/camera/resources/render/Config/config_mode_rear.json
+
+# TrueSight Retouching Effect Filters & Masks
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/0_Spotless/FaceMask.bin
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/0_Spotless/effect.json
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/BeautyMap.bin
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/effect_capture.json
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/effect_preview.json
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/2_SkinSmoothRear/FaceMask.bin
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/2_SkinSmoothRear/effect_capture.json
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/2_SkinSmoothRear/effect_preview.json
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/mode_front.json
+vendor/etc/camera/resources/render/Effect/20_FaceRetouch/mode_rear.json
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEye/LeftEye.bin
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEye/RightEye.bin
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEye/effect.json
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/effect.json
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/eye_pupil.bin
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/left_eye.bin
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/Effects/0_BrightEyeV3/right_eye.bin
+vendor/etc/camera/resources/render/Effect/30_BasicRetouch/mode_base.json
+vendor/etc/camera/resources/render/Effect/40_FaceStereo/Effects/0_ModeFront/effect_capture.json
+vendor/etc/camera/resources/render/Effect/40_FaceStereo/Effects/0_ModeFront/effect_preview.json
+vendor/etc/camera/resources/render/Effect/40_FaceStereo/Effects/0_ModeFront/xr.bin
+vendor/etc/camera/resources/render/Effect/40_FaceStereo/mode_front.json
+vendor/etc/camera/resources/render/Effect/50_SkinTone/Effects/0_ModeFront/effect.json
+vendor/etc/camera/resources/render/Effect/50_SkinTone/Effects/0_ModeFront/filter.bin
+vendor/etc/camera/resources/render/Effect/50_SkinTone/mode_front.json
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/Eyebrow.bin
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/effect_capture.json
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/effect_preview.json
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/sh.bin
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/yyy.bin
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/yyz.bin
+vendor/etc/camera/resources/render/Effect/60_Makeup/Effects/0_ModeFront/zc.bin
+vendor/etc/camera/resources/render/Effect/60_Makeup/mode_front.json
+vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/effect_capture.json
+vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/effect_preview.json
+vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/eye_refine.bin
+vendor/etc/camera/resources/render/Effect/70_FacialRefine/Effects/0_ModeFront/facelift.bin
+vendor/etc/camera/resources/render/Effect/effect_list.json
+vendor/etc/camera/resources/render/Effect/effect_mode_clear.json
+vendor/etc/camera/resources/render/Effect/effect_mode_front.json
+vendor/etc/camera/resources/render/Effect/effect_mode_rear.json
+
+# Native Color Grading & Filter LUTs (.png)
+vendor/etc/camera/110_BlackGold.png
+vendor/etc/camera/148_Mild.png
+vendor/etc/camera/149_LilyWhite.png
+vendor/etc/camera/150_Bright.png
+vendor/etc/camera/151_Fresh.png
+vendor/etc/camera/152_Limpid.png
+vendor/etc/camera/153_KC64.png
+vendor/etc/camera/154_V250.png
+vendor/etc/camera/155_H400.png
+vendor/etc/camera/156_ColdWhite.png
+vendor/etc/camera/157_Native.png
+vendor/etc/camera/158_BWClassical.png
+vendor/etc/camera/159_Flowers.png
+vendor/etc/camera/160_Vivid_1.png
+vendor/etc/camera/161_Monsoon.png
+vendor/etc/camera/162_Nature.png
+vendor/etc/camera/163_Relaxation.png
+vendor/etc/camera/164_Kyoto.png
+vendor/etc/camera/165_Oldalley.png
+vendor/etc/camera/166_Reverse.png
+
 # Camera postproc
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
@@ -1001,32 +990,19 @@ vendor/lib64/libcdfw.so
 vendor/lib64/libcdfw_remote_api.so
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
-vendor/lib/libfastcvdsp_stub.so
-vendor/lib/libfastcvopt.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 vendor/lib64/libmdsprpc.so
-vendor/lib64/libfastcvdsp_stub.so
-vendor/lib64/libfastcvopt.so
 
 # Certifications
 vendor/app/CACertService/CACertService.apk
 vendor/lib64/libcacertclient.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
-#Charger & Health Engine
-vendor/bin/hw/vendor.xiaomi.hardware.micharge@1.0-service
-vendor/bin/batterysecret
+# Charger
 vendor/bin/hvdcp_opti
 vendor/bin/init.qti.chg_policy.sh
-vendor/etc/init/init.batterysecret.rc
 vendor/etc/charger_fstab.qti
-vendor/etc/init/vendor.xiaomi.hardware.micharge@1.0-service.rc
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.micharge@1.0.xml
-vendor/lib/hw/vendor.xiaomi.hardware.micharge@1.0-impl.so
-vendor/lib/vendor.xiaomi.hardware.micharge@1.0.so
-vendor/lib64/hw/vendor.xiaomi.hardware.micharge@1.0-impl.so
-vendor/lib64/vendor.xiaomi.hardware.micharge@1.0.so
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 
 # Configstore
@@ -1203,8 +1179,6 @@ vendor/lib64/libsdmextension.so
 vendor/lib/libtinyxml2_1.so
 vendor/lib64/libtinyxml2_1.so
 vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.displayfeature@1.0-service.xml
 
 # Graphics - Adreno GPU Drivers & EGL (32-bit)
 vendor/lib/egl/eglSubDriverAndroid.so
@@ -1274,7 +1248,6 @@ vendor/lib64/vendor.display.postproc@1.0.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # Display configs
-vendor/etc/display/advanced_sf_offsets.xml
 vendor/etc/mdss_dsi_panel_o19a_42_02_0a_fhd_video_mi.xml
 vendor/etc/mdss_dsi_panel_o19a_43_10_0b_fhd_video_mi.xml
 vendor/etc/qdcm_calib_data_Sharp_2k_cmd_mode_qsync_dsi_panel.xml
@@ -1306,7 +1279,51 @@ vendor/etc/qdcm_calib_data_sw43404_amoled_video_mode_dsi_boe_panel_with_DSC.xml
 vendor/etc/qdcm_calib_data_td4330_v2_cmd_mode_dsi_truly_panel.xml
 vendor/etc/qdcm_calib_data_td4330_v2_video_mode_dsi_truly_panel.xml
 
-# Display firmware
+# FM
+system_ext/lib64/fm_helium.so
+system_ext/lib64/libfm-hci.so
+system_ext/lib/vendor.qti.hardware.fm@1.0.so
+system_ext/lib64/vendor.qti.hardware.fm@1.0.so
+vendor/etc/init.qti.fm.sh
+vendor/etc/init/init.qti.fm.rc
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib/libqmi.so
+vendor/lib64/libqmi.so
+vendor/lib64/libfmpal.so
+vendor/lib/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
+
+# Fastcv
+-vendor/lib/libfastcvopt.so
+-vendor/lib64/libfastcvopt.so
+vendor/lib/libfastcvdsp_stub.so
+vendor/lib64/libfastcvdsp_stub.so
+
+# Fingerprint
+vendor/lib/hw/fingerprint.silead.default.so
+vendor/lib64/hw/fingerprint.silead.default.so
+vendor/lib64/hw/fingerprint.goodix.default.so
+vendor/lib/libsl_fp_impl.so
+vendor/lib64/libsl_fp_impl.so
+vendor/lib64/libgf_ca.so
+vendor/lib64/libgf_hal.so
+vendor/lib64/libgoodixhwfingerprint.so
+vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
+vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+system_ext/lib/vendor.qti.hardware.fingerprint@1.0.so
+system_ext/lib64/vendor.qti.hardware.fingerprint@1.0.so
+system_ext/lib/vendor.xiaomi.hardware.fingerprintextension-V1-ndk.so
+system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension-V1-ndk.so
+system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
+vendor/lib64/libmifpext.so
+vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
+
+# Fingerprint - Silead Biometrics HAL Pipeline
+vendor/bin/hw/vendor.silead.hardware.fingerprintext@1.0-service
+vendor/etc/init/vendor.silead.hardware.fingerprintext@1.0-service.rc
+
+# Firmware vendor
 vendor/firmware/a610_zap.b00
 vendor/firmware/a610_zap.b01
 vendor/firmware/a610_zap.b02
@@ -1341,80 +1358,64 @@ vendor/firmware/a730_zap.b02
 vendor/firmware/a730_zap.elf
 vendor/firmware/a730_zap.mbn
 vendor/firmware/a730_zap.mdt
-vendor/gpu/kbc/sequence_manifest.bin
-vendor/gpu/kbc/unified_kbcs_32.bin
-vendor/gpu/kbc/unified_kbcs_64.bin
-vendor/gpu/kbc/unified_ksqs.bin
+vendor/firmware/frsm-spk1.bin
+vendor/firmware/gmu_gen70000.bin
+vendor/firmware/ipa_fws.b00
+vendor/firmware/ipa_fws.b01
+vendor/firmware/ipa_fws.b02
+vendor/firmware/ipa_fws.b03
+vendor/firmware/ipa_fws.b04
+vendor/firmware/ipa_fws.elf
+vendor/firmware/ipa_fws.mdt
+vendor/firmware/scuba_ipa_fws.b00
+vendor/firmware/scuba_ipa_fws.b01
+vendor/firmware/scuba_ipa_fws.b02
+vendor/firmware/scuba_ipa_fws.b03
+vendor/firmware/scuba_ipa_fws.b04
+vendor/firmware/scuba_ipa_fws.elf
+vendor/firmware/scuba_ipa_fws.mdt
+vendor/firmware/venus.mbn
+vendor/firmware/venus_4mb.mbn
+vendor/firmware/venus_4mb_ecdsa.mbn
+vendor/firmware/venus_4mb_unsigned.mbn
+vendor/firmware/venus_4mb_v6.mbn
+vendor/firmware/venus_4mb_v6_rsa.mbn
+vendor/firmware/venus_4mb_v7.mbn
+vendor/firmware/venus_4mb_v7_3.mb
+vendor/firmware/venus_5mb.mbn
+vendor/firmware/venus_5mb_ecdsa.mbn
+vendor/firmware/venus_5mb_unsigned.mbn
+vendor/firmware/venus_5mb_v6.mbn
+vendor/firmware/venus_5mb_v6_rsa.mbn
+vendor/firmware/venus_5mb_v7.mbn
+vendor/firmware/venus_5mb_v7_3.mbn
+vendor/firmware/venus_ecdsa.mbn
+vendor/firmware/venus_unsigned.mbn
+vendor/firmware/venus_v6.mbn
+vendor/firmware/venus_v6_rsa.mbn
+vendor/firmware/venus_v7.mbn
+vendor/firmware/venus_v7_3.mbn
+vendor/firmware/vpu20_1v.mbn
+vendor/firmware/vpu20_1v_unsigned.mbn
+vendor/firmware/vpu20_4v.mbn
+vendor/firmware/vpu20_4v_unsigned.mbn
 
-# Fingerprint - Biometric Core Services & Manifests
-
-# Fingerprint - System Ext Interface Stubs (32-bit & 64-bit)
-system_ext/lib/vendor.qti.hardware.fingerprint@1.0.so
-system_ext/lib/vendor.xiaomi.hardware.fingerprintextension-V1-ndk.so
-system_ext/lib64/vendor.qti.hardware.fingerprint@1.0.so
-system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension-V1-ndk.so
-
-# Fingerprint - Vendor Hardware Implementations & HALs (32-bit)
-vendor/lib/hw/fingerprint.silead.default.so
-vendor/lib/libsl_fp_impl.so
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
-
-# Fingerprint - Vendor Hardware Implementations & HALs (64-bit)
-vendor/lib64/hw/fingerprint.goodix.default.so
-vendor/lib64/hw/fingerprint.silead.default.so
-vendor/lib64/libgf_ca.so
-vendor/lib64/libgf_hal.so
-vendor/lib64/libgoodixhwfingerprint.so
-vendor/lib64/libmifpext.so
-vendor/lib64/libsl_fp_impl.so
-vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
-vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
-
-# FM Radio - System Ext Interface Stubs
-system_ext/lib/vendor.qti.hardware.fm@1.0.so
-system_ext/lib64/vendor.qti.hardware.fm@1.0.so
-
-# FM Radio - Vendor Hardware Implementations & QMI (32-bit)
-vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib/libqmi.so
-vendor/lib/vendor.qti.hardware.fm@1.0.so
-
-# FM Radio - Vendor Hardware Implementations & QMI (64-bit)
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib64/libqmi.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
-
-# Gatekeeper & Secure Processor Services
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/bin/hw/vendor.qti.hardware.secureprocessor@1.0
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/etc/init/vendor.qti.hardware.secureprocessor@1.0.rc
-
-# Gatekeeper - Secure Processor Helper Libraries (64-bit Only)
-vendor/lib64/vendor.qti.hardware.secureprocessor.common@1.0-helper.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.common@1.0.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.config@1.0.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.device@1.0.so
-
-# GNSS - Daemons & Core Location Services
+# GNSS
 vendor/bin/hw/android.hardware.gnss-aidl-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
-
-# GNSS - Init Scripts & VINTF Manifests
-vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml
-vendor/etc/vintf/manifest/vendor.qti.gnss-service.xml
-
-# GNSS Configuration Files
 vendor/etc/apdr.conf
 vendor/etc/gps.conf
 vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/sap.conf
+vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc
+vendor/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml
+vendor/etc/vintf/manifest/vendor.qti.gnss-service.xml
 vendor/etc/xtwifi.conf
+vendor/lib64/hw/android.hardware.gnss-aidl-impl-qti.so
 
 # GNSS / Location Proprietary Libraries (32-bit)
 vendor/lib/libdataitems.so
@@ -1468,32 +1469,38 @@ vendor/lib64/libxtadapter.so
 vendor/lib64/vendor.qti.gnss-V5-ndk.so
 vendor/lib64/vendor.qti.gnss-service.so
 
-# IPA (IP Accelerator) - Mobile Data & Network Offloading
+# Gatekeeper
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
+vendor/bin/hw/vendor.qti.hardware.secureprocessor@1.0
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+vendor/etc/init/vendor.qti.hardware.secureprocessor@1.0.rc
+vendor/lib64/vendor.qti.hardware.secureprocessor.common@1.0-helper.so
+vendor/lib64/vendor.qti.hardware.secureprocessor.common@1.0.so
+vendor/lib64/vendor.qti.hardware.secureprocessor.config@1.0.so
+vendor/lib64/vendor.qti.hardware.secureprocessor.device@1.0.so
+
+# Graphics
+vendor/gpu/kbc/sequence_manifest.bin
+vendor/gpu/kbc/unified_kbcs_32.bin
+vendor/gpu/kbc/unified_kbcs_64.bin
+vendor/gpu/kbc/unified_ksqs.bin
+
+# IPA
+vendor/etc/init/ipa_fws.rc
 vendor/bin/ipacm-diag
 vendor/etc/init/ipacm-diag.rc
 
-# IPA Network Router Firmware
-vendor/etc/init/ipa_fws.rc
-vendor/firmware/ipa_fws.b00
-vendor/firmware/ipa_fws.b01
-vendor/firmware/ipa_fws.b02
-vendor/firmware/ipa_fws.b03
-vendor/firmware/ipa_fws.b04
-vendor/firmware/ipa_fws.elf
-vendor/firmware/ipa_fws.mdt
-vendor/firmware/scuba_ipa_fws.b00
-vendor/firmware/scuba_ipa_fws.b01
-vendor/firmware/scuba_ipa_fws.b02
-vendor/firmware/scuba_ipa_fws.b03
-vendor/firmware/scuba_ipa_fws.b04
-vendor/firmware/scuba_ipa_fws.elf
-vendor/firmware/scuba_ipa_fws.mdt
-
-# Infrared (IR Blaster) - Hardware Interface Link
+# IR
+vendor/bin/consumerird
 vendor/lib/hw/consumerir.qcom.so
 vendor/lib64/hw/consumerir.qcom.so
 
-# Keymaster - Cryptographic Asset Protection
+# Keymint
+vendor/bin/hw/android.hardware.security.keymint-service-qti
+vendor/etc/init/android.hardware.security.keymint-service-qti.rc
+vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
+vendor/lib/libqtikeymint.so
+vendor/lib64/libqtikeymint.so
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
 vendor/lib/libkeymasterdeviceutils.so
 vendor/lib/libkeymasterutils.so
@@ -1502,11 +1509,22 @@ vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
-# Media Services & Codec HALs
+# Lights
+vendor/bin/hw/vendor.qti.hardware.lights.service
+vendor/etc/init/vendor.qti.hardware.lights.service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.lights.service.xml
+
+# Listen
+vendor/etc/vintf/manifest/manifest_non_qmaa.xml
+vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml
+
+# Media
 vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc
+vendor/etc/vintf/manifest/c2_manifest_vendor_audio.xml
+vendor/etc/vintf/manifest/c2_manifest_vendor_creek.xml:vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 
 # Media - System Ext Post-Processing Interfaces
 system_ext/lib/vendor.qti.hardware.vpp-V1-ndk.so
@@ -1557,14 +1575,14 @@ vendor/etc/media_profiles_bengal_v1.xml
 vendor/etc/media_profiles_khaje_v0.xml
 vendor/etc/media_profiles_scuba_v1.xml
 
+# NFC
+vendor/etc/libnfc-nci.conf
+vendor/etc/init/init.SN220.nfc.rc
+vendor/etc/libnfc-nxp.conf
+vendor/libnfc-nxp_RF.conf
+
 # Neural Networks - Hardware Acceleration
 vendor/lib64/libhta.so
-
-# NFC - Near Field Communication Core (NXP Stack)
-
-# NFC Configuration Matrix
-vendor/etc/libnfc-nci.conf
-vendor/etc/libnfc-nxp.conf
 
 # PASR - Periodic Auto Refresh Power Manager
 vendor/bin/hw/vendor.qti.memory.pasrmanager@1.0-service
@@ -1628,10 +1646,10 @@ vendor/lib64/vendor.qti.hardware.iop@2.0.so
 vendor/bin/hw/android.hardware.power-service
 vendor/etc/init/android.hardware.power-service.rc
 
-# Radio - Core Telephony & Baseband Daemons
-vendor/bin/hw/qcrilNrd
+# Radio
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
+vendor/bin/hw/qcrilNrd
 vendor/bin/ks
 vendor/bin/netmgrd
 vendor/bin/pd-mapper
@@ -1643,8 +1661,6 @@ vendor/bin/qti
 vendor/bin/rmt_storage
 vendor/bin/ssgtzd
 vendor/bin/tftp_server
-
-# Radio - Process Initialization Definitions
 vendor/etc/init/dataadpl.rc
 vendor/etc/init/dataqti.rc
 vendor/etc/init/netmgrd.rc
@@ -1653,21 +1669,7 @@ vendor/etc/init/qcrilNrd.rc
 vendor/etc/init/ssgtzd.rc
 vendor/etc/init/vendor.qti.rmt_storage_qmaa.rc
 vendor/etc/init/vendor.qti.tftp_qmaa.rc
-
-# Radio - Seccomp Sandbox Constraints
 vendor/etc/seccomp_policy/atfwd@2.0.policy
-
-# Radio - VINTF Capability Manifest Matrix
-vendor/etc/vintf/manifest/android.hardware.radio.config.xml
-vendor/etc/vintf/manifest/android.hardware.radio.data.xml
-vendor/etc/vintf/manifest/android.hardware.radio.messaging.xml
-vendor/etc/vintf/manifest/android.hardware.radio.modem.xml
-vendor/etc/vintf/manifest/android.hardware.radio.network.xml
-vendor/etc/vintf/manifest/android.hardware.radio.sim.xml
-vendor/etc/vintf/manifest/android.hardware.radio.voice.xml
-vendor/etc/vintf/manifest/vendor.qti.hardware.radio.qtiradioconfig.xml
-
-# Radio - QCRIL Relational Config Database Engine
 vendor/etc/qcril_database/qcrilNr.db
 vendor/etc/qcril_database/upgrade/config/14.0_config.sql
 vendor/etc/qcril_database/upgrade/config/15.0_config.sql
@@ -1688,12 +1690,12 @@ vendor/etc/qcril_database/upgrade/other/16_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/17_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/18_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/19_version_update_ecc_table.sql
-vendor/etc/qcril_database/upgrade/other/1_version_intro_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/20_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/21_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/22_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/23_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/24_version_update_ecc_table.sql
+vendor/etc/qcril_database/upgrade/other/1_version_intro_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/2_version_add_wps_config_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/3_version_update_wps_config_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/4_version_update_ecc_table_qcrilnr.sql
@@ -1702,8 +1704,9 @@ vendor/etc/qcril_database/upgrade/other/6_version_change_property_table_qcrilnr.
 vendor/etc/qcril_database/upgrade/other/7_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/8_version_update_ecc_table.sql
 vendor/etc/qcril_database/upgrade/other/9_version_update_ecc_table.sql
-
-# Radio - Shared System Extension HAL Infrastructure
+vendor/etc/vintf/manifest/android.hardware.radio.config.xml
+vendor/etc/vintf/manifest/deviceinfo-saidl.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.qtiradioconfig.xml
 system_ext/lib/vendor.qti.hardware.radio.am@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.lpa@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.lpa@1.1.so
@@ -1998,7 +2001,6 @@ system_ext/lib64/vendor.qti.ims.rcsuce@1.1.so
 system_ext/lib64/vendor.qti.ims.rcsuce@1.2.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
-
 # Radio - IMS RTP Media Processing Engine & Services
 vendor/bin/ims_rtp_daemon
 vendor/etc/init/ims_rtp_daemon.rc
@@ -2117,13 +2119,6 @@ vendor/lib/vendor.qti.esepowermanager@1.1.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 vendor/lib64/vendor.qti.esepowermanager@1.1.so
 
-# Security - Qualcomm Keymaster / Keymint Cryptographic Engine
-vendor/bin/hw/android.hardware.security.keymint-service-qti
-vendor/etc/init/android.hardware.security.keymint-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
-vendor/lib/libqtikeymint.so
-vendor/lib64/libqtikeymint.so
-
 # Sensors - Core Sensor Framework & FastRPC Services
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
 vendor/bin/sensors.qti
@@ -2237,7 +2232,6 @@ vendor/lib/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
-
 # Soundtrigger - Low-Power Voice Activation Pipeline
 vendor/lib/hw/sound_trigger.primary.bengal.so
 vendor/lib/liblistensoundmodel2vendor.so
@@ -2306,7 +2300,6 @@ system_ext/lib64/vendor.qti.hardware.trustedui@1.0.so
 vendor/bin/hw/vendor.qti.hardware.trustedui@1.0-service-qti
 vendor/bin/TrustedUISampleTest
 vendor/etc/init/vendor.qti.hardware.trustedui@1.0-service-qti.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.trustedui@1.0-service-qti.xml
 vendor/lib/libTouchInputVM.so
 vendor/lib/libTrustedInput.so
 vendor/lib/libTrustedInputTZ.so
@@ -2333,7 +2326,6 @@ vendor/bin/hw/android.hardware.usb.gadget@1.1-service-qti
 vendor/bin/hw/android.hardware.usb@1.2-service-qti
 vendor/etc/init/android.hardware.usb.gadget@1.1-service-qti.rc
 vendor/etc/init/android.hardware.usb@1.2-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml
 
 # Vibrator - Haptic Feedback Offload Modules
 vendor/lib/libsoc_helper.so
@@ -2347,7 +2339,6 @@ system_ext/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
 vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/bin/cnss-daemon
 vendor/etc/init/android.hardware.wifi@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml
 vendor/lib/vendor.qti.hardware.wigig.netperftuner@1.0.so
 vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
@@ -2478,64 +2469,21 @@ vendor/bin/hw/vendor.xiaomi.hw.touchfeature@1.0-service
 vendor/etc/init/vendor.xiaomi.hw.touchfeature@1.0-service.rc
 vendor/lib/hw/vendor.xiaomi.hw.touchfeature@1.0-impl.so
 
-# Fingerprint - Silead Biometrics HAL Pipeline
-vendor/bin/hw/vendor.silead.hardware.fingerprintext@1.0-service
-vendor/etc/init/vendor.silead.hardware.fingerprintext@1.0-service.rc
-
 # Media & Video - Hardware Accelerated Codecs (Venus/VPU)
 vendor/etc/media_bengal_v1/video_system_specs.json
 vendor/etc/media_khaje_v0/video_system_specs.json
-vendor/firmware/venus.mbn
-vendor/firmware/venus_4mb.mbn
-vendor/firmware/vpu20_1v.mbn
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
-
-# NFC - NXP Controller Subsystem
-vendor/etc/init/init.SN220.nfc.rc
 
 # Thermal & Limits - Core Engine Regulation Configuration
 vendor/bin/thermal-engine-v2
 vendor/etc/init/init_thermal-engine-v2.rc
 
-# Xiaomi MiSys - Framework Architecture Extension Links
-vendor/bin/hw/vendor.xiaomi.hardware.misys@1.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@2.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@3.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@4.0-service
-vendor/etc/init/vendor.xiaomi.hardware.misys@1.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@2.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@3.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@4.0-service.rc
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@1.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@2.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@3.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@4.0.xml
-vendor/lib/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
-vendor/lib/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
-vendor/lib/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
-vendor/lib/hw/vendor.xiaomi.hardware.misys@4.0-impl.so
-
 # Graphics & Rendering - Adreno Proprietary Stack
 vendor/lib64/libGLESv2_adreno.so
 vendor/lib64/libadreno_app_profiles.so
 vendor/lib64/libq3dtools_adreno.so
-
-# Xiaomi Hardware Interfaces (MiSys & Touch)
-vendor/lib/vendor.xiaomi.hardware.misys@1.0.so
-vendor/lib/vendor.xiaomi.hardware.misys@2.0.so
-vendor/lib/vendor.xiaomi.hardware.misys@3.0.so
-vendor/lib/vendor.xiaomi.hardware.misys@4.0.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@4.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hw.touchfeature@1.0-impl.so
-vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so
 
 # Display Engine - Custom Screen Calibration
 vendor/lib/libdisplayfeature.so
@@ -2562,8 +2510,6 @@ vendor/lib64/libqcrildatactl.so
 vendor/lib64/libqcrildataqos.so
 vendor/lib64/qcril_client.so
 
-# Connectivity - Data Packet Manager (DPM) & Ext Interfaces
-
 # Location & GPS - Qualcomm GNSS Pipeline
 vendor/lib/libgeofencing.so
 vendor/lib/libgnss.so
@@ -2584,7 +2530,3 @@ vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
 # Audio - Post-Processing & Perfd Integration
 vendor/lib/libqc2audio_hwaudiocodec.so
 vendor/lib/libqc2audio_swaudiocodec.so
-
-
-# NFC - Configuration Script
-vendor/libnfc-nxp_RF.conf
