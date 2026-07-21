@@ -26,8 +26,8 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Force stable baseline optimizations for debugging early boots
 TARGET_GLOBAL_OPTIMIZATION                   := O2 #03
-TARGET_GLOBAL_LTO                            := fasle #thin
-TARGET_GLOBAL_THINLTO                        := fasle #true
+TARGET_GLOBAL_LTO                            := false #thin
+TARGET_GLOBAL_THINLTO                        := false #true
 
 
 # ==============================================
