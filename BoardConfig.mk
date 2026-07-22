@@ -102,17 +102,17 @@ BOARD_BOOTCONFIG := \
     androidboot.debuggable=1
 
 # Modules for First Stage (Ramdisk) - Critical for mounting /system
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES                := $(wildcard $(KERNEL_PATH)/vendor_ramdisk/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES                := $(shell find $(KERNEL_PATH)/vendor_ramdisk -name "*.ko")
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD           := $(strip $(shell cat  $(KERNEL_PATH)/vendor_ramdisk/modules.load))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(KERNEL_PATH)/vendor_ramdisk/modules.blocklist
 
 # Modules for the rest of the Hardware (Vendor DLKM)
-BOARD_VENDOR_KERNEL_MODULES                        := $(wildcard $(KERNEL_PATH)/vendor_dlkm/*.ko)
+BOARD_VENDOR_KERNEL_MODULES                        := $(shell find $(KERNEL_PATH)/vendor_dlkm -name "*.ko")
 BOARD_VENDOR_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/vendor_dlkm/modules.load))
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE         := $(KERNEL_PATH)/vendor_dlkm/modules.blocklist
 
 # Modules for the rest of the Hardware (System DLKM)
-BOARD_SYSTEM_KERNEL_MODULES                        := $(wildcard $(KERNEL_PATH)/system_dlkm/*.ko)
+BOARD_SYSTEM_KERNEL_MODULES                        := $(shell find $(KERNEL_PATH)/system_dlkm -name "*.ko")
 BOARD_SYSTEM_KERNEL_MODULES_LOAD                   := $(strip $(shell cat $(KERNEL_PATH)/system_dlkm/modules.load))
 BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE         := $(KERNEL_PATH)/system_dlkm/modules.blocklist
 
