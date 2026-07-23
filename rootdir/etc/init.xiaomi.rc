@@ -14,22 +14,16 @@ on post-fs-data
     mkdir /data/vendor/fingerprint 0770 system system
     mkdir /mnt/vendor/persist/goodix 0770 system system
     mkdir /mnt/vendor/persist/fpc 0770 system system
+    mkdir /data/vendor/nfc 0770 nfc nfc
 
-# For the NFC variant (sapphiren)
-on post-fs && property:ro.boot.hwname=sapphiren
+on post-fs
     start stflashtool
     setprop ro.vendor.se.type HCE,UICC
     setprop ro.nfc.port I2C
 
-on post-fs-data && property:ro.boot.hwname=sapphiren
-    mkdir /data/vendor/nfc 0770 nfc nfc
-
-# For the non-NFC variant (sapphire)
-on boot && property:ro.boot.hwname=sapphire
-    stop vendor.st_nfc_hal_service
+on boot
     setprop ro.vendor.se.type ""
 
-on boot
     # Goodix sensor (if you have dual sensor support)
     chmod 0666 /dev/goodix_fp
     chown system system /dev/goodix_fp
@@ -37,10 +31,6 @@ on boot
     # Xiaomi fingerprint device
     chmod 0666 /dev/xiaomi-fp
     chown system system /dev/xiaomi-fp
-    
-    # FOD press detection - CRITICAL for screen-off UDFPS
-    chmod 0664 /sys/class/touch/touch_dev/fod_press_status
-    chown system graphics /sys/class/touch/touch_dev/fod_press_status
     
     # Wakeup source
     chown system system /sys/devices/platform/soc/soc:fingerprint_xiaomi/wakeup/wakeup7/active
