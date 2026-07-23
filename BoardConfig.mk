@@ -82,6 +82,11 @@ BOARD_KERNEL_SEPARATED_DTBO         := true
 BOARD_PREBUILT_DTBIMAGE_DIR         := $(KERNEL_PATH)/dtbs
 BOARD_PREBUILT_DTBOIMAGE            := $(KERNEL_PATH)/dtbs/dtbo.img
 
+BOARD_BOOTCONFIG := \
+    androidboot.hardware=qcom \
+    androidboot.memcg=1 \
+    androidboot.usbcontroller=4e00000.dwc3
+
 # Basic kernel cmdline
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
@@ -91,13 +96,9 @@ BOARD_KERNEL_CMDLINE := \
     rcutree.enable_rcu_lazy=1 \
     rcu_normal=1 \
     rcu_expedited=1 \
-    kasan=off
-
-BOARD_BOOTCONFIG := \
-    androidboot.hardware=qcom \
-    androidboot.memcg=1 \
-    androidboot.usbcontroller=4e00000.dwc3 \
-    androidboot.debuggable=1
+    kasan=off \
+    bootinfo.fingerprint=$(LINEAGE_VERSION) \
+    swinfo.fingerprint=$(LINEAGE_VERSION)
 
 # Modules for First Stage (Ramdisk) - Critical for mounting /system
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES                := $(shell find $(KERNEL_PATH)/vendor_ramdisk -name "*.ko")
