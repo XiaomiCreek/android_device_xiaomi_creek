@@ -83,11 +83,13 @@ void load_poco_creek() {
 void vendor_load_properties() {
     std::string hwname = GetProperty("ro.boot.hwname", "");
     if (access("/system/bin/recovery", F_OK) != 0) {
-    if (hwname == "creek") {
-        load_redmi_creek();
-    } else if (hwname == "creek_p") {
-        load_poco_creek();
-       }
+        if (hwname == "creek") {
+            load_redmi_creek();
+        } else if (hwname == "creek_p") {
+            load_poco_creek();
+        } else {
+            load_redmi_creek();
+        }
     }
 
     // Override first api level for safetynet
