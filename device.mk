@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2026 The LineageOS Project
-#
+# SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -631,7 +630,7 @@ PRODUCT_COPY_FILES += \
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
-    vndservicemanager
+    vndservicemanager \
     hwservicemanager
 
 # Verified Boot
