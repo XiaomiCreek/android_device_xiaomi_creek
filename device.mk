@@ -235,6 +235,7 @@ PRODUCT_PACKAGES += \
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom.vendor_ramdisk \
+    fstab.qcom \
     init.qcom.rc \
     init.qti.kernel.rc \
     init.recovery.qcom.rc \
@@ -242,8 +243,7 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.xiaomi.rc \
     ueventd.qcom.rc \
-    fstab.zram \
-    fstab.default
+    fstab.zram
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
@@ -264,7 +264,7 @@ PRODUCT_PACKAGES += \
     vendor_modprobe.sh
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_creek)
