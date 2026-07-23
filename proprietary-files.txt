@@ -28,6 +28,8 @@ vendor/lib/libadsp_default_listener.so
 vendor/lib/libadsprpc.so
 vendor/lib64/libadsp_default_listener.so
 vendor/lib64/libadsprpc.so
+vendor/lib/libvmmem.so
+vendor/lib64/libvmmem.so
 
 # ADSP modules
 vendor/lib/rfsa/adsp/libSnpeHtpV68Skel.so
@@ -1127,6 +1129,8 @@ vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
+vendor/lib/libgpt.so
+vendor/lib64/libgpt.so
 
 # DSP
 vendor/bin/dspservice
