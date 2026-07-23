@@ -632,6 +632,7 @@ PRODUCT_COPY_FILES += \
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
+    hwservicemanager
 
 # Verified Boot
 PRODUCT_COPY_FILES += \
