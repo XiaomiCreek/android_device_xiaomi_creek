@@ -22,8 +22,6 @@ on post-fs
     setprop ro.nfc.port I2C
 
 on boot
-    setprop ro.vendor.se.type ""
-
     # Goodix sensor (if you have dual sensor support)
     chmod 0666 /dev/goodix_fp
     chown system system /dev/goodix_fp
