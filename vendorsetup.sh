@@ -9,18 +9,18 @@ echo ""
 
 # Define directories and their matching repo details
 declare -A REPOS
-REPOS["packages/apps/FastCharge"]="https://github.com/project-creek/packages_apps_FastCharge.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/audio/agm"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_audio_agm.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/audio/pal"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_audio_pal.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/data-ipa-cfg-mgr"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_data-ipa-cfg-mgr.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/dataipa"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_dataipa.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/display"]="https://github.com/project-creek/hardware_qcom_display.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/media"]="https://github.com/project-creek/android_hardware_qcom-caf_sm6225_media.git sixteen"
-REPOS["hardware/qcom-caf/sm6225/audio/primary-hal"]="https://github.com/project-creek/hardware_qcom-caf_sm6225_audio_primary-hal.git 16-qpr2"
-REPOS["device/qcom/sepolicy_vndr/sm6225"]="https://github.com/project-creek/android_device_qcom_sepolicy_vndr_sm6225.git 16-qpr2"
-REPOS["device/xiaomi/sepolicy"]="https://github.com/project-creek/device_xiaomi_sepolicy.git 16"
-REPOS["hardware/dolby"]="https://github.com/project-creek/hardware_dolby.git 16"
-REPOS["hardware/xiaomi"]="https://github.com/project-creek/hardware_xiaomi.git bka-no-dolby"
+REPOS["packages/apps/FastCharge"]="https://github.com/XiaomiCreek/packages_apps_FastCharge.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/audio/agm"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_audio_agm.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/audio/pal"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_audio_pal.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/data-ipa-cfg-mgr"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_data-ipa-cfg-mgr.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/dataipa"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_dataipa.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/display"]="https://github.com/XiaomiCreek/hardware_qcom_display.git 16-qpr2"
+REPOS["hardware/qcom-caf/sm6225/media"]="https://github.com/XiaomiCreek/android_hardware_qcom-caf_sm6225_media.git sixteen"
+REPOS["hardware/qcom-caf/sm6225/audio/primary-hal"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_audio_primary-hal.git 16-qpr2"
+REPOS["device/qcom/sepolicy_vndr/sm6225"]="https://github.com/XiaomiCreek/android_device_qcom_sepolicy_vndr_sm6225.git 16-qpr2"
+REPOS["device/xiaomi/sepolicy"]="https://github.com/XiaomiCreek/device_xiaomi_sepolicy.git 16"
+REPOS["hardware/dolby"]="https://github.com/XiaomiCreek/hardware_dolby.git 16"
+REPOS["hardware/xiaomi"]="https://github.com/XiaomiCreek/hardware_xiaomi.git bka-no-dolby"
 
 FAILED_REPOS=()
 
