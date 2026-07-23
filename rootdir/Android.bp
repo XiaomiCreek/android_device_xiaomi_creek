@@ -1,12 +1,12 @@
 //
-// Copyright (C) 2023 The LineageOS Project
+// SPDX-FileCopyrightText: The LineageOS Project
 // SPDX-License-Identifier: Apache-2.0
 //
 
 // fstab
 prebuilt_etc {
-    name: "fstab.default",
-    src: "etc/fstab.default",
+    name: "fstab.qcom",
+    src: "etc/fstab.qcom",
     vendor: true,
     vendor_ramdisk_available: true,
 }
