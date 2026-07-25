@@ -983,6 +983,9 @@ vendor/etc/camera/166_Reverse.png
 # Camera postproc
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
+# Checkpoint GC
+vendor/bin/checkpoint_gc
+
 # Camera Extensions
 system_ext/framework/camerax-vendor-extensions.jar
 
