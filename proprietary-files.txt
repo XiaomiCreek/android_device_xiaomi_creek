@@ -87,8 +87,6 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 vendor/bin/hw/android.hardware.audio.service_64
-vendor/lib/android.hardware.audio.sounddose-vendor-impl.so
-vendor/lib64/android.hardware.audio.sounddose-vendor-impl.so
 vendor/lib64/libadm.so
 vendor/lib/libar-acdb.so
 vendor/lib/libar-gpr.so
@@ -481,7 +479,6 @@ vendor/lib/hw/camera.qcom.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib/hw/com.qti.chi.override.so
 vendor/lib64/hw/com.qti.chi.override.so
-vendor/lib64/libprocessgroup_shim.so
 
 # Camera Components & Sensors (32-bit)
 vendor/lib/camera/components/com.qti.camx.chiiqutils.so
@@ -1655,7 +1652,6 @@ vendor/lib64/vendor.qti.hardware.iop@2.0.so
 # Power - Qualcomm Native Power HAL Daemon Core
 vendor/bin/hw/android.hardware.power-service
 vendor/etc/init/android.hardware.power-service.rc
-vendor/lib64/android.hardware.power-V3-ndk.so
 
 # Radio
 vendor/bin/ATFWD-daemon
