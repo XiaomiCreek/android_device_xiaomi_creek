@@ -986,6 +986,46 @@ vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 # Checkpoint GC
 vendor/bin/checkpoint_gc
 
+# Codec2
+vendor/etc/seccomp_policy/codec2.vendor.base-arm64.policy
+vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy
+vendor/etc/seccomp_policy/c2audio.vendor.base-arm.policy
+vendor/etc/seccomp_policy/c2audio.vendor.base-arm64.policy
+vendor/etc/seccomp_policy/c2audio.vendor.ext-arm.policy
+vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy
+vendor/lib/libcodec2_hidl@1.0.so
+vendor/lib/libcodec2_hidl_plugin.so
+vendor/lib/libcodec2_vndk.so
+vendor/lib/libqcodec2_base.so
+vendor/lib/libqcodec2_basecodec.so
+vendor/lib/libqcodec2_core.so
+vendor/lib/libqcodec2_filterbase.so
+vendor/lib/libqcodec2_hooks.so
+vendor/lib/libqcodec2_mockfilter.so
+vendor/lib/libqcodec2_mockqc2filter.so
+vendor/lib/libqcodec2_platform.so
+vendor/lib/libqcodec2_utils.so
+vendor/lib/libqcodec2_v4l2codec.so
+vendor/lib64/libcodec2_hidl@1.0.so
+vendor/lib64/libcodec2_hidl@1.1.so
+vendor/lib64/libcodec2_hidl@1.2.so
+vendor/lib64/libcodec2_hidl_plugin.so
+vendor/lib64/libcodec2_soft_ac4dec.so
+vendor/lib64/libcodec2_soft_common.so
+vendor/lib64/libcodec2_soft_ddpdec.so
+vendor/lib64/libcodec2_store_dolby.so
+vendor/lib64/libcodec2_vndk.so
+vendor/lib64/libqcodec2_base.so
+vendor/lib64/libqcodec2_basecodec.so
+vendor/lib64/libqcodec2_core.so
+vendor/lib64/libqcodec2_filterbase.so
+vendor/lib64/libqcodec2_hooks.so
+vendor/lib64/libqcodec2_mockfilter.so
+vendor/lib64/libqcodec2_mockqc2filter.so
+vendor/lib64/libqcodec2_platform.so
+vendor/lib64/libqcodec2_utils.so
+vendor/lib64/libqcodec2_v4l2codec.so
+
 # Camera Extensions
 system_ext/framework/camerax-vendor-extensions.jar
 
