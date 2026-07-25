@@ -23,9 +23,9 @@ BUILD_BROKEN_INCORRECT_PARTITION_IMAGES      := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Force stable baseline optimizations for debugging early boots
-TARGET_GLOBAL_OPTIMIZATION                   := O2 #03
-TARGET_GLOBAL_LTO                            := false #thin
-TARGET_GLOBAL_THINLTO                        := false #true
+TARGET_GLOBAL_OPTIMIZATION                   := 03
+TARGET_GLOBAL_LTO                            := thin
+TARGET_GLOBAL_THINLTO                        := true
 
 
 # ==============================================
@@ -311,7 +311,7 @@ TARGET_PD_SERVICE_ENABLED                  := true
 TARGET_PER_MGR_ENABLED                     := true
 
 # Safe Recovery / Fastbootd
-TARGET_RECOVERY_FSTAB                      := $(DEVICE_PATH)/rootdir/etc/fstab.default
+TARGET_RECOVERY_FSTAB                      := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT               := RGBX_8888
 TARGET_RECOVERY_DEVICE_MODULES             := init_creek
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE   := true
