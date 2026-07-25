@@ -17,6 +17,7 @@
 
 # Fingerprint HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.silead\.hardware\.fingerprintext@1\.0-service u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/misc/xiaomi_fp(/.*)? u:object_r:vendor_fingerprint_data_file:s0
 
 # Fix Goodix events
@@ -36,6 +37,10 @@
 /vendor/bin/STFlashTool                                                 u:object_r:stflashtool_exec:s0
 /vendor/bin/hw/android\.hardware\.nfc@1\.2-service\.st                  u:object_r:hal_nfc_default_exec:s0
 /vendor/bin/hw/android\.hardware\.secure_element@1\.2-service           u:object_r:hal_secure_element_default_exec:s0
+
+# USB
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.2-service-qti               u:object_r:hal_usb_impl_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb\.gadget@1\.1-service-qti        u:object_r:hal_usb_gadget_impl_exec:s0
 
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal  u:object_r:hal_sensors_default_exec:s0

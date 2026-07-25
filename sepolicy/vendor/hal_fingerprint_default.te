@@ -1,6 +1,10 @@
 type vendor_hal_fingerprint_hwservice_xiaomi, hwservice_manager_type;
 typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
 
+binder_call(hal_fingerprint_default, hwservicemanager)
+add_hwservice(hal_fingerprint_default, hal_fingerprint_hwservice)
+allow hal_fingerprint_default hal_fingerprint_hwservice:hwservice_manager { add find };
+
 allow hal_fingerprint_default goodix_fingerprint_data_file:dir create_dir_perms;
 allow hal_fingerprint_default goodix_fingerprint_data_file:file create_file_perms;
 allow hal_fingerprint_default vendor_fingerprint_device:chr_file ioctl;
