@@ -1,3 +1,6 @@
+typeattribute hal_usb_impl_exec vendor_file_type;
+typeattribute hal_usb_gadget_impl_exec vendor_file_type;
+
 allow vendor_hal_usb_qti sysfs_udc:dir search;
 allow vendor_hal_usb_qti vendor_sysfs_graphics:dir search;
 allow vendor_hal_usb_qti vendor_sysfs_graphics:file read;
