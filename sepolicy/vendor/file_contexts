@@ -39,8 +39,8 @@
 /vendor/bin/hw/android\.hardware\.secure_element@1\.2-service           u:object_r:hal_secure_element_default_exec:s0
 
 # USB
-/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.2-service-qti               u:object_r:hal_usb_impl_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.usb\.gadget@1\.1-service-qti        u:object_r:hal_usb_gadget_impl_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.2-service-qti               u:object_r:vendor_hal_usb_qti_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb\.gadget@1\.1-service-qti        u:object_r:vendor_hal_usb_qti_exec:s0
 
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal  u:object_r:hal_sensors_default_exec:s0
