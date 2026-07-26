@@ -209,6 +209,7 @@ PRODUCT_PACKAGES += \
 # Display NDK
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-V1-ndk.vendor \
+    android.hardware.graphics.common-V1-ndk.vendor \
     android.hardware.graphics.common-V3-ndk.vendor \
     android.hardware.light-V2-ndk.vendor \
     android.hardware.memtrack-V1-ndk.vendor \
