@@ -30,8 +30,10 @@ for DIR in "${!REPOS[@]}"; do
     if [ -d "$DIR/.git" ]; then
         echo "----------------------------------------------------"
         echo "    Updating existing repo: [ $DIR ]"
+        CURRENT_URL=$(git -C "$DIR" remote get-url origin 2>/dev/null)
 
         if (
+            [ "$CURRENT_URL" != "$REPO_URL" ] &&
             cd "$DIR" &&
             git fetch origin "$BRANCH" &&
             git reset --hard FETCH_HEAD &&
@@ -44,7 +46,7 @@ for DIR in "${!REPOS[@]}"; do
             # Self-healing fallback option
             rm -rf "$DIR"
 
-            if git clone --depth=1 -b "$BRANCH" "$REPO_URL" "$DIR"; then
+            if git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"; then
                 echo "    ✓ Recovery Success: Fresh shallow clone completed"
             else
                 echo "    ✗ Critical Failure: Clone failed even after purging"
