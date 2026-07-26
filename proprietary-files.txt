@@ -2588,3 +2588,6 @@ vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
 # Audio - Post-Processing & Perfd Integration
 vendor/lib/libqc2audio_hwaudiocodec.so
 vendor/lib/libqc2audio_swaudiocodec.so
+
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.2.so
+vendor/lib/vendor.qti.hardware.qccsyshal@1.2.so
