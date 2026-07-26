@@ -76,14 +76,14 @@ vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # Audio
--vendor/lib/libar-gsl.so
--vendor/lib/libar-pal.so
--vendor/lib/liblx-osal.so
--vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
--vendor/lib64/libar-gsl.so
--vendor/lib64/libar-pal.so
--vendor/lib64/liblx-osal.so
--vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
+vendor/lib/libar-gsl.so
+vendor/lib/libar-pal.so
+vendor/lib/liblx-osal.so
+vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
+vendor/lib64/libar-gsl.so
+vendor/lib64/libar-pal.so
+vendor/lib64/liblx-osal.so
+vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 vendor/bin/hw/android.hardware.audio.service_64
@@ -112,14 +112,14 @@ vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_encdec.so
 
 # Audio Graph Manager
--vendor/lib/libagm.so
--vendor/lib64/libagm.so
+vendor/lib/libagm.so
+vendor/lib64/libagm.so
 vendor/lib64/libagm_compress_plugin.so
 vendor/lib64/libagm_mixer_plugin.so
 vendor/lib64/libagm_pcm_plugin.so
 vendor/lib64/libagmclient.so
--vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so
--vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
 vendor/lib64/libkaraokepal.so
 
 # Audio SoundFX
@@ -438,6 +438,11 @@ vendor/lib64/vendor.qti.latency@2.2.so
 system_ext/lib64/vendor.qti.hardware.cvp@1.0.so
 
 # Camera
+product/lib64/libarcsoft_calibverify_TriCamera.so
+product/lib64/libarcsoft_single_chart_calibration.so
+product/lib64/libarcsoft_tricam_calibration.so
+product/lib64/libarcsoft_tricam_calibration2D.so
+product/lib64/libarcsoft_tricam_verification.so
 vendor/lib/camera/com.qti.sensor.o19a_ofilm_gc08a8_front_ii.so
 vendor/lib/camera/com.qti.sensor.o19a_sunny_gc08a8_front_i.so
 vendor/lib/camera/com.qti.sensor.o19a_sunny_ov50d40_main_i.so
@@ -1346,8 +1351,8 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
 
 # Fastcv
--vendor/lib/libfastcvopt.so
--vendor/lib64/libfastcvopt.so
+vendor/lib/libfastcvopt.so
+vendor/lib64/libfastcvopt.so
 vendor/lib/libfastcvdsp_stub.so
 vendor/lib64/libfastcvdsp_stub.so
 
