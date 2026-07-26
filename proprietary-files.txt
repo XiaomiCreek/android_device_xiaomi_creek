@@ -438,11 +438,6 @@ vendor/lib64/vendor.qti.latency@2.2.so
 system_ext/lib64/vendor.qti.hardware.cvp@1.0.so
 
 # Camera
-product/lib64/libarcsoft_calibverify_TriCamera.so
-product/lib64/libarcsoft_single_chart_calibration.so
-product/lib64/libarcsoft_tricam_calibration.so
-product/lib64/libarcsoft_tricam_calibration2D.so
-product/lib64/libarcsoft_tricam_verification.so
 vendor/lib/camera/com.qti.sensor.o19a_ofilm_gc08a8_front_ii.so
 vendor/lib/camera/com.qti.sensor.o19a_sunny_gc08a8_front_i.so
 vendor/lib/camera/com.qti.sensor.o19a_sunny_ov50d40_main_i.so
