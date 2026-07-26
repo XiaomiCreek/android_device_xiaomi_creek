@@ -180,6 +180,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libqdMetaData.system \
     libsdmcore \
+    libgui_vendor \
     libsdmutils \
     vendor.display.config@1.14 \
     vendor.display.config@1.11.vendor \
@@ -474,6 +475,7 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
+    android.hardware.power-V3-ndk \
     libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
@@ -617,7 +619,9 @@ PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    usb_compositions.conf
+    usb_compositions.conf \
+    android.hardware.usb@1.1 \
+    android.hardware.usb.gadget@1.1
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_VENDOR_PROPERTIES += \
