@@ -343,6 +343,9 @@ DEVICE_MATRIX_FILE += \
 # ==========================================================
 
 # Display Graphics
+TARGET_USES_ION                                := true
+TARGET_USES_HWC2                               := true
+TARGET_USES_GRALLOC1                           := true
 TARGET_SCREEN_DENSITY                          := 420
 TARGET_HAS_HDR_DISPLAY                         := false
 TARGET_HAS_WIDE_COLOR_DISPLAY                  := true
