@@ -1450,6 +1450,7 @@ vendor/firmware/vpu20_1v.mbn
 vendor/firmware/vpu20_1v_unsigned.mbn
 vendor/firmware/vpu20_4v.mbn
 vendor/firmware/vpu20_4v_unsigned.mbn
+vendor/firmware/sipa.bin
 
 # GNSS
 vendor/bin/hw/android.hardware.gnss-aidl-service-qti
