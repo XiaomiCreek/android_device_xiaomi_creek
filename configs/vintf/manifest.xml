@@ -419,6 +419,26 @@
         </interface>
         <fqname>@1.0::ITouchFeature/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IComposer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.display.composer</name>
+        <transport>hwbinder</transport>
+        <version>3.0</version>
+        <interface>
+            <name>IQtiComposer</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@3.0::IQtiComposer/default</fqname>
+    </hal>
     <!-- < NFC > -->
     <hal format="hidl">
         <name>android.hardware.nfc</name>
