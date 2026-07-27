@@ -451,7 +451,7 @@
         </interface>
     </hal>
     <!-- AOSP Graphics Composer -->
-    <hal format="hidl">
+    <hal format="hidl" arch="32+64">
         <name>android.hardware.graphics.composer</name>
         <transport>hwbinder</transport>
         <version>2.4</version>
