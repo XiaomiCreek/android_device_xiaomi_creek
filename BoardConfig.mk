@@ -89,7 +89,6 @@ BOARD_BOOTCONFIG := \
 
 # Basic kernel cmdline
 BOARD_KERNEL_CMDLINE := \
-    console=ttyMSM0,115200n8 \
     androidboot.selinux=permissive \
     disable_dma32=on \
     rcu_nocbs=all \
