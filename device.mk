@@ -204,7 +204,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.0.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.1.vendor
+    vendor.qti.hardware.display.mapperextensions@1.1.vendor \
+    android.hardware.graphics.composer@2.4-service \
+    android.hardware.graphics.allocator@4.0-service \
+    hwcomposer.qcom \
+    gralloc.qcom
 
 # Display NDK
 PRODUCT_PACKAGES += \
