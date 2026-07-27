@@ -430,7 +430,6 @@
         </interface>
         <fqname>@1.2::INfc/default</fqname>
     </hal>
-</manifest>
 <!-- AOSP Graphics Allocator -->
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
@@ -481,3 +480,4 @@
             <instance>default</instance>
         </interface>
     </hal>
+</manifest>
