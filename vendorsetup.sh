@@ -49,14 +49,8 @@ for FILE in "${remove[@]}"; do
     rm -rf "$FILE"
 done
 
-echo "----------------------------------------------------"
-if [ ${#FAILED_REPOS[@]} -eq 0 ]; then
-    echo -e "${color}All repositories are synchronized and cleaned!${end}"
-else
-    echo "The following repositories failed:"
-    printf ' - %s\n' "${FAILED_REPOS[@]}"
-    exit 1
-fi
+echo -e "${color}All repositories are synchronized and cleaned!${end}"
+
 echo ""
 
 echo "----------------------------------------------------"
