@@ -167,14 +167,6 @@ $(call inherit-product, hardware/dolby/dolby.mk)
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
-# Dex pre-opt config
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
-WITH_DEXPREOPT := true
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
-WITH_DEXPREOPT_DEBUG_INFO := false
-DONT_DEXPREOPT_PREBUILTS := true
-PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4.vendor \
