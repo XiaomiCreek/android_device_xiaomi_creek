@@ -559,7 +559,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/bootctrl \
     hardware/xiaomi \
     hardware/qcom-caf/sm6225/dataipa \
-    vendor/qcom/opensource/usb/etc
+    vendor/qcom/opensource/usb/etc \
+    hardware/qcom-caf/sm6225/audio \
+    hardware/qcom-caf/sm6225/pal
+
 
 # Sku properties
 PRODUCT_COPY_FILES += \
