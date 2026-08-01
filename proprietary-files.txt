@@ -82,6 +82,7 @@ vendor/lib/liblx-osal.so
 vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/libar-gsl.so
 vendor/lib64/libar-pal.so
+vendor/lib64/libhf_pal.so
 vendor/lib64/liblx-osal.so
 vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 system_ext/etc/permissions/audiosphere.xml
