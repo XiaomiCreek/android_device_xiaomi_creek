@@ -78,6 +78,7 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 # Audio
 vendor/lib/libar-gsl.so
 vendor/lib/libar-pal.so
+vendor/lib/libhfp_pal.so
 vendor/lib/liblx-osal.so
 vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/libar-gsl.so
