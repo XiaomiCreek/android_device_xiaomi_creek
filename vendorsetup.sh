@@ -26,7 +26,7 @@ for DIR in "${!REPOS[@]}"; do
     read -r REPO_URL BRANCH <<< "${REPOS[$DIR]}"
     
     rm -rf "$DIR"
-    echo "cloning "$DIR"
+    echo "cloning $DIR"
     git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"
 done
 
