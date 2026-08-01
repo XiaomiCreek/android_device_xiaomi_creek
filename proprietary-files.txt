@@ -438,6 +438,8 @@ vendor/lib64/vendor.qti.latency@2.2.so
 system_ext/lib64/vendor.qti.hardware.cvp@1.0.so
 
 # Camera
+vendor/lib64/libmisight.so
+vendor/lib64/libsnsapi.so
 vendor/lib/camera/com.qti.sensor.o19a_ofilm_gc08a8_front_ii.so
 vendor/lib/camera/com.qti.sensor.o19a_sunny_gc08a8_front_i.so
 vendor/lib/camera/com.qti.sensor.o19a_sunny_ov50d40_main_i.so
@@ -1488,6 +1490,7 @@ vendor/lib/liblowi_client.so
 vendor/lib/liblowi_common.so
 vendor/lib/libpal_net_if.so
 vendor/lib/libperipheral_client.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 vendor/lib/libqcc_file_agent.so
 vendor/lib/libqcc_sdk.so
 vendor/lib/libsys_info_cache.so
