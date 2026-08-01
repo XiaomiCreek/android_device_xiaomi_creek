@@ -27,46 +27,9 @@ FAILED_REPOS=()
 for DIR in "${!REPOS[@]}"; do
     read -r REPO_URL BRANCH <<< "${REPOS[$DIR]}"
     
-    if [ -d "$DIR/.git" ]; then
-        echo "----------------------------------------------------"
-        echo "    Updating existing repo: [ $DIR ]"
-        CURRENT_URL=$(git -C "$DIR" remote get-url origin 2>/dev/null)
-
-        if (
-            [ "$CURRENT_URL" != "$REPO_URL" ] &&
-            cd "$DIR" &&
-            git fetch origin "$BRANCH" &&
-            git reset --hard FETCH_HEAD &&
-            git clean -fdx
-        ); then
-            echo "    ✓ Success"
-        else
-            echo "    ✗ Update failed. Attempting self-healing (Remove & Re-clone)..."
-            
-            # Self-healing fallback option
-            rm -rf "$DIR"
-
-            if git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"; then
-                echo "    ✓ Recovery Success: Fresh shallow clone completed"
-            else
-                echo "    ✗ Critical Failure: Clone failed even after purging"
-                FAILED_REPOS+=("$DIR")
-            fi
-        fi
-
-    else
-        echo "----------------------------------------------------"
-        echo "    [ $DIR ] is missing or broken. Doing shallow clone"
-        rm -rf "$DIR"
-
-        if git clone --depth=1 -b "$BRANCH" "$REPO_URL" "$DIR"; then
-            echo "    ✓ Cloned"
-
-        else
-            echo "    ✗ Clone failed"
-            FAILED_REPOS+=("$DIR")
-        fi
-    fi
+    rm -rf "$DIR"
+    git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"
+    
 done
 
 echo "----------------------------------------------------"
