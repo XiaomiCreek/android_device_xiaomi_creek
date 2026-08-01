@@ -478,7 +478,7 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
-    android.hardware.power-V3-ndk \
+    android.hardware.power-V3-ndk.vendor \
     libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
@@ -623,8 +623,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     usb_compositions.conf \
-    android.hardware.usb@1.1 \
-    android.hardware.usb.gadget@1.1
+    android.hardware.usb@1.1.vendor \
+    android.hardware.usb.gadget@1.1.vendor
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_VENDOR_PROPERTIES += \
