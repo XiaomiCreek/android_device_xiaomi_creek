@@ -22,37 +22,19 @@ REPOS["device/xiaomi/sepolicy"]="https://github.com/XiaomiCreek/device_xiaomi_se
 REPOS["hardware/dolby"]="https://github.com/XiaomiCreek/hardware_dolby.git 16"
 REPOS["hardware/xiaomi"]="https://github.com/XiaomiCreek/hardware_xiaomi.git bka-no-dolby"
 
-FAILED_REPOS=()
-
 for DIR in "${!REPOS[@]}"; do
     read -r REPO_URL BRANCH <<< "${REPOS[$DIR]}"
     
     rm -rf "$DIR"
+    echo "cloning "$DIR"
     git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"
-    
 done
 
-echo "----------------------------------------------------"
-echo -e "${color}Running post-sync configuration cleanups...${end}"
+rm -rf "hardware/qcom-caf/sm6225/data-ipa-cfg-mgr/Android.bp"
+rm -rf "hardware/xiaomi/FastCharge"
+
+echo -e "${color}All repositories are synchronized!${end}"
 echo ""
-
-# Define specific files to remove (Individual files use -f)
-declare -a remove=(
-    "hardware/qcom-caf/sm6225/data-ipa-cfg-mgr/Android.bp"
-    "hardware/xiaomi/FastCharge"
-    # "hardware/interfaces/compat_binder" <--- Just add more file/folders here!
-)
-
-# Process file/folder deletions
-for FILE in "${remove[@]}"; do
-    [ -e "$FILE" ] && echo "  -> Removing: $FILE"
-    rm -rf "$FILE"
-done
-
-echo -e "${color}All repositories are synchronized and cleaned!${end}"
-
-echo ""
-
 echo "----------------------------------------------------"
 echo -e "${color}Applying patches for Hw/Common${end}"
 echo ""
