@@ -73,7 +73,6 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 # Audio
 -vendor/lib64/libar-gsl.so
 -vendor/lib64/libar-pal.so
--vendor/lib64/libhfp_pal.so
 -vendor/lib64/liblx-osal.so
 -vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 system_ext/etc/permissions/audiosphere.xml
