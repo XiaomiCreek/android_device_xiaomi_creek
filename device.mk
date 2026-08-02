@@ -183,7 +183,6 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.11.vendor \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
-    vendor.qti.hardware.display.composer-service.xml \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.allocator@1.0.vendor \
     vendor.qti.hardware.display.allocator@3.0.vendor \
