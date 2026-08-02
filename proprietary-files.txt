@@ -70,17 +70,10 @@ vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
 vendor/bin/power_off_alarm
 vendor/bin/poweroffm64
 vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
-vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
-vendor/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # Audio
-vendor/lib/libar-gsl.so
-vendor/lib/libar-pal.so
-vendor/lib/libhfp_pal.so
-vendor/lib/liblx-osal.so
-vendor/lib/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/libar-gsl.so
 vendor/lib64/libar-pal.so
 vendor/lib64/libhfp_pal.so
@@ -90,23 +83,14 @@ system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 vendor/bin/hw/android.hardware.audio.service_64
 vendor/lib64/libadm.so
-vendor/lib/libar-acdb.so
-vendor/lib/libar-gpr.so
 vendor/lib64/libar-acdb.so
 vendor/lib64/libar-gpr.so
 vendor/lib64/libats.so
-vendor/lib/libdiag.so
-vendor/lib/libaudio_log_utils.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib/liblx-ar_util.so
 vendor/lib64/liblx-ar_util.so
 vendor/lib64/libmcs.so
 vendor/lib64/libqtigefar.so
-vendor/lib/libpdmapper.so
-vendor/lib/libpdnotifier.so
-vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_common_so.so
-vendor/lib/libqmi_encdec.so
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqmi_cci.so
@@ -114,13 +98,11 @@ vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_encdec.so
 
 # Audio Graph Manager
-vendor/lib/libagm.so
 vendor/lib64/libagm.so
 vendor/lib64/libagm_compress_plugin.so
 vendor/lib64/libagm_mixer_plugin.so
 vendor/lib64/libagm_pcm_plugin.so
 vendor/lib64/libagmclient.so
-vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
 vendor/lib64/libkaraokepal.so
 
