@@ -656,7 +656,8 @@ PRODUCT_COPY_FILES += \
 # shim
 PRODUCT_PACKAGES += \
     libui_shim \
-    libhidlbase_shim
+    libhidlbase_shim \
+    libprocessgroup_shim
 
 # VNDK
 PRODUCT_COPY_FILES += \
