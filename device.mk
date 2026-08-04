@@ -170,6 +170,8 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4.vendor \
+    android.hardware.graphics.allocator@4.0-service \
+    android.hardware.graphics.mapper@4.0-impl \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
@@ -198,8 +200,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.1.vendor \
-    android.hardware.graphics.composer@2.4-service \
-    android.hardware.graphics.allocator@4.0-service \
     hwcomposer.qcom \
     gralloc.qcom
 
