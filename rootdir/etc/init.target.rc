@@ -291,10 +291,11 @@ service vendor.mdm_helper /vendor/bin/mdm_helper
     group system wakelock
     disabled
 
-#service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
-#    class main
-#    user root
-#    group system wakelock
+service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
+	disabled
 
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
