@@ -558,7 +558,16 @@ PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/xiaomi
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/qcom-caf/common/libqti-perfd-client \
+    hardware/qcom-caf/bootctrl \
+    hardware/xiaomi \
+    hardware/qcom-caf/sm6225/dataipa \
+    vendor/qcom/opensource/usb/etc \
+    hardware/qcom-caf/sm6225/audio \
+    hardware/qcom-caf/sm6225/pal
 
 # Sku properties
 PRODUCT_COPY_FILES += \
