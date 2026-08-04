@@ -877,7 +877,7 @@ vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libsdmcore.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libsdmutils.so
-vendor/lib64/libtinyxml.so
+-vendor/lib64/libtinyxml.so
 vendor/lib64/libtinyxml2_1.so
 vendor/lib64/qti.video.utils.videobufferlayout.so
 vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
@@ -2069,6 +2069,7 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/init.qcom.usb.sh
 vendor/etc/init/hw/init.qcom.usb.rc
 vendor/etc/usb_compositions.conf
+-android.hardware.usb@1.2.so
 
 # UWB
 vendor/lib64/libstreamparser.so
