@@ -2069,7 +2069,6 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/init.qcom.usb.sh
 vendor/etc/init/hw/init.qcom.usb.rc
 vendor/etc/usb_compositions.conf
--android.hardware.usb@1.2.so
 
 # UWB
 vendor/lib64/libstreamparser.so
