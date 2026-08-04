@@ -220,6 +220,8 @@ on boot
 	# FastRPC permissions
     chmod 0666 /dev/adsprpc-smd
     chmod 0666 /dev/adsprpc-smd-secure
+	# Create required FastRPC symlink for audio daemon
+    symlink /dev/adsprpc-smd /dev/msm_audio_adsprpc
 
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
