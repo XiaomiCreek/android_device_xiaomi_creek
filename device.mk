@@ -535,9 +535,6 @@ PRODUCT_PACKAGES += \
     libsensorndkbridge
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
-
-PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -546,24 +543,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
+# shim
+PRODUCT_PACKAGES += \
+    libui_shim \
+    libhidlbase_shim
+
 # Shipping API
 BOARD_SHIPPING_API_LEVEL := 35
+SHIPPING_API_LEVEL := $(BOARD_API_LEVEL)
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
-    hardware/qcom-caf/common/libqti-perfd-client \
-    hardware/qcom-caf/bootctrl \
-    hardware/xiaomi \
-    hardware/qcom-caf/sm6225/dataipa \
-    vendor/qcom/opensource/usb/etc \
-    hardware/qcom-caf/sm6225/audio \
-    hardware/qcom-caf/sm6225/pal
-
+    hardware/xiaomi
 
 # Sku properties
 PRODUCT_COPY_FILES += \
@@ -623,19 +616,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb-service.qti \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh \
-    usb_compositions.conf \
-    android.hardware.usb@1.0.vendor \
-    android.hardware.usb@1.1.vendor \
-    android.hardware.usb@1.2.vendor \
-    android.hardware.usb.gadget@1.1.vendor
-
-ifneq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.usb.config=mtp,adb
-endif
+    android.hardware.usb-service.qti
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
@@ -643,8 +624,7 @@ PRODUCT_COPY_FILES += \
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
-    vndservicemanager \
-    hwservicemanager
+    vndservicemanager
 
 # Verified Boot
 PRODUCT_COPY_FILES += \
@@ -656,17 +636,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
-
-# shim
-PRODUCT_PACKAGES += \
-    libui_shim \
-    libhidlbase_shim \
-    libprocessgroup_shim
-
-# VNDK
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libstagefright_foundation-v33.so \
-    prebuilts/vndk/v33/arm64/arch-arm-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib/libstagefright_foundation-v33.so
 
 # WiFi
 PRODUCT_PACKAGES += \
