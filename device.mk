@@ -621,7 +621,9 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     usb_compositions.conf \
+    android.hardware.usb@1.0.vendor \
     android.hardware.usb@1.1.vendor \
+    android.hardware.usb@1.2.vendor \
     android.hardware.usb.gadget@1.1.vendor
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
