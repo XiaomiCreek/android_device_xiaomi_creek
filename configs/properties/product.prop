@@ -62,11 +62,9 @@ bluetooth.profile.pbap.server.enabled=true
 bluetooth.profile.vcp.controller.enabled=false
 persist.vendor.bt.a2dp.samplerate=true
 
-# Display / Rendering
+# Display
 debug.sf.enable_gl_backpressure=0
-debug.sf.enable_hwc_vds=0
 persist.vendor.adapt.sampler=true
-dev.pm.dyn_samplingrate=1
 
 # Media
 media.stagefright.audio.deep=false
