@@ -223,11 +223,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.config-V5-ndk.vendor \
     vendor.qti.hardware.display.config-V6-ndk.vendor
 
-# SurfaceFlinger / AIDL Composer Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.egl=adreno \
-    ro.hardware.vulkan=adreno
-
 PRODUCT_PACKAGES += \
     init.qti.display_boot.rc \
     init.qti.display_boot.sh
