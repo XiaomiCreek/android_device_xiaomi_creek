@@ -28,6 +28,8 @@ def blob_fixup_test_flag(
         f.write(b'\x01')
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc': blob_fixup()
+        .regex_replace('group system gps radio vendor_qti_diag vendor_ssgtzd', 'group system gps radio vendor_qti_diag'),
 }
 
 module = ExtractUtilsModule(
