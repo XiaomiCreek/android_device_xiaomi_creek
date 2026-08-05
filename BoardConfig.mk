@@ -335,15 +335,19 @@ DEVICE_MATRIX_FILE += \
 # ==========================================================
 
 # Display Graphics
-TARGET_USES_VULKAN                              := true
-TARGET_SCREEN_DENSITY                           := 420
-TARGET_HAS_HDR_DISPLAY                          := false
-TARGET_HAS_WIDE_COLOR_DISPLAY                   := true
+TARGET_SCREEN_DENSITY                          := 420
+TARGET_HAS_HDR_DISPLAY                         := false
+TARGET_HAS_WIDE_COLOR_DISPLAY                  := true
 
-# AIDL / Modern QTI Display Flags
-TARGET_USES_GRALLOC4                            := true
-TARGET_USES_DMA_BUF_HEAPS                       := true
-TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE         := true
+# QTI Display & Memory Management
+TARGET_USES_VULKAN                             := true
+TARGET_USES_COLOR_METADATA                     := true
+TARGET_USES_DISPLAY_RENDER_INTENTS             := true
+TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE        := true
+
+# Hardware Composer & Allocator (Modern DMA-BUF / Gralloc4 Path)
+TARGET_USES_HWC2                               := true
+TARGET_USES_GRALLOC4                           := true
 
 # Audio Configuration Interface
 TARGET_USES_QCOM_MM_AUDIO                      := true
