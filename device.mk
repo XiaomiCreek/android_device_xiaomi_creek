@@ -188,8 +188,7 @@ PRODUCT_PACKAGES += \
     libsdmutils \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
-    vendor.display.config@1.14 \
-    vendor.display.config@1.11.vendor \
+    vendor.display.config-V2-ndk \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.0.vendor \
