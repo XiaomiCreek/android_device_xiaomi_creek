@@ -97,11 +97,6 @@ on post-fs-data
     # Enable suspend to RAM
     write /sys/power/mem_sleep "s2idle"
 
-	# fastrpc / ADSP audio
-    mkdir /data/vendor/hfss 0770 system system
-    mkdir /data/vendor/rfsa 0770 system system
-    mkdir /data/vendor/rfsa/adsp 0770 system system
-
 # Display feature sysfs node
     chown system system /sys/class/mi_display/disp-DSI-0/disp_param
     chmod 0664 /sys/class/mi_display/disp-DSI-0/disp_param
@@ -217,12 +212,6 @@ on boot
     chown system system /proc/tp_gesture
     chmod 0644 /proc/tp_gesture
 
-	# FastRPC permissions
-    chmod 0666 /dev/adsprpc-smd
-    chmod 0666 /dev/adsprpc-smd-secure
-	# Create required FastRPC symlink for audio daemon
-    symlink /dev/adsprpc-smd /dev/msm_audio_adsprpc
-
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
@@ -232,7 +221,7 @@ on boot
     setprop vendor.usb.controller 4e00000.dwc3
     setprop persist.sys.offlinelog.poweroff_charger_log true
     wait /dev/qg
-    #start vendor.hvdcp_opti
+    start vendor.hvdcp_opti
 
 #Start mi_thermald
     start mi_thermald
@@ -254,7 +243,7 @@ on charger
     setprop persist.sys.offlinelog.poweroff_charger_log true
     wait /dev/qg
     start vendor.power_off_alarm
-    #start vendor.hvdcp_opti
+    start vendor.hvdcp_opti
     exec_background - system system -- /vendor/bin/init.qti.chg_policy.sh
     mkdir /data/vendor/charge_logger 0771 system system
     start charger
@@ -297,7 +286,6 @@ service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
     class main
     user root
     group system wakelock
-	disabled
 
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
