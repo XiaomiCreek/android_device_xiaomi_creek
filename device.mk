@@ -218,9 +218,7 @@ PRODUCT_PACKAGES += \
 # SurfaceFlinger / AIDL Composer Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.egl=adreno \
-    ro.hardware.vulkan=adreno \
-    debug.sf.enable_hwc_vds=0 \
-    dev.pm.dyn_samplingrate=1
+    ro.hardware.vulkan=adreno
 
 PRODUCT_PACKAGES += \
     init.qti.display_boot.rc \
