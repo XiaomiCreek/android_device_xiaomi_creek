@@ -342,11 +342,8 @@ TARGET_HAS_WIDE_COLOR_DISPLAY                   := true
 
 # AIDL / Modern QTI Display Flags
 TARGET_USES_GRALLOC4                            := true
-TARGET_USES_AIDL_GRAPHICS_COMPOSER              := true
-TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE         := true
-
-# Force DMA-BUF heap allocator instead of legacy ION
 TARGET_USES_DMA_BUF_HEAPS                       := true
+TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE         := true
 
 # Audio Configuration Interface
 TARGET_USES_QCOM_MM_AUDIO                      := true

@@ -177,6 +177,7 @@ PRODUCT_ENABLE_UFFD_GC := true
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.4.vendor \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
@@ -186,11 +187,23 @@ PRODUCT_PACKAGES += \
     libsdmcore \
     libgui_vendor \
     libsdmutils \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.composer-service \
-    vendor.display.config-V2-ndk \
+    vendor.display.config@1.14 \
+    vendor.display.config@1.11.vendor \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.allocator@1.0.vendor \
+    vendor.qti.hardware.display.allocator@3.0.vendor \
+    vendor.qti.hardware.display.allocator@4.0.vendor \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.composer@1.0.vendor \
+    vendor.qti.hardware.display.composer@2.0.vendor \
+    vendor.qti.hardware.display.composer@3.0.vendor \
+    vendor.qti.hardware.display.mapper@1.0.vendor \
+    vendor.qti.hardware.display.mapper@1.1.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.1.vendor
 
@@ -200,11 +213,7 @@ $(call soong_config_set,qtidisplaycomposer,qtidisplaycomposertargets,qtidisplayc
 # Display NDK
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-V1-ndk.vendor \
-    android.hardware.graphics.common-V1-ndk.vendor \
     android.hardware.graphics.common-V3-ndk.vendor \
-    android.hardware.graphics.common-V4-ndk.vendor \
-    android.hardware.graphics.composer-V1-ndk.vendor \
-    android.hardware.graphics.composer-V2-ndk.vendor \
     android.hardware.light-V2-ndk.vendor \
     android.hardware.memtrack-V1-ndk.vendor \
     vendor.qti.hardware.display.config-V1-ndk.vendor \
