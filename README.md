@@ -29,5 +29,5 @@ The Redmi 15 4G / POCO M7 4G (codenamed _"creek"_) is a mid-range smartphone fro
 
 ## Device picture
 
-![POCO M7 4G / REDMI 15 4G](https://github.com/user-attachments/assets/3e019fa5-a06e-476f-a14f-76dc0c13ca2c)
+<img width="850" height="850" alt="PSX_20260724_085715 jpg" src="https://github.com/user-attachments/assets/50d0dafa-3877-42b9-a05a-dbcbb15ff8ff" />
 
