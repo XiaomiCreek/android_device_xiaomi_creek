@@ -169,9 +169,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
-# Dolby
-$(call inherit-product, hardware/dolby/dolby.mk)
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4.vendor \
@@ -233,9 +230,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-V1-ndk.vendor \
     libcrypto-v33 \
     libdrm.vendor
-
-# Fastcharge
-$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
 # Fastbootd
 PRODUCT_PACKAGES += \
