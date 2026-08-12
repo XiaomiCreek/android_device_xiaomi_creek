@@ -1,5 +1,5 @@
 cc_library_static {
-    name: "libperfmgr-ext-xiaomi",
+    name: "libpowermode-ext-creek",
     defaults: [
         "android.hardware.power-ndk_shared",
     ],
