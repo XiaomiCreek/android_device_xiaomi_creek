@@ -917,9 +917,6 @@ vendor/lib64/libdisplayfeatureservice.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
 
 # ESEPower Manager
-vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
-vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
-vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
 vendor/lib64/libesesbprovision.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 vendor/lib64/vendor.qti.esepowermanager@1.1.so
