@@ -106,10 +106,6 @@ vendor/lib64/libkaraokepal.so
 
 # Audio SoundFX
 vendor/lib64/soundfx/libasphere.so
-vendor/lib/soundfx/libasphere.so
-vendor/lib/soundfx/libqcompostprocbundle.so
-vendor/lib/soundfx/libqcomvisualizer.so
-vendor/lib/soundfx/libvolumelistener.so
 vendor/lib64/soundfx/libmisoundfx.so
 
 # Audio configs
