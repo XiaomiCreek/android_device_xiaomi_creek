@@ -4,23 +4,13 @@ color="\033[0;32m"
 end="\033[0m"
 
 echo "----------------------------------------------------"
-echo -e "${color}Starting optimized hardware HAL sync...${end}"
+echo -e "${color}Starting additional repo sync...${end}"
 echo ""
 
 # Define directories and their matching repo details
 declare -A REPOS
-REPOS["packages/apps/FastCharge"]="https://github.com/XiaomiCreek/packages_apps_FastCharge.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/audio/agm"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_audio_agm.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/audio/pal"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_audio_pal.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/data-ipa-cfg-mgr"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_data-ipa-cfg-mgr.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/dataipa"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_dataipa.git 16-qpr2"
-REPOS["hardware/qcom-caf/sm6225/display"]="https://github.com/XiaomiCreek/hardware_qcom_display.git lineage-23.2-caf-sm6225"
-REPOS["hardware/qcom-caf/sm6225/media"]="https://github.com/XiaomiCreek/android_hardware_qcom-caf_sm6225_media.git sixteen"
-REPOS["hardware/qcom-caf/sm6225/audio/primary-hal"]="https://github.com/XiaomiCreek/hardware_qcom-caf_sm6225_audio_primary-hal.git 16-qpr2"
 REPOS["device/qcom/sepolicy_vndr/sm6225"]="https://github.com/XiaomiCreek/android_device_qcom_sepolicy_vndr_sm6225.git 16-qpr2"
 REPOS["device/xiaomi/sepolicy"]="https://github.com/XiaomiCreek/device_xiaomi_sepolicy.git 16"
-REPOS["hardware/dolby"]="https://github.com/XiaomiCreek/hardware_dolby.git 16"
-REPOS["hardware/xiaomi"]="https://github.com/XiaomiCreek/hardware_xiaomi.git bka-no-dolby"
 
 for DIR in "${!REPOS[@]}"; do
     read -r REPO_URL BRANCH <<< "${REPOS[$DIR]}"
@@ -29,9 +19,6 @@ for DIR in "${!REPOS[@]}"; do
     echo "cloning $DIR"
     git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"
 done
-
-rm -rf "hardware/qcom-caf/sm6225/data-ipa-cfg-mgr/Android.bp"
-rm -rf "hardware/xiaomi/FastCharge"
 
 echo -e "${color}All repositories are synchronized!${end}"
 echo ""
