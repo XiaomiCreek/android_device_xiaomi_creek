@@ -4,24 +4,12 @@ color="\033[0;32m"
 end="\033[0m"
 
 echo "----------------------------------------------------"
-echo -e "${color}Starting additional repo sync...${end}"
+echo -e "${color}patching device/qcom/sepolicy_vndr/sm6225...${end}"
 echo ""
 
-# Define directories and their matching repo details
-declare -A REPOS
-REPOS["device/qcom/sepolicy_vndr/sm6225"]="https://github.com/XiaomiCreek/android_device_qcom_sepolicy_vndr_sm6225.git 16-qpr2"
-REPOS["device/xiaomi/sepolicy"]="https://github.com/XiaomiCreek/device_xiaomi_sepolicy.git 16"
+rm -rf device/qcom/sepolicy_vndr/sm6225
+git clone --depth=1 --quiet -b 16-qpr2 https://github.com/XiaomiCreek/android_device_qcom_sepolicy_vndr_sm6225.git device/qcom/sepolicy_vndr/sm6225
 
-for DIR in "${!REPOS[@]}"; do
-    read -r REPO_URL BRANCH <<< "${REPOS[$DIR]}"
-    
-    rm -rf "$DIR"
-    echo "cloning $DIR"
-    git clone --depth=1 --quiet -b "$BRANCH" "$REPO_URL" "$DIR"
-done
-
-echo -e "${color}All repositories are synchronized!${end}"
-echo ""
 echo "----------------------------------------------------"
 echo -e "${color}Applying patches for Hw/Common${end}"
 echo ""
