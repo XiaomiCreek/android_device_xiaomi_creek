@@ -208,7 +208,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapperextensions@1.1.vendor
 
 $(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
-$(call soong_config_set,qtidisplaycomposer,qtidisplaycomposertargets,qtidisplaycomposertarget_NON_LOW_RAM_TARGET)
 
 # Display NDK
 PRODUCT_PACKAGES += \
