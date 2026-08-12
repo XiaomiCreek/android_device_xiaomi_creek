@@ -1,13 +1,22 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2020 The LineageOS Project
  *
- * SPDX-License-Identifier: Apache-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include <aidl/android/hardware/power/BnPower.h>
 #include <android-base/file.h>
 #include <android-base/logging.h>
-#include <sys/ioctl.h>
 #include <linux/input.h>
 
 namespace {
@@ -28,7 +37,8 @@ int open_ts_input() {
 
                 fd = open(absolute_path, O_RDWR);
                 if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
-                    if (strcmp(name, "fts_ts") == 0 || strcmp(name, "NVTCapacitiveTouchScreen") == 0)
+                    if (strcmp(name, "fts") == 0 || strcmp(name, "goodix_ts") == 0 ||
+                            strcmp(name, "NVTCapacitiveTouchScreen") == 0)
                         break;
                 }
 
@@ -45,11 +55,10 @@ int open_ts_input() {
 }  // anonymous namespace
 
 namespace aidl {
-namespace google {
+namespace android {
 namespace hardware {
 namespace power {
 namespace impl {
-namespace pixel {
 
 static constexpr int kInputEventWakeupModeOff = 4;
 static constexpr int kInputEventWakeupModeOn = 5;
@@ -88,9 +97,8 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
     }
 }
 
-}  // namespace pixel
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware
-}  // namespace google
+}  // namespace android
 }  // namespace aidl
