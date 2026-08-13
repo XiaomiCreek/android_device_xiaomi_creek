@@ -1066,7 +1066,7 @@ vendor/lib64/libgnss.so
 vendor/lib64/libgnsspps.so
 vendor/lib64/libgps.utils.so
 vendor/lib64/libgpt.so
--vendor/lib64/libipanat.so
+vendor/lib64/libipanat.so
 vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/libjnihelper.so
