@@ -296,9 +296,6 @@ $(call soong_config_set, ufsbsg, ufsframework, bsg)
 # Camera
 $(call soong_config_set_bool, camera, override_format_from_reserved, true)
 
-# Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_creek)
-
 # Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED                  := true
 
