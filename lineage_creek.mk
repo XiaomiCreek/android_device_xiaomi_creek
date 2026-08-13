@@ -10,6 +10,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from LineageOS common configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Inherit Dolby and FastCharge configurations
+$(call inherit-product, hardware/dolby/dolby.mk)
+$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
+
 # Inherit the hardware configuration for the actual device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
