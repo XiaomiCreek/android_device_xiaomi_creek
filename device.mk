@@ -84,14 +84,10 @@ PRODUCT_PACKAGES += \
     audioadsprpcd \
     libsndcardparser
 
-$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
-
 PRODUCT_COPY_FILES += \
     $(AUDIO_HAL_DIR)/configs/common/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/configs/audio/audio_policy_configuration_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_vendor.xml \
-    $(LOCAL_PATH)/configs/audio/audio_policy_configuration_gaming.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_gaming.xml \
     $(LOCAL_PATH)/configs/audio/kvh2xml.xml:$(TARGET_COPY_OUT_VENDOR)/etc/kvh2xml.xml
 
 PRODUCT_COPY_FILES += \
@@ -144,6 +140,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     libcamera2ndk_vendor \
+    libdng_sdk.vendor \
     libgui_vendor \
     libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
@@ -179,7 +176,6 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libqdMetaData.system \
     libsdmcore \
-    libgui_vendor \
     libsdmutils \
     vendor.display.config@1.14 \
     vendor.display.config@1.11.vendor \
@@ -414,8 +410,7 @@ PRODUCT_PACKAGES += \
 
 # Net
 PRODUCT_PACKAGES += \
-    android.system.net.netd@1.1.vendor \
-    libnetutils.vendor
+    android.system.net.netd@1.1.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -474,10 +469,6 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,qtipower,mode_ext_lib,//$(LOCAL_PATH):libpowermode-ext-creek)
 $(call soong_config_set,qtipower,tap_to_wake_node,/proc/tp_gesture)
-
-# QCC
-PRODUCT_PACKAGES += \
-    libgrpc++_unsecure.vendor
 
 # QMI
 PRODUCT_PACKAGES += \
