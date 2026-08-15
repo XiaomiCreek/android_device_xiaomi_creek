@@ -57,12 +57,6 @@ on init
 on early-fs
     start vold
     
-    # Xiaomi Thermal Profiles permissions
-    chmod 0664 /sys/class/thermal/thermal_message/sconfig
-    chown system system /sys/class/thermal/thermal_message/sconfig
-    chmod 0666 /sys/class/thermal/thermal_message/temp_state
-    chown system system /sys/class/thermal/thermal_message/temp_state
-
 on fs
     start hwservicemanager
     mount_all /vendor/etc/fstab.qcom --early
@@ -82,6 +76,10 @@ on fs
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
+
+    # dfx misight miev
+    chmod 0662 /dev/miev
+    restorecon /dev/miev
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
@@ -219,9 +217,6 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss_sw"
     setprop vendor.usb.controller 4e00000.dwc3
-    setprop persist.sys.offlinelog.poweroff_charger_log true
-    wait /dev/qg
-    start vendor.hvdcp_opti
 
 #Start mi_thermald
     start mi_thermald
@@ -238,16 +233,12 @@ on property:vendor.usb.controller=*
     setprop sys.usb.controller ${vendor.usb.controller}
 
 on charger
+    start vendor.power_off_alarm
     setprop vendor.usb.controller 4e00000.dwc3
     setprop sys.usb.configfs 1
     setprop persist.sys.offlinelog.poweroff_charger_log true
     wait /dev/qg
-    start vendor.power_off_alarm
     start vendor.hvdcp_opti
-    exec_background - system system -- /vendor/bin/init.qti.chg_policy.sh
-    mkdir /data/vendor/charge_logger 0771 system system
-    start charger
-    class_start charger
 
 #Start mi_thermald
     start mi_thermald
@@ -365,13 +356,6 @@ on property:persist.vendor.tcpdump.enable=false
 
 on property:persist.sys.cota.carrier=OR
    stop vendor.tcpdump
-
-on property:vendor.post_boot.parsed=1
-    # Set restricted cpuset to the same CPUs as system-background
-    copy /dev/cpuset/system-background/cpus /dev/cpuset/restricted/cpus
-
-on property:sys.boot_completed=1
-    write /sys/devices/virtual/thermal/thermal_message/sconfig 20
 
 #add for btmac property
 on property:persist.ro.ril.oem.btmac=*
