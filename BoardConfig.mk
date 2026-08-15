@@ -339,7 +339,7 @@ DEVICE_MATRIX_FILE += \
 # Display Graphics
 TARGET_SCREEN_DENSITY                          := 420
 TARGET_HAS_HDR_DISPLAY                         := false
-TARGET_HAS_WIDE_COLOR_DISPLAY                  := false
+TARGET_HAS_WIDE_COLOR_DISPLAY                  := true
 
 # Audio Configuration Interface
 TARGET_USES_QCOM_MM_AUDIO                      := true
@@ -352,7 +352,7 @@ AUDIO_FEATURE_ENABLED_GEF_SUPPORT              := true
 AUDIO_FEATURE_ENABLED_INSTANCE_ID              := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE             := true
 AUDIO_FEATURE_ENABLED_HW_ACCELERATED_EFFECTS   := true
-AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := false
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 
 # Power
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
