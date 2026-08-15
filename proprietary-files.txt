@@ -1573,8 +1573,6 @@ vendor/etc/init/init.qti.qcv.rc
 # Required-QCC Protobuf
 system/lib64/libprotobuf-cpp-full.so:system_ext/lib64/libprotobuf-cpp-full-fromvendor.so
 system/lib64/libprotobuf-cpp-lite.so:system_ext/lib64/libprotobuf-cpp-lite-fromvendor.so
-vendor/lib64/libprotobuf-cpp-full-3.9.1.so
-vendor/lib64/libprotobuf-cpp-lite-3.9.1.so
 
 # QMI
 vendor/bin/qmipriod
