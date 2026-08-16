@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
-#
-# Copyright (c) 2021 The Linux Foundation. All rights reserved.
+
+# Copyright (c) 2012, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -27,38 +27,9 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
+#
 
-soc_id=`cat /sys/devices/soc0/soc_id` 2> /dev/null
-
-# Store soc_id in ro.vendor.qti.soc_id
-setprop ro.vendor.qti.soc_id $soc_id
-
-if [ "$soc_id" -eq 444 ]; then
-    setprop ro.vendor.qti.soc_model SM6115
-elif [ "$soc_id" -eq 417 ]; then
-    setprop ro.vendor.qti.soc_model SM4250
-elif [ "$soc_id" -eq 441 ]; then
-    setprop ro.vendor.qti.soc_model SM4125
-elif [ "$soc_id" -eq 518 ]; then
-    setprop ro.vendor.qti.soc_model SM6225
-elif [ "$soc_id" -eq 469 ]; then
-    setprop ro.vendor.qti.soc_model QCM4290
-elif [ "$soc_id" -eq 470 ]; then
-    setprop ro.vendor.qti.soc_model QCS4290
-elif [ "$soc_id" -eq 473 ]; then
-    setprop ro.vendor.qti.soc_model QCM2290
-elif [ "$soc_id" -eq 474 ]; then
-    setprop ro.vendor.qti.soc_model QCS2290
-elif [ "$soc_id" -eq 497 ]; then
-    setprop ro.vendor.qti.soc_model QCM6490
-elif [ "$soc_id" -eq 498 ]; then
-    setprop ro.vendor.qti.soc_model QCS6490
-elif [ "$soc_id" -eq 585 ]; then
-    setprop ro.vendor.qti.soc_model SG4150P
-    setprop vendor.audio.feature.dmabuf.cma.memory.enable true
-elif [ "$soc_id" -eq 586 ]; then
-    setprop ro.vendor.qti.soc_model QCM4325
-fi
+PATH=/system/bin:$PATH
+export PATH
+cat /sys/devices/platform/rs300000a7.65536/force_sync
+cat /sys/devices/platform/rs300100a7.65536/force_sync

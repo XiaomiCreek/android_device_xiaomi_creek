@@ -1,1 +1,0 @@
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.system.ota.json_url=${OTA_URL}

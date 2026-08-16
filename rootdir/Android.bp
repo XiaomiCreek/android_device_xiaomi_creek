@@ -11,14 +11,14 @@ prebuilt_etc {
     vendor_ramdisk_available: true,
 }
 
-// zram
+// Init configuration files
 prebuilt_etc {
-    name: "fstab.zram",
-    src: "etc/fstab.zram",
+    name: "init.qcom.factory.rc",
+    src: "etc/init.qcom.factory.rc",
+    sub_dir: "init/hw",
     vendor: true,
 }
 
-// Init configuration files
 prebuilt_etc {
     name: "init.qcom.rc",
     src: "etc/init.qcom.rc",
@@ -27,9 +27,9 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.creek.perf.rc",
-    src: "etc/init.creek.perf.rc",
-    sub_dir: "init",
+    name: "init.qcom.usb.rc",
+    src: "etc/init.qcom.usb.rc",
+    sub_dir: "init/hw",
     vendor: true,
 }
 
@@ -38,6 +38,13 @@ prebuilt_etc {
     src: "etc/init.qti.kernel.rc",
     sub_dir: "init/hw",
     vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.qti.ufs.rc",
+    src: "etc/init.qti.ufs.rc",
+    sub_dir: "init",
+    recovery: true,
 }
 
 prebuilt_etc {
@@ -76,8 +83,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.kernel.post_boot-bengal-iot.sh",
-    src: "bin/init.kernel.post_boot-bengal-iot.sh",
+    name: "init.crda.sh",
+    src: "bin/init.crda.sh",
     vendor: true,
 }
 
@@ -88,8 +95,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.creek_perf.sh",
-    src: "bin/init.creek_perf.sh",
+    name: "init.kernel.post_boot-bengal-iot.sh",
+    src: "bin/init.kernel.post_boot-bengal-iot.sh",
     vendor: true,
 }
 
@@ -106,8 +113,20 @@ sh_binary {
 }
 
 sh_binary {
+    name: "init.mdm.sh",
+    src: "bin/init.mdm.sh",
+    vendor: true,
+}
+
+sh_binary {
     name: "init.qcom.class_core.sh",
     src: "bin/init.qcom.class_core.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qcom.coex.sh",
+    src: "bin/init.qcom.coex.sh",
     vendor: true,
 }
 
@@ -118,14 +137,44 @@ sh_binary {
 }
 
 sh_binary {
+    name: "init.qcom.efs.sync.sh",
+    src: "bin/init.qcom.efs.sync.sh",
+    vendor: true,
+}
+
+sh_binary {
     name: "init.qcom.post_boot.sh",
     src: "bin/init.qcom.post_boot.sh",
     vendor: true,
 }
 
 sh_binary {
+    name: "init.qcom.sdio.sh",
+    src: "bin/init.qcom.sdio.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qcom.sensors.sh",
+    src: "bin/init.qcom.sensors.sh",
+    vendor: true,
+}
+
+sh_binary {
     name: "init.qcom.sh",
     src: "bin/init.qcom.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qcom.usb.sh",
+    src: "bin/init.qcom.usb.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.chg_policy.sh",
+    src: "bin/init.qti.chg_policy.sh",
     vendor: true,
 }
 
@@ -138,6 +187,30 @@ sh_binary {
 sh_binary {
     name: "init.qti.early_init.sh",
     src: "bin/init.qti.early_init.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.kernel.debug-bengal.sh",
+    src: "bin/init.qti.kernel.debug-bengal.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.kernel.debug-khaje.sh",
+    src: "bin/init.qti.kernel.debug-khaje.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.kernel.debug-scuba.sh",
+    src: "bin/init.qti.kernel.debug-scuba.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.kernel.debug.sh",
+    src: "bin/init.qti.kernel.debug.sh",
     vendor: true,
 }
 

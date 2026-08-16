@@ -1,5 +1,5 @@
 #=============================================================================
-# Copyright (c) 2019-2022 Qualcomm Technologies, Inc.
+# Copyright (c) 2019-2022,2024 Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -29,14 +29,27 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
+import /vendor/etc/init/hw/init.qti.kernel.test.rc
+
+on early-init && property:ro.vendor.qti.load_dlkm.service=native
+    start load_dlkm
+
+on early-init && property:ro.vendor.qti.load_dlkm.service=""
+    start gki.modprobe
+    start vendor.modprobe
 
 on early-init
     # Set the console loglevel to < KERN_WARN
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "4 6 1 7"
 
-    start gki.modprobe
+    exec_start gki.modprobe
     start vendor.modprobe
+
+    # Mount tracefs in /sys/kernel/tracing as CONFIG_DEBUG_FS might be
+    # disabled and /sys/kernel/debug/tracing might not be available
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
 
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
@@ -137,6 +150,12 @@ on property:persist.vendor.sys.rawdump_copy=1
 on property:persist.vendor.sys.rawdump_copy=0
     write /sys/kernel/dload/emmc_dload 0
 
+on property:vendor.audio.close_uartlog=1
+    write /proc/sys/kernel/printk "0 0 0 0"
+
+on property:vendor.audio.close_uartlog=0
+    write /proc/sys/kernel/printk "6 6 1 7"
+
 service kernel-boot /vendor/bin/sh /vendor/bin/init.qti.kernel.sh
     class core
     user root
@@ -157,17 +176,6 @@ on property:sys.boot_completed=1
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/dm-1/queue/read_ahead_kb 512
     write /sys/block/dm-2/queue/read_ahead_kb 512
-    write /proc/sys/vm/page-cluster 0
-    # Swap more aggressively
-    write /proc/sys/vm/swappiness 180
-    # Define vm/vfs_cache_pressure for bengal/khaje
-    write /proc/sys/vm/vfs_cache_pressure 50
-    # Set zRAM compression algorithm to LZ4
-    write /sys/block/zram0/comp_algorithm lz4
-    # Enable zRAM data deduplication feature
-    write /sys/block/zram0/use_dedup 1
-    # Mount swap partitions specified in fstab
-    swapon_all /vendor/etc/fstab.zram
     start kernel-boot
     start kernel-post-boot
 
@@ -190,6 +198,15 @@ service gki.modprobe /vendor/bin/system_dlkm_modprobe.sh
     oneshot
 
 service vendor.modprobe /vendor/bin/vendor_modprobe.sh
+    class main
+    user root
+    group root system
+    disabled
+    stdio_to_kmsg
+    seclabel u:r:vendor_modprobe:s0
+    oneshot
+
+service load_dlkm /vendor/bin/load_dlkm
     class main
     user root
     group root system

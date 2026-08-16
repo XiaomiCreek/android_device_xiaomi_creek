@@ -10,8 +10,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from LineageOS common configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit Dolby and FastCharge configurations
-$(call inherit-product, hardware/dolby/dolby.mk)
+# Inherit FastCharge configurations
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
 # Inherit the hardware configuration for the actual device

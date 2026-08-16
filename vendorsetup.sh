@@ -4,13 +4,6 @@ color="\033[0;32m"
 end="\033[0m"
 
 echo "----------------------------------------------------"
-echo -e "${color}patching device/qcom/sepolicy_vndr/sm6225...${end}"
-echo ""
-
-rm -rf device/qcom/sepolicy_vndr/sm6225
-git clone --depth=1 --quiet -b 16-qpr2 https://github.com/XiaomiCreek/android_device_qcom_sepolicy_vndr_sm6225.git device/qcom/sepolicy_vndr/sm6225
-
-echo "----------------------------------------------------"
 echo -e "${color}Applying patches for Hw/Common${end}"
 echo ""
 
@@ -77,5 +70,29 @@ if [ -d "$QCOM_CAF_COMMON" ]; then
     echo -e "${color}✓ bengal_515 patches applied${end}"
 else
     echo "Warning: $QCOM_CAF_COMMON not found. Skipping patches."
+fi
+echo ""
+
+# Setup sm6225 soong_namespace in hardware/qcom-caf/sm6225/Android.bp
+SM6225_DIR="$ANDROID_BUILD_TOP/hardware/qcom-caf/sm6225"
+BP_FILE="$SM6225_DIR/Android.bp"
+
+if [ -d "$SM6225_DIR" ]; then
+    if [ ! -f "$BP_FILE" ] || ! grep -q "soong_namespace" "$BP_FILE" 2>/dev/null; then
+        echo -e "${color}Adding soong_namespace to $BP_FILE...${end}"
+        cat << 'EOF' > "$BP_FILE"
+soong_namespace {
+    imports: [
+        "vendor/qcom/opensource/commonsys-intf/display",
+        "vendor/qcom/opensource/display",
+    ],
+}
+EOF
+        echo -e "${color}✓ Android.bp configured for sm6225${end}"
+    else
+        echo -e "${color}✓ soong_namespace already present in Android.bp${end}"
+    fi
+else
+    echo "Warning: $SM6225_DIR not found. Skipping Android.bp creation."
 fi
 echo ""

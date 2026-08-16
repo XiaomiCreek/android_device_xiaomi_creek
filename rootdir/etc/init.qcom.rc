@@ -59,10 +59,15 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import /vendor/etc/init/hw/init.qti.ufs.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
+import /vendor/etc/init/hw/init.qcom.test.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.qcom.factory.rc
 
 on early-init
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
 
   # create symlink for vendor mount points
     symlink /vendor/firmware_mnt /firmware
@@ -74,8 +79,6 @@ on early-init
 
     #Disable UFS clock scaling
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 0
-    #Turn off vblank irq immediately after turning off
-    write /sys/module/drm/parameters/vblankoffdelay -1
     #Disable UFS auto_hibern8
     write /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 0
     #Disable UFS clock gating
@@ -86,11 +89,20 @@ on early-init
     # Load WIGIG platform driver
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules msm_11ad_proxy
 
-    # Workarround for cache
-    rm /data/resource-cache
-    rm /data/system/package_cache
+#add debugfs on userroot for O19A start
+on early-init && property:ro.debuggable=1
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+    setprop ro.product.debugfs_restrictions.enabled false
+    setprop persist.dbg.keep_debugfs_mounted true
+#add debugfs on userroot for O19A end
 
 on init
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
+
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
@@ -98,17 +110,14 @@ on init
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
-
 on post-fs
-    mkdir /mnt/vendor/dsp 0770 root root
-    copy /vendor/dsp/cdsp/fastrpc_shell_3 /mnt/vendor/dsp/fastrpc_shell_3
-    chmod 0644 /mnt/vendor/dsp/fastrpc_shell_3
-    mount none /mnt/vendor/dsp/fastrpc_shell_3 /vendor/dsp/cdsp/fastrpc_shell_3 bind
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
+    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qti.can.sh
+    setprop ro.sf.lcd_density ${vendor.display.lcd_density}
 
     chown system system /mnt/vendor/persist/data/pfm/licenses
     chmod 0775 /mnt/vendor/persist/data/pfm/licenses
@@ -155,12 +164,6 @@ on boot
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
     chown media audio /sys/kernel/snd_card/card_state
 
-    #add ant_check
-    chmod 0777 /sys/class/ant_class/ant_state
-    chmod 0777 /sys/class/ant_div_class/ant_div_state
-    chown system system /sys/class/ant_class/ant_state
-    chown system system /sys/class/ant_div_class/ant_div_state
-
     # This location is used by QCRIL to host UNIX domain
     # socket files used for internal IPC within QCRIL
     # modules
@@ -180,6 +183,8 @@ on boot
 
     setprop wifi.interface wlan0
 
+    setprop persist.bluetooth.a2dp_offload.disabled false
+
     setprop ro.telephony.call_ring.multiple false
 
     #Remove SUID bit for iproute2 ip tool
@@ -189,8 +194,6 @@ on boot
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     setprop net.tcp.2g_init_rwnd 10
-
-    setprop persist.vendor.qg.coff_cold_ibat_ma 250
 
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
@@ -230,13 +233,9 @@ on boot
     chown root system /sys/kernel/qts/secondary/trusted_touch_device_path
 
     chown system system /sys/class/backlight/panel0-backlight/brightness
-    chmod 0666 /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
-    chmod 0666 /sys/class/backlight/panel0-backlight/max_brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness
-    chmod 0666 /sys/class/backlight/panel1-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/max_brightness
-    chmod 0666 /sys/class/backlight/panel1-backlight/max_brightness
 
     # Allow access to sensors device attributes
     chown system system /sys/class/sensors/MPU6050-accel/enable
@@ -263,9 +262,22 @@ on boot
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
-    # Lineage Health Permission
-    chown system system /sys/class/qcom-battery/input_suspend
-    chmod 0666 /sys/class/qcom-battery/input_suspend
+    #modify permission of block_size node and stm node
+    #chown -h root.oem_2902 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+    #chown -h root.oem_2902 /sys/bus/coresight/reset_source_sink
+    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+    chmod 660 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+    chown -h vendor_qdss /sys/bus/coresight/reset_source_sink
+    chmod 660 /sys/bus/coresight/reset_source_sink
+
+    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/out_mode
+    chmod 777 /sys/bus/coresight/devices/coresight-tmc-etr/out_mode
+    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/enable_sink
+    chmod 777 /sys/bus/coresight/devices/coresight-tmc-etr/enable_sink
+    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-stm/enable_source
+    chmod 777 /sys/bus/coresight/devices/coresight-stm/enable_source
+    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-modem-diag/enable_source
+    chmod 777 /sys/bus/coresight/devices/coresight-modem-diag/enable_source
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -460,12 +472,30 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
+service nqnfcinfo /system/vendor/bin/nqnfcinfo
+    class late_start
+    group nfc
+    user system
+    oneshot
+
 service iop /system/vendor/bin/iop
     class main
     user root
     group root
     disabled
     socket iop seqpacket 0666 root system
+
+service qcomsysd /system/vendor/bin/qcom-system-daemon
+    class main
+    user root
+    group root diag oem_2901
+    disabled
+
+on property:persist.vendor.qcomsysd.enabled=1
+    enable qcomsysd
+
+on property:persist.vendor.qcomsysd.enabled=0
+    stop qcomsysd
 
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
@@ -519,9 +549,6 @@ on property:persist.vendor.ssr.enable_ramdumps=0
 on property:persist.vendor.sys.rawdump_copy=1
     write /sys/kernel/dload/emmc_dload 1
 
-    # This initializes vendor.qti.hardware.perf service
-    setprop vendor.post_boot.parsed 1
-
 on property:persist.vendor.sys.rawdump_copy=0
     write /sys/kernel/dload/emmc_dload 0
 
@@ -561,7 +588,6 @@ on property:vendor.media.target.version=*
 on property:vendor.media.target_variant=*
     setprop ro.media.xml_variant.codecs ${vendor.media.target_variant}
     setprop ro.media.xml_variant.codecs_performance ${vendor.media.target_variant}
-    setprop ro.media.xml_variant.profiles ${vendor.media.target_variant}
 
 service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
     class core
@@ -624,6 +650,13 @@ service wigignpt /vendor/bin/wigignpt
 on property:persist.vendor.wigig.npt.enable=1
     start wigignpt
 
+service vendor.sensingdaemon /vendor/bin/sensingdaemon
+    class hal
+    socket wigig/sensingdaemon stream 660 system wifi
+    user system
+    group wifi
+    disabled
+
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
     class late_start
     disabled
@@ -664,6 +697,29 @@ service iprenew_wigig0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
+service ptt_socket_app /system/vendor/bin/ptt_socket_app -d
+    class main
+    user wifi
+    group wifi system inet net_admin
+    capabilities NET_ADMIN
+    oneshot
+
+service ptt_ffbm /system/vendor/bin/ptt_socket_app -f -d
+    user root
+    group root
+    disabled
+    oneshot
+
+service wifi_ftmd /system/vendor/bin/wifi_ftmd
+    user system
+    group system inet net_admin
+    socket wififtmd_server dgram 0660 system system
+    disabled
+    oneshot
+
+on property:vendor.wifi.ftmd.load=true
+    insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
+
 service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
     class late_start
     user system
@@ -684,6 +740,12 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
 
+service ssgqmigd /vendor/bin/ssgqmigd
+    class late_start
+    user radio
+    group radio gps system
+    socket ssgqmig seqpacket 0660 radio inet
+
 service mlid /vendor/bin/mlid
     class late_start
     user gps
@@ -701,6 +763,18 @@ service qcom-sh /vendor/bin/init.qcom.sh
     group root system radio
     oneshot
 
+service vendor.ffbm_to_android /vendor/bin/ffbm_to_android.sh
+    class main
+    user root
+    group radio system inet
+    oneshot
+
+# Remove since is deprecated but throws AVC denial.
+# service crashdata-sh /vendor/bin/init.qcom.crashdata.sh
+#    class late_start
+#    user root
+#    oneshot
+
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
@@ -708,11 +782,39 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     disabled
     oneshot
 
+service qti-testscripts /system/bin/sh /product/etc/init.qcom.testscripts.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+    seclabel u:r:qti-testscripts:s0
+
+service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
+    class late_start
+    group wifi inet
+    disabled
+    oneshot
+
+service wifi-crda /vendor/bin/init.crda.sh
+   class late_start
+   user root
+   disabled
+   oneshot
+
 on property:sys.boot_completed=1
     start qcom-post-boot
+    #start qti-testscripts
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
+
+on property:ro.bootmode=ffbm-01
+    start vendor.ffbm_to_android
+
+service qvop-daemon /vendor/bin/qvop-daemon
+    class late_start
+    user system
+    group system drmrpc
 
 service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
@@ -752,30 +854,23 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
-service charger /system/bin/charger
-    class charger
-    user system
-    group system graphics input
-    capabilities SYS_BOOT
-    seclabel u:r:charger:s0
-
 service vendor.ssr_diag /system/vendor/bin/ssr_diag
     class late_start
     user system
     group system
     disabled
 
-service diag_mdlog_start /system/vendor/bin/diag_mdlog -n 40 -s 500
+service diag_mdlog_start /system/vendor/bin/diag_mdlog -q 0x2006 -j 1 -u -c -i -n 40 -s 500
     class late_start
     user shell
-    group system oem_2901 sdcard_rw sdcard_r media_rw
+    group system oem_2901 oem_2902 oem_2905 vendor_qdss sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
 service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
     class late_start
     user shell
-    group system oem_2901 sdcard_rw sdcard_r media_rw
+    group system oem_2901 oem_2902 oem_2905 vendor_qdss sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
@@ -788,15 +883,66 @@ on property:persist.sys.qlogd=1
 on property:persist.sys.qlogd=0
     stop qlogd
 
+service vm_bms /vendor/bin/vm_bms
+    user root
+    group root
+    disabled
+
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
     user root
     group root
     disabled
 
+service vendor.msm_irqbal_lb /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance_little_big.conf
+    class core
+    user root
+    group root
+    disabled
+
+service vendor.msm_irqbl_sdm630 /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance_sdm630.conf
+    class core
+    user root
+    group root
+    disabled
+
+# service for USERDEBUG
+service vendor.LKCore-dbg /vendor/bin/LKCore
+    class late_start
+    oneshot
+    disabled
+    user root
+    group root system log diag net_raw
+
+# service for USER
+service vendor.LKCore-rel /vendor/bin/LKCore
+    class late_start
+    oneshot
+    disabled
+    user system
+    group system log diag
+
+service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
+    class late_start
+    user system
+    group system
+
+service esepmdaemon /system/vendor/bin/esepmdaemon
+    class core
+    user system
+    group nfc
+
 on charger
     setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
+
+#add poweroffhandler
+service poweroffhandler /system/vendor/bin/poweroffhandler
+    class core
+    user media
+    group graphics audio
+    disabled
+    oneshot
 
 service time_daemon /vendor/bin/time_daemon
     class main
@@ -816,6 +962,23 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     group system
     disabled
     oneshot
+
+service vendor.hbtp /vendor/bin/hbtp_daemon
+     class main
+     user system
+     group system
+     capabilities SYS_NICE
+     disabled
+
+service chre /vendor/bin/chre
+    class late_start
+    user system
+    group system
+    socket chre seqpacket 0660 root system
+    shutdown critical
+
+on property:vendor.chre.enabled=0
+   stop chre
 
 service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main

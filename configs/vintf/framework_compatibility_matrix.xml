@@ -41,7 +41,7 @@
         <version>1.0</version>
         <interface>
             <name>IComponentStore</name>
-            <instance>default</instance>
+            <instance>default1</instance>
             <instance>ozoaudio</instance>
             <instance>software</instance>
         </interface>
@@ -1079,6 +1079,38 @@
         <version>1.0</version>
         <interface>
             <name>ITouchFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.micharge</name>
+        <version>1.0</version>
+        <interface>
+            <name>IMiCharge</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.mlipay</name>
+        <version>1.0-1</version>
+        <interface>
+            <name>IMlipayService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.mtdservice</name>
+        <version>1.0-3</version>
+        <interface>
+            <name>IMTService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.livedisplay</name>
+        <version>2.0</version>
+        <interface>
+            <name>IPictureAdjustment</name>
             <instance>default</instance>
         </interface>
     </hal>

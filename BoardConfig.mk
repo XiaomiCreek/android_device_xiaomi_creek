@@ -318,7 +318,8 @@ TARGET_SYSTEM_EXT_PROP                     += $(DEVICE_PATH)/configs/properties/
 # VINTF Compatibility Matrices & Interface Verification
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/manifest.xml \
-    $(DEVICE_PATH)/configs/vintf/network_manifest.xml
+    $(DEVICE_PATH)/configs/vintf/network_manifest.xml \
+    $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
 
 DEVICE_FRAMEWORK_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/framework_manifest.xml

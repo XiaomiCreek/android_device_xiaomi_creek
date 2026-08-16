@@ -700,30 +700,6 @@ vendor/etc/camera/166_Reverse.png
 # Camera postproc
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
-# Codec2
-vendor/lib/libcodec2_hidl@1.0.so
-vendor/lib/libcodec2_hidl_plugin.so
-vendor/lib/libcodec2_vndk.so
-vendor/lib/libqcodec2_base.so
-vendor/lib/libqcodec2_basecodec.so
-vendor/lib/libqcodec2_core.so
-vendor/lib/libqcodec2_filterbase.so
-vendor/lib/libqcodec2_hooks.so
-vendor/lib/libqcodec2_mockfilter.so
-vendor/lib/libqcodec2_mockqc2filter.so
-vendor/lib/libqcodec2_platform.so
-vendor/lib/libqcodec2_utils.so
-vendor/lib/libqcodec2_v4l2codec.so
-vendor/lib64/libcodec2_hidl@1.0.so
-vendor/lib64/libcodec2_hidl@1.1.so
-vendor/lib64/libcodec2_hidl@1.2.so
-vendor/lib64/libcodec2_hidl_plugin.so
-vendor/lib64/libcodec2_soft_ac4dec.so
-vendor/lib64/libcodec2_soft_common.so
-vendor/lib64/libcodec2_soft_ddpdec.so
-vendor/lib64/libcodec2_store_dolby.so
-vendor/lib64/libcodec2_vndk.so
-
 # Camera Extensions
 system_ext/framework/camerax-vendor-extensions.jar
 
@@ -948,10 +924,14 @@ vendor/lib64/libmifpext.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # Firmware touch
+odm/firmware/hdl_firmware_test.img
+odm/firmware/hdl_firmware_test_erp.img
 odm/firmware/novatek_ts_fw_csot.bin
 odm/firmware/novatek_ts_fw_csot_erp.bin
 odm/firmware/novatek_ts_mp_csot.bin
 odm/firmware/novatek_ts_mp_csot_erp.bin
+odm/firmware/omnivision_hdl_firmware.img
+odm/firmware/omnivision_hdl_firmware_erp.img
 
 # Firmware vendor
 vendor/firmware/a610_zap.b00
@@ -1367,6 +1347,7 @@ vendor/etc/vintf/manifest/c2_manifest_vendor_creek.xml:vendor/etc/vintf/manifest
 vendor/lib64/android.hardware.media.c2@1.0.so
 vendor/lib64/libmediautils_vendor.so
 vendor/lib64/libmmosal_vendor.so
+vendor/lib64/libvideotxr.so
 vendor/lib64/libmmrtpdecoder_vendor.so
 vendor/lib64/libmmrtpencoder_vendor.so
 system_ext/lib64/vendor.qti.hardware.vpp-V1-ndk.so
