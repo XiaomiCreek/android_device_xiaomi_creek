@@ -386,6 +386,7 @@ $(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
 # Media
 PRODUCT_PACKAGES += \
     libstagefright_bufferqueue_helper \
+    libstagefright_bufferqueue_helper.vendor \
     libavservices_minijail \
     libavservices_minijail.vendor \
     libcodec2_hidl@1.0.vendor \
