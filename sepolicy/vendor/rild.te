@@ -1,4 +1,10 @@
 set_prop(rild, vendor_deviceid_prop)
 set_prop(rild, vendor_sno_prop)
+get_prop(rild, vendor_wifimac_prop)
+set_prop(rild, vendor_wifimac_prop)
+get_prop(rild, vendor_bluetooth_prop)
+set_prop(rild, vendor_bluetooth_prop)
+# DispatcherModul probes misc ro.* props; reads are non-functional, keep quiet.
+dontaudit rild default_prop:file { getattr open read map };
 allow rild vendor_data_file:dir create_dir_perms;
 allow rild vendor_data_file:file create_file_perms;

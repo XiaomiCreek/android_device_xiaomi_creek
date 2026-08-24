@@ -1,0 +1,47 @@
+
+allow nfc vendor_nfc_vendor_data_file:dir search;
+
+allow tee vendor_data_file:dir { add_name create getattr open remove_name search write };
+allow tee vendor_data_file:file { create getattr map open read write setattr };
+allow tee vendor_data_file:file unlink;
+
+# MiCam-style audio libs also probe every property context file; reads are
+# non-functional (stock enforcing blocks them too). Neverallow-safe dontaudit.
+not_recovery(`dontaudit hal_audio_default property_type:file { getattr map open read };')
+
+allow hal_fingerprint_default vendor_data_file:file { getattr open read };
+
+allow vendor_sensors proc:file { getattr open read write };
+
+# ro.vendor.oem.wifimac / ro.vendor.wlan.chip are now typed in
+# property_contexts (vendor_wifimac_prop / vendor_wlan_chip_prop); rild and
+# wcnss_service rules live in their own .te files. This avoids the
+# neverallow-protected default_prop / vendor_default_prop.
+allow rild vendor_mac_vendor_data_file:dir { add_name search write };
+allow rild vendor_mac_vendor_data_file:file { create getattr open write };
+
+allow hal_audio_default debugfs:dir { open read };
+
+allow hal_camera_default sysfs:file write;
+
+allow fsck_untrusted sysfs:dir { open read };
+allow vendor_qti_init_shell sysfs:file setattr;
+
+allow surfaceflinger vendor_hal_qspmhal_default:binder call;
+
+allow hal_bluetooth_default zygote:binder call;
+allow hal_audio_default zygote:binder transfer;
+
+allow hal_wifi_default self:capability sys_module;
+
+allow vendor_hal_perf_default vendor_sysfs_displayfeature:file { getattr open read };
+
+# getprop shell probes read default_prop; quiet, non-functional reads only.
+dontaudit vendor_qti_init_shell default_prop:file { getattr map open };
+
+allow vendor_init device:chr_file getattr;
+not_recovery(`allow vendor_init vendor_ims_prop:property_service set;')
+
+allow vendor_sensors sysfs:file { getattr open read };
+
+allow update_engine same_process_hal_file:file { getattr open read map };

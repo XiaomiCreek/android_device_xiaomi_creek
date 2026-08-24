@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest version="5.0" type="device">
+    <!--
+         HyperOS also declares IComponentStore/default1 for its proprietary
+         Dolby Codec2 service. That service is not part of this build, so the
+         ODM override must enumerate only the stores that are actually
+         installed and registered.
+    -->
+    <hal format="hidl" override="true">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>default</instance>
+            <instance>default2</instance>
+            <instance>software</instance>
+        </interface>
+        <fqname>@1.0::IComponentStore/default</fqname>
+        <fqname>@1.0::IComponentStore/default2</fqname>
+        <fqname>@1.0::IComponentStore/software</fqname>
+    </hal>
+</manifest>

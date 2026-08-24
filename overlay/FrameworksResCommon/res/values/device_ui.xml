@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Device UI geometry imported from the stock HyperOS 3
+     DevicesAndroidOverlay.apk.
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Physical corner radius of the built-in display. -->
+    <dimen name="rounded_corner_radius">108px</dimen>
+    <dimen name="rounded_corner_radius_top">108px</dimen>
+    <dimen name="rounded_corner_radius_bottom">108px</dimen>
+
+    <!--
+         AOSP SystemUI uses this value both for the status-bar content inset
+         and for the three-button navigation-bar margins. Keep it separate
+         from the physical 108 px corner radius to avoid squeezing both bars.
+    -->
+    <dimen name="rounded_corner_content_padding">24px</dimen>
+
+    <!-- Reserve the stock amount of space for the centered camera cutout. -->
+    <dimen name="status_bar_height_default">127px</dimen>
+    <dimen name="status_bar_height_portrait">127px</dimen>
+
+    <!-- Keep notification layout density consistent with the stock device UI. -->
+    <dimen name="notification_min_height">106dp</dimen>
+
+    <!-- Centered camera cutout for the stock 1080x2340 panel. -->
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">M 0,0 H -35 V 127 H 35 V 0 H 0 Z</string>
+</resources>

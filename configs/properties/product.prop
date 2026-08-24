@@ -3,7 +3,10 @@ ro.launcher.blur.appLaunch=0
 
 # Audio
 af.fast_track_multiplier=1
-audio.deep_buffer.media=true
+# Temporary bring-up routing workaround: media on deep-buffer/offload is
+# silent, while the primary low-latency PCM path is confirmed audible.
+audio.deep_buffer.media=false
+audio.offload.disable=1
 audio.offload.min.duration.secs=30
 audio.sys.mute.latency.factor=2
 audio.sys.offload.pstimeout.secs=3
@@ -80,4 +83,3 @@ ro.vendor.radio.features_common=3
 
 # lmkd
 ro.lmk.psi_complete_stall_ms=70
-

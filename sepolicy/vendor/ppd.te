@@ -1,0 +1,14 @@
+# /vendor/bin/ppd - Xiaomi daemon that proxies power/perf state to HWC over
+# /dev/socket/pps. It used to run in the init domain (execute_no_trans
+# band-aid), which violates plat neverallows; give it a real domain instead.
+type ppd, domain;
+type ppd_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(ppd)
+
+# Talks to hal_graphics_composer_default through the pps unix socket.
+allow ppd vendor_pps_socket:sock_file { open write };
+allow ppd hal_graphics_composer_default:unix_stream_socket connectto;
+
+# Loads vendor HAL libraries (libhidlbase et al. are same_process_hal_file).
+allow ppd same_process_hal_file:file { getattr map open read execute };

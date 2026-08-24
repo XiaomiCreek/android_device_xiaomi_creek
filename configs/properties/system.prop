@@ -93,4 +93,11 @@ persist.device_config.mglru_native.lru_gen_config=core
 # Disable vsync for cpu rendered apps
 debug.cpurend.vsync=false
 
+# QSPA: the stock ims.apk (org.codeaurora.ims) carries an RRO gated on this
+# boot property; when it is absent PackageManager skips the whole package at
+# scan, which removes the only ImsService (no VoLTE/VoWiFi). It is
+# bootloader_prop, so it must live in system.prop: only core init may set it
+# (vendor.prop would be denied by the neverallow on vendor_init).
+ro.boot.vendor.qspa.modem=enabled
+
 

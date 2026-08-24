@@ -1,0 +1,8 @@
+# The source-built NXP HAL registers two AIDL services: the platform one
+# (android.hardware.nfc.INfc/default, labeled by plat service_contexts) and
+# the vendor extension below. Without a label the latter falls back to
+# default_android_service, whose add is neverallow-protected for vendor
+# domains, and the whole service aborts at startup.
+type vendor_nxpnfc_service, service_manager_type;
+
+allow hal_nfc_default vendor_nxpnfc_service:service_manager { add find };

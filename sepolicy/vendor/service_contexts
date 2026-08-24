@@ -1,0 +1,2 @@
+# Vendor-extension AIDL interface published by android.hardware.nfc-service.nxp
+vendor.nxp.nxpnfc_aidl.INxpNfc/default  u:object_r:vendor_nxpnfc_service:s0

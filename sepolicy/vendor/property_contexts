@@ -1,7 +1,5 @@
-# Display
 ro.vendor.smart_dfps.enable              u:object_r:vendor_displayfeature_prop:s0
 
-# Fingerprint
 persist.vendor.fingerprint.              u:object_r:vendor_fp_prop:s0
 persist.vendor.fpc.                      u:object_r:vendor_fp_prop:s0
 persist.vendor.goodix.                   u:object_r:vendor_fp_prop:s0
@@ -14,11 +12,15 @@ vendor.fps_hal_lc                        u:object_r:vendor_fp_prop:s0
 vendor.panel.display.                    u:object_r:vendor_fp_prop:s0
 vendor.sys.fp.                           u:object_r:vendor_fp_prop:s0
 
-# Mlipay
 persist.vendor.sys.provision.status      u:object_r:vendor_payment_security_prop:s0
 vendor.sys.feature_state                 u:object_r:vendor_payment_security_prop:s0
 vendor.sys.rpmb_state                    u:object_r:vendor_payment_security_prop:s0
 
-# Radio
 ro.vendor.ril.svlte1x  u:object_r:vendor_radio_prop:s0
 ro.vendor.ril.svdo  u:object_r:vendor_radio_prop:s0
+
+ro.vendor.oem.wifimac   u:object_r:vendor_wifimac_prop:s0
+ro.vendor.wlan.chip     u:object_r:vendor_wlan_chip_prop:s0
+ro.vendor.wlan.family   u:object_r:vendor_wlan_chip_prop:s0
+ro.vendor.wlan.bdf      u:object_r:vendor_wlan_chip_prop:s0
+ro.vendor.oem.btmac     u:object_r:vendor_bluetooth_prop:s0

@@ -81,14 +81,12 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     libbatterylistener
 
-AUDIO_HAL_DIR := hardware/qcom-caf/sm6225/audio/primary-hal
-
 PRODUCT_PACKAGES += \
     audioadsprpcd \
     libsndcardparser
 
 PRODUCT_COPY_FILES += \
-    $(AUDIO_HAL_DIR)/configs/common/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/kvh2xml.xml:$(TARGET_COPY_OUT_VENDOR)/etc/kvh2xml.xml
@@ -402,9 +400,13 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
 
 # Media
+# Keep the generic Codec2 bridge ABI-aligned with the LineageOS 23.2 platform.
+# Qualcomm's proprietary component store only needs a small legacy
+# C2FenceFactory entry point, supplied by the device-local vendor shim below.
 PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail.vendor \
+    libcodec2_legacy_fence_shim \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
     libsfplugin_ccodec_utils.vendor \
@@ -433,8 +435,10 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
 
 # NFC
+# The device carries an NXP SN220 controller: use the stock NXP AIDL service
+# (android.hardware.nfc-service.nxp) instead of the ST stack.
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service.st \
+    android.hardware.nfc-service.nxp \
     android.hardware.secure_element@1.2.vendor \
     libchrome.vendor \
     Tag

@@ -32,7 +32,6 @@
         <interface>
             <name>IComponentStore</name>
             <instance>default</instance>
-            <instance>ozoaudio</instance>
             <instance>software</instance>
         </interface>
     </hal>
@@ -41,9 +40,7 @@
         <version>1.0</version>
         <interface>
             <name>IComponentStore</name>
-            <instance>default1</instance>
-            <instance>ozoaudio</instance>
-            <instance>software</instance>
+            <instance>default2</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">

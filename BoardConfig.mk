@@ -17,15 +17,12 @@ KERNEL_PATH := $(DEVICE_PATH)-kernel
 BUILD_BROKEN_DUP_RULES                       := true
 RELAX_USES_LIBRARY_CHECK                     := true
 ALLOW_MISSING_DEPENDENCIES                   := true
-SELINUX_IGNORE_NEVERALLOWS                   := true
-SOONG_ALLOW_MISSING_DEPENDENCIES             := true
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES      := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-# Force stable baseline optimizations for debugging early boots
-TARGET_GLOBAL_OPTIMIZATION                   := 03
-TARGET_GLOBAL_LTO                            := thin
-TARGET_GLOBAL_THINLTO                        := true
+# Userdebug cleanup (2026-08-23): policy and deps must now be complete
+SELINUX_IGNORE_NEVERALLOWS                   := false
+SOONG_ALLOW_MISSING_DEPENDENCIES             := false
 
 
 # ==============================================
@@ -80,8 +77,10 @@ BOARD_BOOTCONFIG := \
     androidboot.usbcontroller=4e00000.dwc3
 
 # Basic kernel cmdline
+# NOTE: ENFORCING again (2026-08-23): the seapp_contexts fix is confirmed in
+# the built image (logse2*.txt show zero parse errors, apps correctly domained)
+# and the clean permissive denial inventory has been translated into allows.
 BOARD_KERNEL_CMDLINE := \
-    androidboot.selinux=permissive \
     disable_dma32=on \
     rcu_nocbs=all \
     rcutree.enable_rcu_lazy=1 \
@@ -173,6 +172,8 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 
 TARGET_FS_CONFIG_GEN                    := $(DEVICE_PATH)/configs/config.fs
 #BOARD_HAS_REMOVABLE_STORAGE             := true
+
+-include vendor/lineage/config/BoardConfigReservedSize.mk
 
 # Filesystem Types Selection
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE         := ext4
@@ -321,6 +322,14 @@ DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/network_manifest.xml \
     $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
 
+# Override the stock ODM Codec2 declaration. HyperOS advertises the Dolby
+# `default1` store, but that service is not shipped by this LineageOS build.
+# Leaving the phantom instance in the merged VINTF manifest makes every
+# MediaCodecList construction wait indefinitely for a lazy service that can
+# never start (including StorageManager's boot-time transcoding probe).
+ODM_MANIFEST_FILES += \
+    $(DEVICE_PATH)/configs/vintf/manifest_odm.xml
+
 DEVICE_FRAMEWORK_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/framework_manifest.xml
 
@@ -346,8 +355,10 @@ TARGET_HAS_WIDE_COLOR_DISPLAY                  := true
 TARGET_USES_QCOM_MM_AUDIO                      := true
 TARGET_PROVIDES_AUDIO_HAL                      := true
 AUDIO_FEATURE_ENABLED_DLKM                     := true
-AUDIO_FEATURE_ENABLED_AGM_HIDL                 := true
-AUDIO_FEATURE_ENABLED_PAL_HIDL                 := true
+# AGM/PAL/GSL ship as stock Xiaomi blobs (see proprietary-files.txt); building
+# the CAF source equivalents would duplicate those files at runtime.
+AUDIO_FEATURE_ENABLED_AGM_HIDL                 := false
+AUDIO_FEATURE_ENABLED_PAL_HIDL                 := false
 AUDIO_FEATURE_ENABLED_DTS_EAGLE                := false
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT              := true
 AUDIO_FEATURE_ENABLED_INSTANCE_ID              := true

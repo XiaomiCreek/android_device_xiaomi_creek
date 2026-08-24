@@ -1,0 +1,4 @@
+# MiCam libs probe every /dev/__properties__ file; reads are non-functional
+# (stock enforcing blocks them too). dontaudit keeps the log clean without
+# violating plat property neverallows.
+not_recovery(`dontaudit hal_camera_default property_type:file { getattr map open read };')

@@ -1,5 +1,9 @@
 # All blobs below are extracted from creek OS3.0.302.0.WBOMIXM
 
+# Display configuration
+product/etc/displayconfig/display_id_4630946387282449025.xml
+product/etc/displayconfig/display_id_4630946427073658497.xml
+
 # ACDB
 vendor/etc/acdbdata/bengal_idp/IDP_acdb_cal.acdb
 vendor/etc/acdbdata/bengal_idp/IDP_workspaceFileXml.qwsp
@@ -67,10 +71,11 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 system_ext/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # Audio
--vendor/lib64/libar-gsl.so
--vendor/lib64/libar-pal.so
--vendor/lib64/liblx-osal.so
--vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
+vendor/lib64/libar-gsl.so
+vendor/lib64/libar-pal.so
+vendor/lib64/libhidltransport.so
+vendor/lib64/liblx-osal.so
+vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 vendor/lib64/hw/audio.primary.bengal.so
@@ -89,7 +94,7 @@ vendor/lib64/libqtigefar.so
 vendor/lib64/vendor.qti.hardware.pal@1.0.so
 
 # Audio Graph Manager
--vendor/lib64/libagm.so
+vendor/lib64/libagm.so
 vendor/bin/agmcap
 vendor/bin/agmcompressplay
 vendor/bin/agmhostless
@@ -100,13 +105,36 @@ vendor/lib64/libagmmixer.so
 vendor/lib64/libagm_compress_plugin.so
 vendor/lib64/libagm_mixer_plugin.so
 vendor/lib64/libagm_pcm_plugin.so
--vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.AGMIPC@1.0.so
 vendor/lib64/libkaraokepal.so
 
 # Audio SoundFX
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libmisoundfx.so
+
+# Dolby DMS / DAX and MiSound controller
+product/app/MiSound/MiSound.apk
+vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
+vendor/etc/dolby/dax-default.xml
+vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
+vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml
+vendor/lib/libdapparamstorage.so
+vendor/lib/libdlbpreg.so
+vendor/lib/vendor.dolby.hardware.dms@2.0.so
+vendor/lib/soundfx/libdlbvol.so
+vendor/lib/soundfx/libhwdap.so
+vendor/lib/soundfx/libswgamedap.so
+vendor/lib/soundfx/libswvqe.so
+vendor/lib64/libdapparamstorage.so
+vendor/lib64/libdlbdsservice.so
+vendor/lib64/libdlbpreg.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0.so
+vendor/lib64/soundfx/libdlbvol.so
+vendor/lib64/soundfx/libhwdap.so
+vendor/lib64/soundfx/libswgamedap.so
+vendor/lib64/soundfx/libswvqe.so
 
 # Audio configs
 odm/etc/audio_policy_engine_configuration_mi.xml:odm/etc/audio_policy_engine_configuration.xml
@@ -132,8 +160,10 @@ vendor/etc/resourcemanager_bengal_qrd.xml
 vendor/etc/resourcemanager_bengal_qrd_arrax.xml
 vendor/etc/resourcemanager_scubaidp.xml
 vendor/etc/resourcemanager_scubaqrd.xml
-vendor/etc/audio_effects.xml
-vendor/etc/audio_policy_configuration.xml
+vendor/etc/sixth_param/sixth_param_boost0.txt
+vendor/etc/sixth_param/sixth_param_boost1.txt
+vendor/etc/sixth_param/sixth_param_boost2.txt
+vendor/etc/sixth_wrapper_cfg.xml
 vendor/etc/usecaseKvManager.xml
 vendor/etc/usecaseKvManager_arrax.xml
 
@@ -300,7 +330,10 @@ system_ext/lib64/vendor.qti.hardware.slmadapter@1.0.so
 system_ext/lib64/vendor.qti.hardware.cvp@1.0.so
 
 # Camera
+system/lib/libpiex.so:vendor/lib/libpiex.so
 system/lib64/libpiex.so
+system/lib64/libpiex.so:vendor/lib64/libpiex.so
+vendor/lib64/libc++_shared.so
 vendor/lib64/camera/com.qti.sensor.o19a_ofilm_gc08a8_front_ii.so
 vendor/lib64/camera/com.qti.sensor.o19a_sunny_gc08a8_front_i.so
 vendor/lib64/camera/com.qti.sensor.o19a_sunny_ov50d40_main_i.so
@@ -402,9 +435,11 @@ vendor/lib64/libSNPE.so
 vendor/lib64/libTrueSight.so
 vendor/lib64/libanc_night.so
 vendor/lib64/libanc_single_rt_bokeh.so
+vendor/lib64/libaidenoiser.so
 vendor/lib64/libbitmlengine.so
 vendor/lib64/libcamera_nn_stub.so
 vendor/lib64/libcamera_scene.so
+vendor/lib64/libcamerapostproc.so
 vendor/lib64/libcamxexternalformatutils.so
 vendor/lib64/libcamxfacialfeatures.so
 vendor/lib64/libcamxfdalgo.so
@@ -416,11 +451,16 @@ vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswispiqmodule.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
+vendor/lib64/libipebpsstriping.so
+vendor/lib64/libjpege.so
+vendor/lib64/libopestriping.so
+vendor/lib64/libtfestriping.so
 vendor/lib64/libchilog.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libmialgo_ai_vision.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
+vendor/lib64/libmctfengine_stub.so
 vendor/lib64/libmmcamera_cac3.so
 vendor/lib64/libmmcamera_lscv35.so
 vendor/lib64/libmmcamera_mfnr.so
@@ -1399,9 +1439,14 @@ vendor/etc/media_profiles_scuba_v1.xml
 # Memory
 vendor/lib64/libvmmem.so
 
-# NFC
-vendor/etc/libnfc-nci.conf
+# NFC (NXP SN220 controller)
+# NOTE: ship ONLY configs/dev-node perms here. The HAL service binary, its
+# libs (nfc_nci_nxp_snxxx.so, vendor.nxp.nxpnfc_aidl-V1-ndk.so,
+# android.hardware.nfc-V1-ndk.so), its init rc (nfc-service-nxp.rc) and VINTF
+# fragment are ALL built from source by hardware/nxp_nfc (device.mk); the
+# stock prebuilt copies are HIDL-era / sku-gated and break linking.
 vendor/etc/init/init.SN220.nfc.rc
+vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-nxp.conf
 vendor/libnfc-nxp_RF.conf
 
@@ -1514,6 +1559,7 @@ vendor/lib64/libspcom.so
 vendor/lib64/qtiPeripheralMgr.so
 
 # Power
+vendor/etc/powerhint.xml
 vendor/etc/public.libraries.txt
 
 # QCC

@@ -1,0 +1,1 @@
+binder_call(system_app, { hal_thermal hal_sensors hal_usb hal_wifi_supplicant })
