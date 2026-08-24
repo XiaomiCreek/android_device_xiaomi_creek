@@ -110,8 +110,37 @@ vendor/lib64/vendor.qti.hardware.AGMIPC@1.0.so
 vendor/lib64/libkaraokepal.so
 
 # Audio SoundFX
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libaudiopreprocessing.so
+vendor/lib/soundfx/libbundlewrapper.so
+vendor/lib/soundfx/libdownmix.so
+vendor/lib/soundfx/libdynproc.so
+vendor/lib/soundfx/libeffectproxy.so
+vendor/lib/soundfx/libhapticgenerator.so
+vendor/lib/soundfx/libldnhncr.so
+vendor/lib/soundfx/libqcompostprocbundle.so
+vendor/lib/soundfx/libqcomvisualizer.so
+vendor/lib/soundfx/libqcomvoiceprocessing.so
+vendor/lib/soundfx/libreverbwrapper.so
+vendor/lib/soundfx/libshoebox.so
+vendor/lib/soundfx/libvisualizer.so
+vendor/lib/soundfx/libvolumelistener.so
 vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libaudiopreprocessing.so
+vendor/lib64/soundfx/libbundlewrapper.so
+vendor/lib64/soundfx/libdownmix.so
+vendor/lib64/soundfx/libdynproc.so
+vendor/lib64/soundfx/libeffectproxy.so
+vendor/lib64/soundfx/libhapticgenerator.so
+vendor/lib64/soundfx/libldnhncr.so
 vendor/lib64/soundfx/libmisoundfx.so
+vendor/lib64/soundfx/libqcompostprocbundle.so
+vendor/lib64/soundfx/libqcomvisualizer.so
+vendor/lib64/soundfx/libqcomvoiceprocessing.so
+vendor/lib64/soundfx/libreverbwrapper.so
+vendor/lib64/soundfx/libshoebox.so
+vendor/lib64/soundfx/libvisualizer.so
+vendor/lib64/soundfx/libvolumelistener.so
 
 # Dolby DMS / DAX and MiSound controller
 product/app/MiSound/MiSound.apk
@@ -143,6 +172,7 @@ odm/etc/audio_policy_engine_product_strategies.xml
 odm/etc/audio_policy_engine_stream_volumes.xml
 vendor/etc/audio_diag.cfg
 vendor/etc/audio_effects.conf
+vendor/etc/audio_effects.xml
 vendor/etc/audio_policy_engine_configuration_mi.xml:vendor/etc/audio_policy_engine_configuration.xml
 vendor/etc/audio_policy_engine_default_stream_volumes.xml
 vendor/etc/audio_policy_engine_product_strategies.xml
@@ -1440,11 +1470,6 @@ vendor/etc/media_profiles_scuba_v1.xml
 vendor/lib64/libvmmem.so
 
 # NFC (NXP SN220 controller)
-# NOTE: ship ONLY configs/dev-node perms here. The HAL service binary, its
-# libs (nfc_nci_nxp_snxxx.so, vendor.nxp.nxpnfc_aidl-V1-ndk.so,
-# android.hardware.nfc-V1-ndk.so), its init rc (nfc-service-nxp.rc) and VINTF
-# fragment are ALL built from source by hardware/nxp_nfc (device.mk); the
-# stock prebuilt copies are HIDL-era / sku-gated and break linking.
 vendor/etc/init/init.SN220.nfc.rc
 vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-nxp.conf

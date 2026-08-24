@@ -82,6 +82,13 @@ sh_binary {
     vendor: true,
 }
 
+// ZRAM setup sized from runtime RAM (see init.creek.zram.sh)
+sh_binary {
+    name: "init.creek.zram.sh",
+    src: "bin/init.creek.zram.sh",
+    vendor: true,
+}
+
 sh_binary {
     name: "init.crda.sh",
     src: "bin/init.crda.sh",

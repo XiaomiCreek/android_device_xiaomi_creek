@@ -91,6 +91,11 @@ subsystem mi_display
 /dev/silead_fp            0660   system     system
 /dev/xiaomi-fp            0660   system     system
 
+# IR blaster (LCT pwm/spi char driver, used by consumerir.qcom.so).
+# Without this the nodes appear as root:root 0600 and the HAL gets a
+# silent DAC EACCES ("Failed to open both IR device paths").
+/dev/lct-ir-*             0660   system     system
+
 /dev/genlock              0666   system     system
 /dev/wlan                 0660   wifi       wifi
 /dev/kgsl                 0666   system     system

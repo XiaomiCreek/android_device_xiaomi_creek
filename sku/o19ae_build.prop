@@ -1,0 +1,8 @@
+# SKU-specific ODM properties: Redmi 15 (25062RN2DY)
+# Selected at boot by init via:
+#   import /odm/etc/${ro.boot.product.hardware.sku}_build.prop
+# Loaded AFTER the generated odm build.prop, so these values win.
+ro.product.odm.brand=Redmi
+ro.product.odm.manufacturer=Xiaomi
+ro.product.odm.model=Redmi 15
+ro.product.odm.marketname=Redmi 15

@@ -30,6 +30,19 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 # A/B OTA config
+ifeq ($(WITH_EROFS),true)
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=erofs \
+    POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=erofs \
+    POSTINSTALL_OPTIONAL_vendor=true
+else
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -41,6 +54,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
     FILESYSTEM_TYPE_vendor=ext4 \
     POSTINSTALL_OPTIONAL_vendor=true
+endif
 
 PRODUCT_PACKAGES += \
     checkpoint_gc \
@@ -55,7 +69,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.game_default_frame_rate_override=120
+    ro.surface_flinger.game_default_frame_rate_override=144
 
 # Audio
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
@@ -320,6 +334,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
+    init.creek.zram.sh \
     init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \

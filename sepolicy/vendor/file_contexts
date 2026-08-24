@@ -23,6 +23,9 @@
 /dev/silead_fp                                                          u:object_r:vendor_fingerprint_device:s0
 /dev/xiaomi-fp                                                          u:object_r:vendor_fingerprint_device:s0
 
+# IR blaster char nodes (stock parity, vendor_file_contexts:312)
+/dev/lct-ir.*                                                           u:object_r:lirc_device:s0
+
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.silead\.hardware\.fingerprintext@1\.0-service u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/misc/xiaomi_fp(/.*)? u:object_r:vendor_fingerprint_data_file:s0

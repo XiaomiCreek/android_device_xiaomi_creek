@@ -77,9 +77,6 @@ BOARD_BOOTCONFIG := \
     androidboot.usbcontroller=4e00000.dwc3
 
 # Basic kernel cmdline
-# NOTE: ENFORCING again (2026-08-23): the seapp_contexts fix is confirmed in
-# the built image (logse2*.txt show zero parse errors, apps correctly domained)
-# and the clean permissive denial inventory has been translated into allows.
 BOARD_KERNEL_CMDLINE := \
     disable_dma32=on \
     rcu_nocbs=all \
@@ -171,11 +168,19 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 # ==============================================
 
 TARGET_FS_CONFIG_GEN                    := $(DEVICE_PATH)/configs/config.fs
-#BOARD_HAS_REMOVABLE_STORAGE             := true
 
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 
 # Filesystem Types Selection
+ifeq ($(WITH_EROFS),true)
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE         := erofs
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE      := erofs
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE      := erofs
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE     := erofs
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE  := erofs
+BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
+else
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE         := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE      := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE      := ext4
@@ -183,6 +188,7 @@ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE     := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
+endif
 
 # Host Tooling Fallback Targets
 TARGET_USERIMAGES_USE_EXT4              := true
@@ -193,7 +199,7 @@ BOARD_EROFS_PAGESIZE                    := 4096
 BOARD_RAMDISK_USE_LZ4                   := true
 BOARD_EROFS_COMPRESSOR                  := lz4
 BOARD_EROFS_PCLUSTER_SIZE               := 262144
-BOARD_EROFS_COMMAND_LINE                := -zlz4hc,9
+BOARD_EROFS_COMMAND_LINE                := -zlz4hc,9 -E legacy-compress
 
 
 # ==============================================
@@ -322,11 +328,6 @@ DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/network_manifest.xml \
     $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
 
-# Override the stock ODM Codec2 declaration. HyperOS advertises the Dolby
-# `default1` store, but that service is not shipped by this LineageOS build.
-# Leaving the phantom instance in the merged VINTF manifest makes every
-# MediaCodecList construction wait indefinitely for a lazy service that can
-# never start (including StorageManager's boot-time transcoding probe).
 ODM_MANIFEST_FILES += \
     $(DEVICE_PATH)/configs/vintf/manifest_odm.xml
 
@@ -355,8 +356,6 @@ TARGET_HAS_WIDE_COLOR_DISPLAY                  := true
 TARGET_USES_QCOM_MM_AUDIO                      := true
 TARGET_PROVIDES_AUDIO_HAL                      := true
 AUDIO_FEATURE_ENABLED_DLKM                     := true
-# AGM/PAL/GSL ship as stock Xiaomi blobs (see proprietary-files.txt); building
-# the CAF source equivalents would duplicate those files at runtime.
 AUDIO_FEATURE_ENABLED_AGM_HIDL                 := false
 AUDIO_FEATURE_ENABLED_PAL_HIDL                 := false
 AUDIO_FEATURE_ENABLED_DTS_EAGLE                := false

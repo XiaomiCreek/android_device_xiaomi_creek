@@ -1,0 +1,8 @@
+# SKU-specific ODM properties: POCO M7 4G (25062PC34G, Global)
+# Selected at boot by init via:
+#   import /odm/etc/${ro.boot.product.hardware.sku}_build.prop
+# Loaded AFTER the generated odm build.prop, so these values win.
+ro.product.odm.brand=POCO
+ro.product.odm.manufacturer=Xiaomi
+ro.product.odm.model=POCO M7 4G
+ro.product.odm.marketname=POCO M7 4G

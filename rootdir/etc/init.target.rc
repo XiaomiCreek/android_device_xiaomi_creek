@@ -82,6 +82,35 @@ on late-fs
     exec_start wait_for_keymaster
     mount_all --late
 
+    # ZRAM compressed swap, sized at runtime from total RAM
+    # (QTI rule: 75% of RAM up to 2GB devices, else 50%, cap 4GB).
+    # Stock enabled it via perfservice.rc ("swapon_all
+    # /vendor/etc/fstab.default"), which is not shipped here; without
+    # this Total swap stays at 0kB and large image workloads hit OOM.
+    start vendor.zram-setup
+
+service vendor.zram-setup /vendor/bin/sh /vendor/bin/init.creek.zram.sh
+    class late_start
+    user root
+    group root system wakelock graphics
+    disabled
+    oneshot
+
+# Fix ownership of Android/data and Android/obb so the FUSE daemon
+# (MediaProvider, group media_rw) can create per-package dirs. Legacy
+# /data state leaves them root-owned and every app fails with
+# "Failed to ensure /storage/emulated/0/Android/data/<pkg>/files".
+# init is coredomain: vendor domains are neverallowed from
+# media_rw_data_file by the platform (domain.te), so this must run as
+# init built-ins, not from a vendor script. Idempotent; the
+# sys.boot_completed trigger covers a fresh /data where MediaProvider
+# creates the dirs after post-fs-data.
+on property:sys.boot_completed=1
+    chown media_rw media_rw /data/media/0/Android/data
+    chmod 0771 /data/media/0/Android/data
+    chown media_rw media_rw /data/media/0/Android/obb
+    chmod 0771 /data/media/0/Android/obb
+
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     mkdir /data/vendor/mac_addr 0777 root system
@@ -108,6 +137,13 @@ on post-fs-data
     mkdir /data/vendor/wlan_logs 0770 system wifi
     chmod 0666 /sys/class/lc_charger/source
     chmod 0666 /sys/class/lc_charger/reverse_quick_charge
+
+    # Fix Android/data & Android/obb ownership early on existing /data
+    # (see the sys.boot_completed block below for details)
+    chmod 0771 /data/media/0/Android/data
+    chown media_rw media_rw /data/media/0/Android/data
+    chmod 0771 /data/media/0/Android/obb
+    chown media_rw media_rw /data/media/0/Android/obb
 
 on early-boot
     start vendor.sensors
