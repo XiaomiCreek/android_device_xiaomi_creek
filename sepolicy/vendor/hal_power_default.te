@@ -1,15 +1,17 @@
+# Allow hal_power_default to write to dt2w nodes
 allow hal_power_default input_device:dir r_dir_perms;
 allow hal_power_default input_device:chr_file rw_file_perms;
-allow hal_power_default touchfeature_device:chr_file rw_file_perms;
-
-r_dir_file(hal_power_default, input_device)
-
-rw_dir_file(hal_power_default, proc)
+allow hal_power_default proc_tp_gesture:dir search;
+allow hal_power_default proc_tp_gesture:file rw_file_perms;
 
 allow hal_power_default {
   vendor_sysfs_devfreq
   sysfs_msm_subsys
 }:dir search;
+
+r_dir_file(hal_power_default, input_device)
+
+rw_dir_file(hal_power_default, proc)
 
 allow hal_power_default {
   cgroup
@@ -25,6 +27,7 @@ allow hal_power_default {
   lnk_file
 } rw_file_perms;
 
+# Power HAL needs access to CPU DMA latency
 allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
 allow hal_power_default self:capability sys_admin;
 

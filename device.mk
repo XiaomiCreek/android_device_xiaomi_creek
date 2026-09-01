@@ -335,11 +335,9 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
     init.creek.zram.sh \
-    init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.qti.kernel.rc \
-    init.qti.ufs.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     init.xiaomi.rc \
@@ -347,28 +345,19 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
-    init.crda.sh \
     init.goodix.events.sh \
     init.kernel.post_boot-bengal-iot.sh \
     init.kernel.post_boot-bengal.sh \
     init.kernel.post_boot.sh \
-    init.mdm.sh \
     init.qcom.class_core.sh \
-    init.qcom.coex.sh \
     init.qcom.early_boot.sh \
-    init.qcom.efs.sync.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sdio.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.sh \
     init.qti.chg_policy.sh \
     init.qti.dcvs.sh \
     init.qti.early_init.sh \
-    init.qti.kernel.debug-bengal.sh \
-    init.qti.kernel.debug-khaje.sh \
-    init.qti.kernel.debug-scuba.sh \
-    init.qti.kernel.debug.sh \
     init.qti.kernel.sh \
     init.qti.write.sh \
     system_dlkm_modprobe.sh \
@@ -415,9 +404,6 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
 
 # Media
-# Keep the generic Codec2 bridge ABI-aligned with the LineageOS 23.2 platform.
-# Qualcomm's proprietary component store only needs a small legacy
-# C2FenceFactory entry point, supplied by the device-local vendor shim below.
 PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail.vendor \
@@ -450,8 +436,6 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
 
 # NFC
-# The device carries an NXP SN220 controller: use the stock NXP AIDL service
-# (android.hardware.nfc-service.nxp) instead of the ST stack.
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \
     android.hardware.secure_element@1.2.vendor \
@@ -504,7 +488,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/configs/perf/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 $(call soong_config_set,qtipower,mode_ext_lib,//$(LOCAL_PATH):libpowermode-ext-creek)
 $(call soong_config_set,qtipower,tap_to_wake_node,/proc/tp_gesture)

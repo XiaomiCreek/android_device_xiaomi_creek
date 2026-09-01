@@ -13,10 +13,13 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit the hardware configuration for the actual device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
+# Inherit FastCharge configurations
+$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
+
 # Include our private certificate
 -include vendor/lineage-priv/keys/keys.mk
 
-# additional features
+# additional features can be added here
 -include device/xiaomi/creek/features.mk
 
 # Basic identifiers

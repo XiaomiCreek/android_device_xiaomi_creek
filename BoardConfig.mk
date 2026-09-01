@@ -367,6 +367,7 @@ AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 
 # Power
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+TARGET_TAP_TO_WAKE := "/proc/tp_gesture"
 
 # Radio Interface Layer (RIL)
 ENABLE_VENDOR_RIL_SERVICE                      := true

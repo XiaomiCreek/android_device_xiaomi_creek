@@ -13,13 +13,6 @@ prebuilt_etc {
 
 // Init configuration files
 prebuilt_etc {
-    name: "init.qcom.factory.rc",
-    src: "etc/init.qcom.factory.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.qcom.rc",
     src: "etc/init.qcom.rc",
     sub_dir: "init/hw",
@@ -38,13 +31,6 @@ prebuilt_etc {
     src: "etc/init.qti.kernel.rc",
     sub_dir: "init/hw",
     vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.qti.ufs.rc",
-    src: "etc/init.qti.ufs.rc",
-    sub_dir: "init",
-    recovery: true,
 }
 
 prebuilt_etc {
@@ -90,12 +76,6 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.crda.sh",
-    src: "bin/init.crda.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.goodix.events.sh",
     src: "bin/init.goodix.events.sh",
     vendor: true,
@@ -120,20 +100,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.mdm.sh",
-    src: "bin/init.mdm.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.qcom.class_core.sh",
     src: "bin/init.qcom.class_core.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qcom.coex.sh",
-    src: "bin/init.qcom.coex.sh",
     vendor: true,
 }
 
@@ -144,20 +112,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qcom.efs.sync.sh",
-    src: "bin/init.qcom.efs.sync.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.qcom.post_boot.sh",
     src: "bin/init.qcom.post_boot.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qcom.sdio.sh",
-    src: "bin/init.qcom.sdio.sh",
     vendor: true,
 }
 
@@ -194,30 +150,6 @@ sh_binary {
 sh_binary {
     name: "init.qti.early_init.sh",
     src: "bin/init.qti.early_init.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qti.kernel.debug-bengal.sh",
-    src: "bin/init.qti.kernel.debug-bengal.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qti.kernel.debug-khaje.sh",
-    src: "bin/init.qti.kernel.debug-khaje.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qti.kernel.debug-scuba.sh",
-    src: "bin/init.qti.kernel.debug-scuba.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qti.kernel.debug.sh",
-    src: "bin/init.qti.kernel.debug.sh",
     vendor: true,
 }
 
