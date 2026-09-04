@@ -1,0 +1,1 @@
+$(call inherit-product, $(DEVICE_PATH)/lineage_creek.mk)

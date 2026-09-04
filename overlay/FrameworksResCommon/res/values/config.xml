@@ -5,7 +5,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-
     <!-- An Array of "[ConnectivityManager connectionType],
                       [# simultaneous connection types]"  -->
     <string-array name="radioAttributes" translatable="false">
@@ -18,354 +17,15 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Stock HyperOS 3 automatic-brightness calibration. -->
-    <integer-array name="config_autoBrightnessLevels">
-        <item>1</item>
-        <item>2</item>
-        <item>4</item>
-        <item>6</item>
-        <item>8</item>
-        <item>10</item>
-        <item>15</item>
-        <item>20</item>
-        <item>25</item>
-        <item>30</item>
-        <item>35</item>
-        <item>40</item>
-        <item>45</item>
-        <item>50</item>
-        <item>55</item>
-        <item>60</item>
-        <item>65</item>
-        <item>70</item>
-        <item>75</item>
-        <item>80</item>
-        <item>85</item>
-        <item>90</item>
-        <item>95</item>
-        <item>100</item>
-        <item>120</item>
-        <item>140</item>
-        <item>160</item>
-        <item>180</item>
-        <item>200</item>
-        <item>220</item>
-        <item>240</item>
-        <item>260</item>
-        <item>280</item>
-        <item>300</item>
-        <item>320</item>
-        <item>340</item>
-        <item>360</item>
-        <item>380</item>
-        <item>400</item>
-        <item>420</item>
-        <item>440</item>
-        <item>460</item>
-        <item>480</item>
-        <item>500</item>
-        <item>700</item>
-        <item>900</item>
-        <item>1100</item>
-        <item>1300</item>
-        <item>1500</item>
-        <item>1700</item>
-        <item>1900</item>
-        <item>2000</item>
-        <item>2500</item>
-        <item>3000</item>
-        <item>3500</item>
-        <item>4000</item>
-        <item>4500</item>
-        <item>5000</item>
-        <item>5500</item>
-        <item>6000</item>
-        <item>6500</item>
-        <item>7000</item>
-        <item>7500</item>
-        <item>8000</item>
-        <item>8500</item>
-        <item>9000</item>
-        <item>9500</item>
-        <item>10000</item>
-        <item>10500</item>
-        <item>11000</item>
-        <item>11500</item>
-        <item>12000</item>
-        <item>12500</item>
-        <item>13000</item>
-        <item>13500</item>
-        <item>14000</item>
-        <item>14500</item>
-        <item>15000</item>
-        <item>16000</item>
-        <item>17000</item>
-        <item>18000</item>
-        <item>19000</item>
-        <item>20000</item>
-        <item>21000</item>
-        <item>22000</item>
-        <item>23000</item>
-        <item>24000</item>
-        <item>25000</item>
-        <item>26000</item>
-        <item>27000</item>
-        <item>28000</item>
-        <item>29000</item>
-        <item>30000</item>
-        <item>35000</item>
-        <item>40000</item>
-        <item>45000</item>
-        <item>50000</item>
-        <item>55000</item>
-        <item>60000</item>
-        <item>65000</item>
-        <item>70000</item>
-        <item>75000</item>
-        <item>80000</item>
-        <item>85000</item>
-        <item>90000</item>
-        <item>95000</item>
-        <item>100000</item>
-    </integer-array>
-
-    <array name="config_autoBrightnessDisplayValuesNits">
-        <item>6.1</item>
-        <item>6.2</item>
-        <item>6.4</item>
-        <item>15.2</item>
-        <item>20.5</item>
-        <item>26.5</item>
-        <item>34.5</item>
-        <item>50</item>
-        <item>65</item>
-        <item>81</item>
-        <item>88</item>
-        <item>88</item>
-        <item>88</item>
-        <item>88</item>
-        <item>89</item>
-        <item>89</item>
-        <item>90</item>
-        <item>90</item>
-        <item>90</item>
-        <item>91</item>
-        <item>91</item>
-        <item>92</item>
-        <item>93</item>
-        <item>93</item>
-        <item>93</item>
-        <item>96</item>
-        <item>98</item>
-        <item>99</item>
-        <item>101</item>
-        <item>103</item>
-        <item>105</item>
-        <item>106</item>
-        <item>108</item>
-        <item>111</item>
-        <item>112</item>
-        <item>114</item>
-        <item>117</item>
-        <item>119</item>
-        <item>120</item>
-        <item>123</item>
-        <item>125</item>
-        <item>126</item>
-        <item>128</item>
-        <item>130</item>
-        <item>132</item>
-        <item>159</item>
-        <item>176</item>
-        <item>201.5</item>
-        <item>227</item>
-        <item>248</item>
-        <item>278</item>
-        <item>285</item>
-        <item>315</item>
-        <item>340</item>
-        <item>390</item>
-        <item>409</item>
-        <item>460</item>
-        <item>515</item>
-        <item>535</item>
-        <item>600</item>
-        <item>636</item>
-        <item>700</item>
-        <item>720</item>
-        <item>776</item>
-        <item>813</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-        <item>850</item>
-    </array>
-
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>14</item>
-        <item>20</item>
-        <item>45</item>
-        <item>63</item>
-        <item>81</item>
-        <item>107</item>
-        <item>154</item>
-        <item>211</item>
-        <item>259</item>
-        <item>289</item>
-        <item>292</item>
-        <item>292</item>
-        <item>292</item>
-        <item>295</item>
-        <item>295</item>
-        <item>298</item>
-        <item>298</item>
-        <item>298</item>
-        <item>301</item>
-        <item>301</item>
-        <item>304</item>
-        <item>307</item>
-        <item>307</item>
-        <item>307</item>
-        <item>316</item>
-        <item>322</item>
-        <item>328</item>
-        <item>334</item>
-        <item>340</item>
-        <item>345</item>
-        <item>351</item>
-        <item>354</item>
-        <item>363</item>
-        <item>366</item>
-        <item>372</item>
-        <item>381</item>
-        <item>387</item>
-        <item>390</item>
-        <item>399</item>
-        <item>404</item>
-        <item>407</item>
-        <item>416</item>
-        <item>422</item>
-        <item>428</item>
-        <item>498</item>
-        <item>573</item>
-        <item>647</item>
-        <item>720</item>
-        <item>782</item>
-        <item>864</item>
-        <item>921</item>
-        <item>965</item>
-        <item>1155</item>
-        <item>1192</item>
-        <item>1229</item>
-        <item>1266</item>
-        <item>1303</item>
-        <item>1340</item>
-        <item>1377</item>
-        <item>1414</item>
-        <item>1451</item>
-        <item>1488</item>
-        <item>1525</item>
-        <item>1561</item>
-        <item>1598</item>
-        <item>1635</item>
-        <item>1672</item>
-        <item>1709</item>
-        <item>1746</item>
-        <item>1783</item>
-        <item>1820</item>
-        <item>1857</item>
-        <item>1894</item>
-        <item>1931</item>
-        <item>1968</item>
-        <item>2005</item>
-        <item>2018</item>
-        <item>2047</item>
-        <item>2084</item>
-        <item>2135</item>
-        <item>2185</item>
-        <item>2249</item>
-        <item>2299</item>
-        <item>2363</item>
-        <item>2413</item>
-        <item>2464</item>
-        <item>2527</item>
-        <item>2578</item>
-        <item>2642</item>
-        <item>2692</item>
-        <item>2742</item>
-        <item>2806</item>
-        <item>2856</item>
-        <item>3124</item>
-        <item>3392</item>
-        <item>3659</item>
-        <item>3684</item>
-        <item>3743</item>
-        <item>3801</item>
-        <item>3860</item>
-        <item>3918</item>
-        <item>3976</item>
-        <item>4035</item>
-        <item>4095</item>
-        <item>4095</item>
-        <item>4095</item>
-        <item>4095</item>
-        <item>4095</item>
-    </integer-array>
-
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
-
-    <!-- Match the stock 12-bit panel range and the copied displayconfig calibration. -->
-    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.00170982</item>
-    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.0747435</item>
-    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.00170982</item>
-
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
          in hardware. -->
     <bool name="config_setColorTransformAccelerated">true</bool>
+
+    <!-- Enable double tap to wake capability in Settings -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 
     <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
     <integer-array name="config_availableColorModes">
@@ -573,7 +233,7 @@
 
     <!-- Default refresh rate in the zone defined by brightness and ambient thresholds.
          If non-positive, then the refresh rate is unchanged even if thresholds are configured. -->
-    <integer name="config_defaultRefreshRateInZone">120</integer>
+    <integer name="config_defaultRefreshRateInZone">0</integer>
 
     <!-- Baseline render frame rate ceiling for DisplayModeDirector's default vote.
          The AOSP default of 60 caps the render range at exactly the user minimum
@@ -693,21 +353,21 @@
     -->
     <string name="config_screenRecorderAVCProfileLevel" translatable="false">4.2</string>
 
-             <!-- The default journal mode to use use when Write-Ahead Logging is not active.
+     <!-- The default journal mode to use use when Write-Ahead Logging is not active.
          Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
          PERSIST may improve performance by reducing how often journal blocks are
          reallocated (compared to truncation) resulting in better data block locality
          and less churn of the storage media.
          The PERSIST mode results in data persisting in the journal beyond the life of
          a transaction, so it interacts poorly with SECURE_DELETE. -->
-    <string name="db_default_journal_mode" translatable="false">MEMORY</string>
+    <string name="db_default_journal_mode" translatable="false">TRUNCATE</string>
 
     <!-- The database synchronization mode when using the default journal mode.
          FULL is safest and preserves durability at the cost of extra fsyncs.
          NORMAL also preserves durability in non-WAL modes and uses checksums to ensure
          integrity although there is a small chance that an error might go unnoticed.
          Choices are: FULL, NORMAL, OFF. -->
-    <string name="db_default_sync_mode" translatable="false">OFF</string>
+    <string name="db_default_sync_mode" translatable="false">NORMAL</string>
 
     <!-- The database synchronization mode when using Write-Ahead Logging.
          From https://www.sqlite.org/pragma.html#pragma_synchronous:
@@ -719,7 +379,7 @@
          or journal mode. The synchronous=NORMAL setting is a good choice for most applications
          running in WAL mode.
          Choices are: FULL, NORMAL, OFF. -->
-    <string name="db_wal_sync_mode" translatable="false">OFF</string>
+    <string name="db_wal_sync_mode" translatable="false">NORMAL</string>
 
     <!-- Determines whether the shell features all run on another thread. This is to be overrided
          by the resources of the app using the Shell library. -->
@@ -731,6 +391,14 @@
          strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
 
+    <string-array name="configs_base">
+        <!-- ART heap compaction for cached apps -->
+        <item>activity_manager/use_compaction=true</item>
+
+        <!-- Allow more cached apps in the background -->
+        <item>activity_manager/max_cached_processes=64</item>
+    </string-array>
+    
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
          app standby.  These are not enabled by default because they require a standard
          cloud-to-device messaging service for apps to interact correctly with the modes

@@ -26,7 +26,7 @@ $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 PRODUCT_NAME              := lineage_creek
 PRODUCT_DEVICE            := creek
 PRODUCT_MANUFACTURER      := Xiaomi
-PRODUCT_BRAND             := POCO
+PRODUCT_BRAND             := Xiaomi
 PRODUCT_MODEL             := POCO M7 4G
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
