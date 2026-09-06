@@ -16,17 +16,18 @@ $(call inherit-product, device/xiaomi/creek/device.mk)
 # Inherit FastCharge configurations
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
-# Include our private certificate
--include vendor/lineage-priv/keys/keys.mk
-
-# Defaults for File System & GApps (can be overridden via environment variables)
+# Defaults for File System & GApps
+# (can be overridden via environment variables)
 WITH_EROFS := true
-WITH_GAPPS := false
+WITH_GMS := false
 
 # Include MindTheGapps conditionally
-ifeq ($(WITH_GAPPS),true)
--include vendor/gapps/arm64/arm64-vendor.mk
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
 fi
+
+# Include our private certificate
+-include vendor/lineage-priv/keys/keys.mk
 
 # Basic identifiers
 PRODUCT_NAME              := lineage_creek
