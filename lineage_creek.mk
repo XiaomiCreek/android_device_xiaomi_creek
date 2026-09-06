@@ -19,8 +19,14 @@ $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 # Include our private certificate
 -include vendor/lineage-priv/keys/keys.mk
 
-# additional features can be added here
--include device/xiaomi/creek/features.mk
+# Defaults for File System & GApps (can be overridden via environment variables)
+WITH_EROFS := true
+WITH_GAPPS := false
+
+# Include MindTheGapps conditionally
+ifeq ($(WITH_GAPPS),true)
+-include vendor/gapps/arm64/arm64-vendor.mk
+fi
 
 # Basic identifiers
 PRODUCT_NAME              := lineage_creek
@@ -30,8 +36,6 @@ PRODUCT_BRAND             := Xiaomi
 PRODUCT_MODEL             := POCO M7 4G
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
-WITH_EROFS := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="creek-user 16 BP2A.250605.031.A3 OS3.0.302.0.WBOMIXM release-keys" \
