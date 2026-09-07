@@ -28,6 +28,7 @@ else
 	find /sys/class/power_supply/main/ -type f -maxdepth 1 | xargs chown system.system
 	find /sys/class/power_supply/usb/ -type f -maxdepth 1 | xargs chown system.system
 	find /sys/class/power_supply/charge_pump_master/ -type f -maxdepth 1 | xargs chown system.system
+	find /sys/class/power_supply/sc-cp-master/ -type f -maxdepth 1 | xargs chown system.system
 	find /sys/class/power_supply/pc_port/ -type f -maxdepth 1 | xargs chown system.system
 	find /sys/class/power_supply/dc/ -type f -maxdepth 1 | xargs chown system.system
 	find /sys/class/power_supply/parallel/ -type f -maxdepth 1 | xargs chown system.system

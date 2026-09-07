@@ -589,6 +589,8 @@ subsystem mi_display
 
 # Battery
 /sys/class/qcom-battery                                 input_suspend                   0660    system  system
+/sys/class/qcom-battery/screen_cctog    0660    system    system
+/sys/class/qcom-battery/cid_enable      0660    system    system
 
 # hdmi cec hal
 /dev/cec*                                            0660    system  system

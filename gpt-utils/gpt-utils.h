@@ -37,6 +37,10 @@ extern "C" {
 #endif
 #include <unistd.h>
 #include <stdlib.h>
+#define PTN_TME_FW "tme_fw"
+#define PTN_TME_SEQ_PATCH "tme_seq_patch"
+#define PTN_TME_CFG "tme_cfg"
+#define PTN_XBL_AC_CFG "xbl_ac_config"
 /******************************************************************************
  * GPT HEADER DEFINES
  ******************************************************************************/

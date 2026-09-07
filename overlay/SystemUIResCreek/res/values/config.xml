@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Proximity sensor configuration overrides -->
+    <string name="proximity_sensor_type" translatable="false">creek.disabled.systemui.proximity</string>
+    <string name="proximity_sensor_secondary_type" translatable="false">creek.disabled.systemui.proximity.secondary</string>
+</resources>

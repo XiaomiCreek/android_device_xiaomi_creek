@@ -1,3 +1,10 @@
+cc_library_headers {
+    name: "libgptutils.qti",
+    vendor: true,
+    recovery_available: true,
+    export_include_dirs: ["."],
+}
+
 soong_config_module_type {
     name: "ufsbsg_cc_defaults",
     module_type: "cc_defaults",

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Enable auxiliary cameras selector -->
+    <bool name="config_enableAuxCameras">true</bool>
+
+    <!-- Keep empty if all aux cameras are functional lenses -->
+    <string-array name="config_ignoredAuxCameraIds" />
+</resources>

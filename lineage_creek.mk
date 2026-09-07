@@ -19,12 +19,12 @@ $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 # Defaults for File System & GApps
 # (can be overridden via environment variables)
 WITH_EROFS := true
-WITH_GMS := false
+WITH_GAPPS := false
 
 # Include MindTheGapps conditionally
-ifeq ($(WITH_GMS),true)
+ifeq ($(WITH_GAPPS),true)
 $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
-fi
+endif
 
 # Include our private certificate
 -include vendor/lineage-priv/keys/keys.mk
