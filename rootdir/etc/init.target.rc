@@ -114,8 +114,10 @@ on property:sys.boot_completed=1
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     mkdir /data/vendor/mac_addr 0777 root system
+    
     # Disable audio.deep
     setprop media.stagefright.audio.deep false
+    
     #Thermal
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
@@ -148,7 +150,7 @@ on post-fs-data
 on early-boot
     start vendor.sensors
 
-on boot
+on boot    
     write /dev/cpuset/audio-app/cpus 4-7
     chown system system /sys/class/thermal/thermal_message/boost
     chmod 0664 /sys/class/thermal/thermal_message/boost
@@ -165,8 +167,6 @@ on boot
     # Xiaomi touch
     chown system system /dev/xiaomi-touch
     chmod 0660 /dev/xiaomi-touch
-    chown system system /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
-    chmod 0660 /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
 
     # DT2W
     chown system system /proc/tp_gesture
@@ -180,7 +180,15 @@ on boot
     setprop vendor.usb.qdss.inst.name "qdss_sw"
     setprop vendor.usb.controller 4e00000.dwc3
     chmod 777 /odm/etc/ffbmdeepsleep.sh
+    
+#Start mi_thermald
+    start mi_thermald
 
+#qcom-battery input_suspend sysfs node
+    chown system system /sys/class/qcom-battery/input_suspend
+    chmod 0660 /sys/class/qcom-battery/input_suspend
+    restorecon /sys/class/qcom-battery/input_suspend
+    
 #qvga
     chown cameraserver cameraserver /sys/class/qvga/qvga/rear_qvga
     chmod 0666 /sys/class/qvga/qvga/rear_qvga
@@ -197,7 +205,15 @@ on charger
     start vendor.power_off_alarm
     setprop vendor.usb.controller 4e00000.dwc3
     setprop sys.usb.configfs 1
+    setprop persist.sys.offlinelog.poweroff_charger_log true
+    exec_background - system system -- /vendor/bin/init.qti.chg_policy.sh
+    mkdir /data/vendor/charge_logger 0771 system system
+    start charger
+    class_start charger
 
+#Start mi_thermald
+    start mi_thermald
+    
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core

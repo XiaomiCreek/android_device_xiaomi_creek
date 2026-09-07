@@ -289,12 +289,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
-# Health
+# Health & Off-Mode Charger
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
     android.hardware.health-service.qti_recovery \
     android.hardware.health-V1-ndk.vendor \
-    android.hardware.health@2.1.vendor
+    android.hardware.health@2.1.vendor \
+    charger_res_images
+
+# Force off-mode charging resources
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -348,12 +353,17 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
+    init.crda.sh \
     init.goodix.events.sh \
     init.kernel.post_boot-bengal-iot.sh \
     init.kernel.post_boot-bengal.sh \
     init.kernel.post_boot.sh \
+    init.mdm.sh \
     init.qcom.class_core.sh \
+    init.qcom.coex.sh \
     init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
