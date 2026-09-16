@@ -4,7 +4,7 @@
 #
 
 # Inherit from AOSP product configuration
-$(call inherit-product, $(DEVICE_PATH)/AOSP_creek.mk)
+$(call inherit-product, device/xiaomi/creek/AOSP_creek.mk)
 
 # Inherit from LineageOS common configuration
 $(call inherit-product, vendor/custom/config/common_full_phone.mk)
