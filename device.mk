@@ -577,7 +577,12 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Sku properties
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/sku/,$(TARGET_COPY_OUT_ODM)/etc)
+    $(LOCAL_PATH)/configs/sku/o19a_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19a_build.prop \
+    $(LOCAL_PATH)/configs/sku/o19ae_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19ae_build.prop \
+    $(LOCAL_PATH)/configs/sku/o19aeerp_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19aeerp_build.prop \
+    $(LOCAL_PATH)/configs/sku/o19al_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19al_build.prop \
+    $(LOCAL_PATH)/configs/sku/o19ap_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19ap_build.prop \
+    $(LOCAL_PATH)/configs/sku/o19aperp_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19aperp_build.prop
 
 # Telephony
 PRODUCT_PACKAGES += \
