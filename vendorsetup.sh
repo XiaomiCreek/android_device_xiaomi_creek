@@ -96,3 +96,10 @@ else
     echo "Warning: $SM6225_DIR not found. Skipping Android.bp creation."
 fi
 echo ""
+
+# Apply bengal_515 platform support patch
+DT2W_FRAMEWORK="$ANDROID_BUILD_TOP/frameworks/native/services/sensorservice/SensorService.cpp"
+
+if [ -f "$DT2W_FRAMEWORK" ]; then
+    device/xiaomi/creek/patches/apply-patches.sh
+fi

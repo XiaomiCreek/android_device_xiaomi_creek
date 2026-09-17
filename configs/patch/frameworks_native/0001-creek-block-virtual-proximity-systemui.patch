@@ -1,0 +1,48 @@
+diff --git a/services/sensorservice/SensorService.cpp b/services/sensorservice/SensorService.cpp
+index c28ef15..1a7e529 100644
+--- a/services/sensorservice/SensorService.cpp
++++ b/services/sensorservice/SensorService.cpp
+@@ -49,6 +49,7 @@
+ #include <utils/SystemClock.h>
+ 
+ #include <condition_variable>
++#include <cstring>
+ #include <ctime>
+ #include <future>
+ #include <mutex>
+@@ -109,6 +110,21 @@ static const String16 sManageSensorsPermission("android.permission.MANAGE_SENSOR
+ 
+ namespace {
+ 
++static bool isVirtualProximityWakeupSensor(const Sensor& sensor) {
++    const char* name = sensor.getName().c_str();
++    const char* stringType = sensor.getStringType().c_str();
++
++    return sensor.getHandle() == 0x52 ||
++            (sensor.isWakeUpSensor() &&
++             (strstr(name, "Virtual_Prox") != nullptr ||
++              strstr(name, "Virtual Proximity") != nullptr ||
++              strstr(stringType, "virtual_prox") != nullptr));
++}
++
++static bool isSystemUiPackage(const String16& opPackageName) {
++    return String8(opPackageName) == "com.android.systemui";
++}
++
+ int32_t nextRuntimeSensorHandle() {
+     using ::aidl::android::hardware::sensors::ISensors;
+     static int32_t nextHandle = ISensors::RUNTIME_SENSORS_HANDLE_BASE;
+@@ -2292,6 +2308,13 @@ status_t SensorService::flushSensor(const sp<SensorEventConnection>& connection,
+ 
+ bool SensorService::canAccessSensor(const Sensor& sensor, const char* operation,
+         const String16& opPackageName) {
++    if (isSystemUiPackage(opPackageName) && isVirtualProximityWakeupSensor(sensor)) {
++        ALOGI("%s %s virtual proximity wakeup sensor %s handle 0x%08x",
++              String8(opPackageName).c_str(), operation, sensor.getName().c_str(),
++              sensor.getHandle());
++        return false;
++    }
++
+     // Special case for Head Tracker sensor type: currently restricted to system usage only, unless
+     // the restriction is specially lifted for testing
+     if (sensor.getType() == SENSOR_TYPE_HEAD_TRACKER &&
