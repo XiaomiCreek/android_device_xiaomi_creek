@@ -371,5 +371,20 @@ case "$console_config" in
 	;;
 esac
 
-# Post-setup services
+# Force schedutil after original WALT configuration.
+for policy in /sys/devices/system/cpu/cpufreq/policy*; do
+    [ -d "$policy" ] || continue
+
+    available="$policy/scaling_available_governors"
+    governor="$policy/scaling_governor"
+
+    [ -r "$available" ] || continue
+    [ -w "$governor" ] || continue
+
+    if grep -qw schedutil "$available"; then
+        echo schedutil > "$governor" 2>/dev/null
+    fi
+done
+
 setprop vendor.post_boot.parsed 1
+setprop vendor.powerhal.init 1
