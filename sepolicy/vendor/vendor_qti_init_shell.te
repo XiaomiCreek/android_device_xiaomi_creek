@@ -9,4 +9,6 @@ allow vendor_qti_init_shell vendor_qti_init_shell:lockdown { integrity };
 allow vendor_qti_init_shell vendor_sysfs_qdss_dev:file { setattr write };
 allow vendor_qti_init_shell sysfs:file write;
 allow vendor_qti_init_shell sysfs_mem_sleep:file write;
+
+# To set powerhal init property
 set_prop(vendor_qti_init_shell, vendor_power_prop)
