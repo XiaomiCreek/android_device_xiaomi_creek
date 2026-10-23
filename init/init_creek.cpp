@@ -15,6 +15,8 @@
  */
 
 #include <sys/sysinfo.h>
+#include <unistd.h>
+
 #include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
@@ -32,46 +34,90 @@ void property_override(std::string prop, std::string value) {
         __system_property_add(prop.c_str(), prop.size(), value.c_str(), value.size());
 }
 
+void load_redmi_creek() {
+    property_override("bluetooth.device.default_name", "Redmi 15");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "creek");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "Redmi 15");
+    property_override("ro.product.model", "25062RN2DA");
+    property_override("ro.product.mod_device", "creek_global");
+    property_override("ro.product.name", "creek_global");
+    property_override("vendor.usb.product_string", "Redmi 15");
+}
+
+void load_poco_creek() {
+    property_override("bluetooth.device.default_name", "POCO M7");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "creek_p");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "POCO M7");
+    property_override("ro.product.model", "25062PC34G");
+    property_override("ro.product.mod_device", "creek_p_global");
+    property_override("ro.product.name", "creek_global");
+    property_override("vendor.usb.product_string", "POCO M7");
+}
+
 void vendor_load_properties() {
     std::string sku = GetProperty("ro.boot.product.hardware.sku", "");
-    
-    // If bootloader didn't supply an SKU, set a safe default
+    std::string hwname = GetProperty("ro.boot.hwname", "");
+
+    // If bootloader didn't supply an SKU, set a safe default for ODM import
     if (sku.empty()) {
         property_override("ro.boot.product.hardware.sku", "o19a");
     }
-    
-    // Override first api level for Play Integrity if needed
+
     if (access("/system/bin/recovery", F_OK) != 0) {
+        if (hwname == "creek_p") {
+            load_poco_creek();
+        } else {
+            load_redmi_creek();
+        }
+
+        // Override first api level for Play Integrity if needed
         property_override("ro.product.first_api_level", "33");
     }
 
     // Set hardware revision
-    property_override("ro.boot.hardware.revision", GetProperty("ro.boot.hwversion", "").c_str());
+    property_override("ro.boot.hardware.revision", GetProperty("ro.boot.hwversion", ""));
 
     // Dalvik heap calculation based on RAM size
+    std::string heapstartsize, heapgrowthlimit, heapsize, heapminfree,
+            heapmaxfree, heaptargetutilization;
+
     struct sysinfo sys;
     sysinfo(&sys);
 
     if (sys.totalram > 5072ull * 1024 * 1024) {
-        property_override("dalvik.vm.heapstartsize", "16m");
-        property_override("dalvik.vm.heapgrowthlimit", "256m");
-        property_override("dalvik.vm.heapsize", "512m");
-        property_override("dalvik.vm.heaptargetutilization", "0.5");
-        property_override("dalvik.vm.heapminfree", "8m");
-        property_override("dalvik.vm.heapmaxfree", "32m");
+        // from - phone-xhdpi-6144-dalvik-heap.mk
+        heapstartsize = "16m";
+        heapgrowthlimit = "256m";
+        heapsize = "512m";
+        heaptargetutilization = "0.5";
+        heapminfree = "8m";
+        heapmaxfree = "32m";
     } else if (sys.totalram > 3072ull * 1024 * 1024) {
-        property_override("dalvik.vm.heapstartsize", "8m");
-        property_override("dalvik.vm.heapgrowthlimit", "192m");
-        property_override("dalvik.vm.heapsize", "512m");
-        property_override("dalvik.vm.heaptargetutilization", "0.6");
-        property_override("dalvik.vm.heapminfree", "8m");
-        property_override("dalvik.vm.heapmaxfree", "16m");
+        // from - phone-xhdpi-4096-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.6";
+        heapminfree = "8m";
+        heapmaxfree = "16m";
     } else {
-        property_override("dalvik.vm.heapstartsize", "8m");
-        property_override("dalvik.vm.heapgrowthlimit", "192m");
-        property_override("dalvik.vm.heapsize", "512m");
-        property_override("dalvik.vm.heaptargetutilization", "0.75");
-        property_override("dalvik.vm.heapminfree", "512k");
-        property_override("dalvik.vm.heapmaxfree", "8m");
+        // from - phone-xhdpi-2048-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.75";
+        heapminfree = "512k";
+        heapmaxfree = "8m";
     }
+
+    property_override("dalvik.vm.heapstartsize", heapstartsize);
+    property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
+    property_override("dalvik.vm.heapsize", heapsize);
+    property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
+    property_override("dalvik.vm.heapminfree", heapminfree);
+    property_override("dalvik.vm.heapmaxfree", heapmaxfree);
 }
