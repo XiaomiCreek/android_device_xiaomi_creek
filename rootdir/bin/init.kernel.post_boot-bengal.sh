@@ -110,7 +110,7 @@ function configure_memory_parameters() {
        echo 25600 > /sys/class/kgsl/kgsl/max_reclaim_limit
     fi
 
-    configure_zram_parameters
+    # ZRAM already owned by init.creek.zram.sh (late-fs)
 
     configure_read_ahead_kb_values
 
@@ -132,9 +132,9 @@ function configure_memory_parameters() {
 
     # Set the min_free_kbytes to standard kernel value
     if [ $RamSizeGB -ge 8 ]; then
-		echo 65536 > /proc/sys/vm/min_free_kbytes
+		echo 11584 > /proc/sys/vm/min_free_kbytes
     elif [ $RamSizeGB -ge 4 ]; then
-		echo 65536 > /proc/sys/vm/min_free_kbytes
+		echo 8192 > /proc/sys/vm/min_free_kbytes
     elif [ $RamSizeGB -ge 2 ]; then
 		echo 5792 > /proc/sys/vm/min_free_kbytes
     else
