@@ -6,4 +6,7 @@
 <resources>
     <!-- Whether to play turbulence noise after clicking the play button -->
     <bool name="config_turbulenceNoise">false</bool>
+
+    <!-- Disable real-time window blurs to prevent 144Hz gesture dropframes -->
+    <bool name="config_useWindowBlurs">false</bool>
 </resources>
