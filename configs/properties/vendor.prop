@@ -198,15 +198,11 @@ ro.surface_flinger.protected_contents=true
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.clear_slots_with_set_layer_buffer=true
-# Enable SurfaceFlinger content-driven refresh rate switching. MIUI ships this
-# disabled because its own displayfeature service drives the panel rate; on
-# LineageOS nothing replaces it, so leaving it off locks media/UI to the lowest
-# allowed refresh rate.
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.enable_frame_rate_override=false
 ro.surface_flinger.uclamp.min=205
 debug.sf.predict_hwc_composition_strategy=0
-ro.vendor.display.type=oled
+ro.vendor.display.type=ips lcd
 vendor.display.camera_noc_efficiency_factor=0.70
 vendor.display.comp_mask=8192
 vendor.display.disable_excl_rect=0
@@ -300,7 +296,7 @@ ro.vendor.perf-hal.ver=2.3
 ro.vendor.perf.scroll_opt=1
 ro.vendor.qspm.enable=true
 vendor.pasr.activemode.enabled=true
-vendor.perf.framepacing.enable=1
+vendor.perf.framepacing.enable=true
 vendor.power.pasr.enabled=true
 
 # Radio
@@ -365,6 +361,3 @@ ro.vendor.iocgrp.config=1
 # Soc
 ro.soc.manufacturer=QTI
 ro.soc.model=SM6225
-# NB: ro.boot.vendor.qspa.modem moved to system.prop: it is bootloader_prop,
-# which ONLY core init may set (neverallow { domain -init } ... set); values
-# in vendor.prop are applied by vendor_init and get silently denied.
