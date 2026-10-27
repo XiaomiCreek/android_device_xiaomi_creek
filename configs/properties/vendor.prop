@@ -352,9 +352,6 @@ wifi.aware.interface=wifi-aware0
 # Zygote
 zygote.critical_window.minute=10
 
-# Sensors
-ro.vendor.sensors.xiaomi.udfps=true
-
 # IO Cgroups
 ro.vendor.iocgrp.config=1
 

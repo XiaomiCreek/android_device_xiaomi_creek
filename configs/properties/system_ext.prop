@@ -22,8 +22,12 @@ persist.vendor.dpm.feature=11
 # GPS
 persist.sys.gps.fence=true
 
+# Graphics
+ro.surface_flinger.supports_background_blur=0
+
 # Media
 vendor.media.target_variant=_khaje_v0
+ro.mediaserver.64b.enable=true
 
 # Radio
 ro.telephony.sim_slots.count=2
