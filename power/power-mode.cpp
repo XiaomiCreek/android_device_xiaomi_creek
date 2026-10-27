@@ -17,7 +17,15 @@
 #include <aidl/android/hardware/power/BnPower.h>
 #include <android-base/file.h>
 #include <android-base/logging.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <limits.h>
 #include <linux/input.h>
+#include <string.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+
+#include <string>
 
 namespace {
 int open_ts_input() {
@@ -32,10 +40,12 @@ int open_ts_input() {
                 char absolute_path[PATH_MAX] = {0};
                 char name[80] = {0};
 
-                strcpy(absolute_path, "/dev/input/");
-                strcat(absolute_path, ent->d_name);
+                snprintf(absolute_path, sizeof(absolute_path), "/dev/input/%s", ent->d_name);
 
                 fd = open(absolute_path, O_RDWR);
+                if (fd < 0) {
+                    continue;
+                }
                 if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
                     if (strcmp(name, "fts") == 0 || strcmp(name, "goodix_ts") == 0 ||
                             strcmp(name, "NVTCapacitiveTouchScreen") == 0)
@@ -61,6 +71,7 @@ namespace power {
 namespace impl {
 namespace pixel {
 
+static constexpr const char* kTpGestureNode = "/proc/tp_gesture";
 static constexpr int kInputEventWakeupModeOff = 4;
 static constexpr int kInputEventWakeupModeOn = 5;
 
@@ -79,6 +90,14 @@ bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
 bool setDeviceSpecificMode(Mode type, bool enabled) {
     switch (type) {
         case Mode::DOUBLE_TAP_TO_WAKE: {
+            // Jalur utama creek: /proc/tp_gesture (permission + sepolicy sudah disiapkan
+            // di init.target.rc dan hal_power_default.te)
+            if (access(kTpGestureNode, W_OK) == 0) {
+                if (android::base::WriteStringToFile(enabled ? "1" : "0", kTpGestureNode)) {
+                    return true;
+                }
+                LOG(WARNING) << "Failed to write " << kTpGestureNode << ", falling back to input event";
+            }
             int fd = open_ts_input();
             if (fd == -1) {
                 LOG(WARNING)
@@ -89,9 +108,9 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
             ev.type = EV_SYN;
             ev.code = SYN_CONFIG;
             ev.value = enabled ? kInputEventWakeupModeOn : kInputEventWakeupModeOff;
-            write(fd, &ev, sizeof(ev));
+            ssize_t ret = write(fd, &ev, sizeof(ev));
             close(fd);
-            return true;
+            return ret == static_cast<ssize_t>(sizeof(ev));
         }
         default:
             return false;
