@@ -10,31 +10,39 @@ persist.vendor.btstack.aac_frm_ctl.enabled=true
 ro.bluetooth.emb_wp_mode=false
 ro.bluetooth.wipower=false
 
-# Charger
-ro.charger.enable_suspend=1
-
 # Brightness Curve
 persist.sys.brightness.low.gamma=true
+
+# Camera
+persist.sys.cam.skip_detach_image=true
+
+# Charger
+ro.charger.enable_suspend=1
 
 # CNE
 persist.vendor.cne.feature=1
 
-# Ftrace
-persist.debug.ftrace_events_disable=Yes
+# Deep Sleep
+pm.sleep_mode=1
+vendor.post_boot.parsed=1s
+
+# Device Information
+ro.product.marketname=Redmi 15 / POCO M7
+ro.infinity.soc=Snapdragon 685 4G
+ro.infinity.camera=50MP + 8MP
 
 # Fingerprint
 sys.fp.miui.token=0
 
-# IMS Debugging
-persist.vendor.ims.disableADBLogs=1
-persist.vendor.ims.disableDebugLogs=1
-persist.vendor.ims.disableIMSLogs=1
-persist.vendor.ims.disableQXDMLogs=1
+# Ftrace
+persist.debug.ftrace_events_disable=Yes
 
 # Fwk-Detect
 ro.vendor.qti.va_aosp.support=1
 
 # HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=30
 debug.sf.enable_hwc_vds=0
 debug.sf.latch_unsignaled=0
 ro.hwui.texture_cache_size=72
@@ -52,6 +60,12 @@ ro.hwui.text_large_cache_height=1024
 debug.hwui.skia_atrace_enabled=false
 config.disable_rtt=true
 
+# IMS Debugging
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableDebugLogs=1
+persist.vendor.ims.disableIMSLogs=1
+persist.vendor.ims.disableQXDMLogs=1
+
 # Media
 media.settings.xml=/vendor/etc/media_profiles_khaje_v0.xml
 media.aac_51_output_enabled=true
@@ -64,8 +78,17 @@ media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
+# Memory Tagging
+persist.arm64.memtag.system_server=off
+
+# Multi-Gen LRU
+persist.device_config.mglru_native.lru_gen_config=core
+
 # NTP
 persist.backup.ntpServer="0.pool.ntp.org"
+
+# QSPA
+ro.boot.vendor.qspa.modem=enabled
 
 # Radio
 DEVICE_PROVISIONED=1
@@ -78,26 +101,11 @@ telephony.lteOnCdmaDevice=1
 # SdCardFS
 persist.sys.fuse.passthrough.enable=true
 
-# Soc
-ro.soc.manufacturer=QTI
-
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
+# Soc
+ro.soc.manufacturer=QTI
+
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
-
-# Multi-Gen LRU
-persist.device_config.mglru_native.lru_gen_config=core
-
-# Disable vsync for cpu rendered apps
-debug.cpurend.vsync=false
-
-# QSPA: the stock ims.apk (org.codeaurora.ims) carries an RRO gated on this
-# boot property; when it is absent PackageManager skips the whole package at
-# scan, which removes the only ImsService (no VoLTE/VoWiFi). It is
-# bootloader_prop, so it must live in system.prop: only core init may set it
-# (vendor.prop would be denied by the neverallow on vendor_init).
-ro.boot.vendor.qspa.modem=enabled
-
-
