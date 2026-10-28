@@ -15,7 +15,6 @@ allow charger_vendor input_device:chr_file r_file_perms;
 
 # Allow wakelocks and system properties
 wakelock_use(charger_vendor)
-get_prop(charger_vendor, hw_rev_prop)
 
 # Keep userdebug/eng safety net if needed
 userdebug_or_eng(`
