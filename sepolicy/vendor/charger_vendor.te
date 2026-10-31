@@ -10,7 +10,7 @@ allow charger_vendor graphics_device:chr_file rw_file_perms;
 allow charger_vendor dri_device:chr_file rw_file_perms;
 
 # Allow charger to read input events (power key / charger plug)
-allow charger_vendor input_device:dir r_dir_file_perms;
+allow charger_vendor input_device:dir r_dir_perms;
 allow charger_vendor input_device:chr_file r_file_perms;
 
 # Allow wakelocks and system properties
