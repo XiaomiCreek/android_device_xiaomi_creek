@@ -353,17 +353,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
-    init.crda.sh \
     init.goodix.events.sh \
     init.kernel.post_boot-bengal-iot.sh \
     init.kernel.post_boot-bengal.sh \
     init.kernel.post_boot.sh \
-    init.mdm.sh \
     init.qcom.class_core.sh \
-    init.qcom.coex.sh \
     init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.sdio.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
@@ -583,12 +578,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Sku properties
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sku/o19a_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19a_build.prop \
-    $(LOCAL_PATH)/configs/sku/o19ae_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19ae_build.prop \
-    $(LOCAL_PATH)/configs/sku/o19aeerp_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19aeerp_build.prop \
-    $(LOCAL_PATH)/configs/sku/o19al_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19al_build.prop \
-    $(LOCAL_PATH)/configs/sku/o19ap_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19ap_build.prop \
-    $(LOCAL_PATH)/configs/sku/o19aperp_build.prop:$(TARGET_COPY_OUT_ODM)/etc/o19aperp_build.prop
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/sku/,$(TARGET_COPY_OUT_ODM)/etc)
 
 # Telephony
 PRODUCT_PACKAGES += \
