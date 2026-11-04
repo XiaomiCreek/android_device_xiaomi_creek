@@ -10,8 +10,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit the hardware configuration for the actual device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
-# Defaults for File System
-# (can be overridden via environment variables)
+# Defaults for File System (can be overridden via environment variables)
 WITH_EROFS := true
 
 # Basic identifiers

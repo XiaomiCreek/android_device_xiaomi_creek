@@ -5,4 +5,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_creek.mk \
-    $(LOCAL_DIR)/custom_creek.mk
+    $(LOCAL_DIR)/custom_creek.mk \
+    $(LOCAL_DIR)/infinity_creek.mk
