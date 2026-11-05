@@ -24,8 +24,8 @@ endif
 # Defaults for File System (can be overridden via environment variables)
 WITH_EROFS := true
 
-# Enable MIUI Camera by default for this product
-WITH_MIUICAMERA := true
+# import miui-camera
+$(call inherit-product-if-exists, device/xiaomi/camera/miuicamera.mk)
 
 # Basic identifiers
 PRODUCT_DEVICE            := creek
