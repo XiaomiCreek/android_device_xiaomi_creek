@@ -11,14 +11,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
 # Inherit FastCharge configurations
-$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
+$(call inherit-product-if-exists, packages/apps/FastCharge/fastcharge.mk)
 
 # Defaults for GApps (can be overridden via environment variables)
 WITH_GAPPS := false
 
 # Include MindTheGapps conditionally
 ifeq ($(WITH_GAPPS),true)
-$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+$(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
 endif
 
 # Defaults for File System (can be overridden via environment variables)
